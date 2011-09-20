@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BillUp</title>
+  <title><%= render "title" %></title>
+
   <%= stylesheet_link_tag    "application" %>
+
   <%= javascript_include_tag "application" %>
+
+	<%= render "favicons" %>
+
   <%= csrf_meta_tags %>
+
+	<%= render "analytics" %>
 </head>
-<body>
+<body id="<%= body_id %>">
+	<%= render "navigation" %>
 
-<%= yield %>
+	<div id="page">
+		<%= render "notifications" %>
 
+		<%= yield %>
+	</div><!-- /#page -->
+
+	<br class="clear" />
+
+	<%= render "footer" %>
 </body>
 </html>

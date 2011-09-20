@@ -1,0 +1,19 @@
+<div class="topbar" data-scrollspy="scrollspy">
+  <div class="topbar-inner">
+		<div class="container-fluid">
+			<%= link_to t("application.name"), root_path, :class => "brand" %>
+      <ul class="nav">
+				<li id="tab_tour"><%= link_to t("views.application._navigation.link.tour"), root_path %></li>
+				<li id="tab_pricing"><%= link_to t("views.application._navigation.link.pricing"), root_path %></li>
+			</ul><!-- /nav -->
+			<ul class="nav secondary-nav">
+				<% if user_signed_in? %>
+	        <li id="tab_sign_out"><%= link_to t("views.application._navigation.link.sign_out"), sign_out_path %></li>
+				<% else %>
+					<li id="tab_sign_up"><%= link_to t("views.application._navigation.link.sign_up"), sign_up_path %></li>
+	        <li id="tab_sign_in"><%= link_to t("views.application._navigation.link.sign_in"), sign_in_path %></li>
+				<% end %>
+			</ul><!-- /.nav .secondary-nav -->
+		</div><!-- /.container-fluid -->
+	</div><!-- /.topboar-inner -->
+</div><!-- /.topbar -->
