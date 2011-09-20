@@ -1,5 +1,94 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  application:
+    name: BillUp
+    tagline: Friendly invoicing
+
+
+
+
+
+# Controllers
+  controllers:
+    sessions_controller:
+      actions:
+        create:
+          error: Sign in failed. Please check your details try again.
+          success: Welcome!
+        destroy:
+          success: See you later! You have successfully signed out.
+
+    users_controller:
+      actions:
+        index:
+          title:
+        show:
+          title:
+        new:
+          title:
+        edit:
+          title:
+        create:
+          error:
+          success: Your account was successfully created! Go ahead and sign in.
+          title:
+        update:
+          error:
+          success:
+          title:
+        destroy:
+          title:
+          success:
+
+
+
+
+
+# Views
+  views:
+    application:
+      _navigation:
+        link:
+          home: Home
+          sign_in: Sign in
+          sign_out: Sign out
+          sign_up: Sign up
+
+    sessions:
+      new:
+        title: Sign in
+        form:
+          label:
+            identifier: Username/Email/Cell Phone Number
+            password: Password
+          button:
+            submit: Sign in
+
+    users:
+      new:
+        title: Sign up
+        form:
+          label:
+            name: Name
+            email: Email
+            cell_phone_number: Cell phone number
+            username: Username
+            password: Password
+            password_confirmation: Password confirmation
+            language: Language
+            time_zone: Time zone
+            terms_of_use: Terms of use
+          button:
+            submit: Sign up
+          selector:
+            language:
+              english: English
+
+    welcome:
+      index:
+        title: CareerVillage
+      pricing:
+        title: Pricing
+      terms:
+        title: Terms of Use
+      tour:
+        title: Tour
