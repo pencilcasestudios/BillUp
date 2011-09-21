@@ -2,39 +2,45 @@ require 'spec_helper'
 
 describe "Assets" do
 
-  # In lib/assets/stylesheets/
-  describe "lib/assets/stylesheets/" do
+  # In vendor/assets/stylesheets/
+  describe "vendor/assets/stylesheets/" do
 
-    it "has stylesheet assets" do
-      get "/assets/bootstrap.css"
-      response.status.should be(200)
+    # Bootstrap stylesheets
+    describe "bootstrap/" do
+      it "has Bootstrap stylesheet assets" do
+        get "/assets/bootstrap/bootstrap.css"
+        response.status.should be(200)
+      end
     end
   end
 
-  # In lib/assets/javascripts/
-  describe "lib/assets/javascripts/" do
+  # In vendor/assets/javascripts/
+  describe "vendor/assets/javascripts/" do
 
-    it "has javascript assets" do
-      get "/assets/bootstrap-alerts.js"
-      response.status.should be(200)
+    # Bootstrap javascripts
+    describe "bootstrap/" do
+      it "has Bootrap javascript assets" do
+        get "/assets/bootstrap/bootstrap-alerts.js"
+        response.status.should be(200)
 
-      get "/assets/bootstrap-dropdown.js"
-      response.status.should be(200)
+        get "/assets/bootstrap/bootstrap-dropdown.js"
+        response.status.should be(200)
 
-      get "/assets/bootstrap-modal.js"
-      response.status.should be(200)
+        get "/assets/bootstrap/bootstrap-modal.js"
+        response.status.should be(200)
 
-      get "/assets/bootstrap-popover.js"
-      response.status.should be(200)
+        get "/assets/bootstrap/bootstrap-popover.js"
+        response.status.should be(200)
 
-      get "/assets/bootstrap-scrollspy.js"
-      response.status.should be(200)
+        get "/assets/bootstrap/bootstrap-scrollspy.js"
+        response.status.should be(200)
 
-      get "/assets/bootstrap-tabs.js"
-      response.status.should be(200)
+        get "/assets/bootstrap/bootstrap-tabs.js"
+        response.status.should be(200)
 
-      get "/assets/bootstrap-twipsy.js"
-      response.status.should be(200)
+        get "/assets/bootstrap/bootstrap-twipsy.js"
+        response.status.should be(200)
+      end
     end
   end
 
