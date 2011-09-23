@@ -1,27 +1,25 @@
 <% title t('views.sessions.new.title') %>
 
-<div class="container">
-	<h1><%= yield :title %></h1>
+<h1><%= yield :title %></h1>
 
-	<div id="sign_in_form">
-		<%= form_tag sessions_path, :class => "form-stacked" do %>
+<div id="sign_in_form">
+	<%= form_tag sessions_path, :class => "form-stacked" do %>
+		<fieldset>
 			<fieldset>
-				<fieldset>
-				  <div class="field clearfix">
-						<%= label_tag :identifier, t('views.sessions.new.form.label.identifier') %>
-						<div class="input"><%= text_field_tag :identifier, params[:identifier], :class => "xlarge" %></div>
-					</div>
+			  <div class="field clearfix">
+					<%= label_tag :identifier, t('views.sessions.new.form.label.identifier') %>
+					<div class="input"><%= text_field_tag :identifier, params[:identifier], :class => "xlarge" %></div>
+				</div>
 
-				  <div class="field clearfix">
-						<%= label_tag :password, t('views.sessions.new.form.label.password') %>
-						<div class="input"><%= password_field_tag :password, nil, :class => "xlarge" %></div>
-					</div>
-				</fieldset>
-	
-			  <div class="actions">
-					<%= submit_tag t('views.sessions.new.form.button.submit'), :class => "btn large primary" %>
+			  <div class="field clearfix">
+					<%= label_tag :password, t('views.sessions.new.form.label.password') %>
+					<div class="input"><%= password_field_tag :password, nil, :class => "xlarge" %></div>
 				</div>
 			</fieldset>
-		<% end %>
-	</div>
-</div><!-- /.container -->
+
+		  <div class="actions">
+				<%= submit_tag t('views.sessions.new.form.button.submit'), :class => "btn large primary" %>
+			</div>
+		</fieldset>
+	<% end %>
+</div>
