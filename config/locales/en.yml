@@ -92,3 +92,16 @@ en:
         title: Terms of Use
       tour:
         title: Tour
+      signed_in_home:
+        title: Welcome
+        subtitle:
+          s0: "Here's to happy clients and bills paid."
+          s1: Great to have you!
+          s2: What a wonderful day to invoice some clients.
+          s3: Let's get some work done.
+          s4: Awesome to have you!
+          s5: Fantastic to have you!
+          s6: Working hard?
+          s7: How are you doing?
+          s8: Hope you are enjoying this app.
+          s9: What an honour to have you use this app.
