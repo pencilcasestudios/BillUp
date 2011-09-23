@@ -13,6 +13,7 @@ describe "Sessions" do
       current_path.should eq(root_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.success'))
       page.should have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should have_content(I18n.t('views.welcome.signed_in_home.title'))
     end
 
     it "allows an existing user to sign in with a username and password" do
@@ -26,6 +27,7 @@ describe "Sessions" do
       current_path.should eq(root_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.success'))
       page.should have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should have_content(I18n.t('views.welcome.signed_in_home.title'))
     end
 
     it "allows an existing user to sign in with a cell_phone_number and password" do
@@ -39,6 +41,7 @@ describe "Sessions" do
       current_path.should eq(root_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.success'))
       page.should have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should have_content(I18n.t('views.welcome.signed_in_home.title'))
     end
 
     it "allows an existing user to sign in and out" do
@@ -51,6 +54,7 @@ describe "Sessions" do
 
       current_path.should eq(root_path)
       page.should have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should have_content(I18n.t('views.welcome.signed_in_home.title'))
 
       click_link I18n.t('views.application._navigation.link.sign_out')
 
