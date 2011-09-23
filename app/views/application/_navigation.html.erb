@@ -14,7 +14,14 @@
 			</ul><!-- /nav -->
 			<ul class="nav secondary-nav">
 				<% if user_signed_in? %>
-	        <li id="tab_sign_out"><%= link_to t("views.application._navigation.link.sign_out"), sign_out_path %></li>
+					<li id="tab_sign_out" class="dropdown" data-dropdown="dropdown" >
+						<a href="#" class="dropdown-toggle"><%=raw truncate(current_user.name, :length => 20) %></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Account settings</a></li>
+							<li class="divider"></li>
+							<li><%= link_to t("views.application._navigation.link.sign_out"), sign_out_path %></li>					
+						</ul>
+					</li>
 				<% else %>
 					<li id="tab_sign_up"><%= link_to t("views.application._navigation.link.sign_up"), sign_up_path %></li>
 	        <li id="tab_sign_in"><%= link_to t("views.application._navigation.link.sign_in"), sign_in_path %></li>
