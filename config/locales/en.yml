@@ -9,6 +9,10 @@ en:
 
 # Controllers
   controllers:
+    application_controller:
+      sign_in_required:
+        flash:
+          sign_in_required: "Please sign in first and then we'll send you right along."
     sessions_controller:
       actions:
         create:
@@ -84,6 +88,16 @@ en:
               english: English
 
     welcome:
+      _sidebar:
+        links:
+          create_an_organisation: Create an Organisation
+      _user_has_no_organisations:
+        buttons:
+          create_an_organisation: Create an Organisation
+        body:
+          p1: "To get started using %{application_name}, please create an <em>Organisation</em>."
+        buttons:
+          new_organisation: Create an Organisation
       index:
         title: CareerVillage
       pricing:
