@@ -6,7 +6,7 @@ describe "Sessions" do
       user = Factory(:user)  
       visit sign_in_path
       fill_in I18n.t('views.sessions.new.form.label.identifier'), :with => user.email
-      fill_in I18n.t('views.sessions.new.form.label.password'), :with => "secret"
+      fill_in I18n.t('views.sessions.new.form.label.password'), :with => AppConfig.test_user_password
 
       click_button I18n.t('views.sessions.new.form.button.submit')
 
@@ -20,7 +20,7 @@ describe "Sessions" do
       user = Factory(:user)  
       visit sign_in_path
       fill_in I18n.t('views.sessions.new.form.label.identifier'), :with => user.username
-      fill_in I18n.t('views.sessions.new.form.label.password'), :with => "secret"
+      fill_in I18n.t('views.sessions.new.form.label.password'), :with => AppConfig.test_user_password
 
       click_button I18n.t('views.sessions.new.form.button.submit')
 
@@ -34,7 +34,7 @@ describe "Sessions" do
       user = Factory(:user)  
       visit sign_in_path
       fill_in I18n.t('views.sessions.new.form.label.identifier'), :with => user.cell_phone_number
-      fill_in I18n.t('views.sessions.new.form.label.password'), :with => "secret"
+      fill_in I18n.t('views.sessions.new.form.label.password'), :with => AppConfig.test_user_password
 
       click_button I18n.t('views.sessions.new.form.button.submit')
 
@@ -48,7 +48,7 @@ describe "Sessions" do
       user = Factory(:user)  
       visit sign_in_path
       fill_in I18n.t('views.sessions.new.form.label.identifier'), :with => user.email
-      fill_in I18n.t('views.sessions.new.form.label.password'), :with => "secret"
+      fill_in I18n.t('views.sessions.new.form.label.password'), :with => AppConfig.test_user_password
 
       click_button I18n.t('views.sessions.new.form.button.submit')
 
