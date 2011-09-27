@@ -1,4 +1,6 @@
 BillUp::Application.routes.draw do
+  get "organisations/new"
+
   get "welcome/index"
   get "welcome/terms"
 
@@ -13,6 +15,7 @@ BillUp::Application.routes.draw do
 
 
 
+  resources :organisations
   resources :sessions
   resources :users
 
