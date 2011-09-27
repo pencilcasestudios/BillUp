@@ -15,4 +15,26 @@ private
     current_user.present?
   end
   
+  def sign_in_required
+    unless current_user
+      store_location
+      flash[:notice] = t('controllers.application_controller.sign_in_required.flash.sign_in_required')
+      redirect_to sign_in_path
+      return false
+    end
+  end
+
+  def store_location
+    session[:return_to] =
+    if request.get?
+      request.fullpath
+    else
+      request.referer
+    end
+  end
+
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
+  end
 end

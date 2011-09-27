@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = t('controllers.sessions_controller.actions.create.success')
-      redirect_to root_path
+      redirect_back_or_default root_path
     else
       flash.now[:error] = t('controllers.sessions_controller.actions.create.error')
       render "new"
