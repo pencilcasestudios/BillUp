@@ -13,6 +13,29 @@ en:
       sign_in_required:
         flash:
           sign_in_required: "Please sign in first and then we'll send you right along."
+
+    organisations_controller:
+      actions:
+        index:
+          title:
+        show:
+          title:
+        new:
+          title:
+        edit:
+          title:
+        create:
+          error:
+          success: Your organisation was successfully created.
+          title:
+        update:
+          error:
+          success:
+          title:
+        destroy:
+          title:
+          success:
+
     sessions_controller:
       actions:
         create:
