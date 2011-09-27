@@ -9,5 +9,8 @@ class User < ActiveRecord::Base
   validates :username, :presence => true, :uniqueness => true
   validates :terms_of_use, :acceptance => true, :on => :create
 
+  has_many :memberships
+  has_many :organisations, :through => :memberships
+
   attr_accessor :terms_of_use
 end
