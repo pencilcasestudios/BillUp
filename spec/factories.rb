@@ -1,11 +1,11 @@
 Factory.define :user do |f|
   f.sequence(:cell_phone_number) { |n| "097 519 #{n}" }
-  f.sequence(:email) { |n| "florence#{n}@example.com" }
-  f.sequence(:username) { |n| "florence#{n}" }
+  f.sequence(:email) { |n| "grace#{n}@example.com" }
+  f.sequence(:username) { |n| "grace#{n}" }
 
-  f.name "Florence Nawale"
+  f.name "Grace Nyambe"
   f.language "eng"
-  f.password "secret"
+  f.password AppConfig.test_user_password
   f.time_zone "(GMT+02:00) Harare"
 end
 

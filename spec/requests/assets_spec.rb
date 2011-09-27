@@ -48,6 +48,9 @@ describe "Assets" do
   describe "app/assets/stylesheets/" do
 
     it "has stylesheet assets" do
+      get "/assets/organisations.css"
+      response.status.should be(200)
+
       get "/assets/sessions.css"
       response.status.should be(200)
 
