@@ -6,8 +6,18 @@
 </div>
 
 <div class="row content">
-  <div class="span12 main">
-  </div>
+	<% if current_user.organisations.present? %>
+	  <div class="span12 main">
+			<h1><%= t("views.welcome.signed_in_home.body.header.organisations_you_can_invoice_for") %></h1>
+			<%= render current_user.organisations %>
+	  </div>
+	<% else %>
+	  <div class="span12 main">
+			<%= render "user_has_no_organisations" %>
+	  </div>
+	<% end %>
+
   <div class="span4 sidebar">
+		<%= render "sidebar" %>
   </div>
 </div>

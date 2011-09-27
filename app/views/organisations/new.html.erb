@@ -1,0 +1,23 @@
+<% title t("views.organisations.new.title") %>
+
+<h1><%= yield :title %></h1>
+
+<%= form_for(@organisation) do |f| %>
+	<fieldset>
+		<fieldset>
+			<legend><%= t("views.organisations.new.form.legend.organisation") %></legend>
+			<div class="field clearfix">
+		    <%= f.label :name, t("views.organisations.new.form.label.name") %>
+		    <div class="input"><%= f.text_field :name, :class => "xlarge" %></div>
+		  </div>
+			<div class="field clearfix">
+		    <%= f.label :subdomain, t("views.organisations.new.form.label.subdomain") %>
+		    <div class="input"><%= f.text_field :subdomain, :class => "xlarge" %></div>
+		  </div>
+		</fieldset>
+
+	  <div class="actions">
+	    <%= f.submit t("views.organisations.new.form.button.submit"), :class => "btn large primary" %>
+	  </div>
+	</fieldset>
+<% end %>
