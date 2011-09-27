@@ -57,6 +57,16 @@ en:
           sign_out: Sign out
           sign_up: Sign up
 
+    organisations:
+      new:
+        title: Create an Organisation
+        form:
+          label:
+            name: Name
+            subdomain: Subdomain
+          button:
+            submit: Create
+
     sessions:
       new:
         title: Sign in
@@ -119,3 +129,6 @@ en:
           s7: How are you doing?
           s8: Hope you are enjoying this app.
           s9: What an honour to have you use this app.
+        body:
+          header:
+            organisations_you_can_invoice_for: Organisations you can invoice for
