@@ -1,5 +1,16 @@
 class SessionsController < ApplicationController
+  def index
+    if current_user
+      redirect_to root_path
+    else
+      redirect_to sign_in_path
+    end
+  end
+  
   def new
+    if current_user
+      redirect_to root_path
+    end
   end
 
   def create
@@ -16,8 +27,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    flash[:success] =  t('controllers.sessions_controller.actions.destroy.success')
+    if current_user
+      session[:user_id] = nil
+      flash[:success] =  t('controllers.sessions_controller.actions.destroy.success')
+    end
     redirect_to sign_in_path
   end
 

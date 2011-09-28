@@ -5,7 +5,6 @@ describe "Organisation management" do
   describe "when not signed in" do
     it "denies the User to access the organisation creation page" do
       get new_organisation_path
-      response.status.should_not be(200)
       response.should redirect_to(sign_in_path)
     end
   end
