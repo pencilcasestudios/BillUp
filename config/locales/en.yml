@@ -13,6 +13,9 @@ en:
       sign_in_required:
         flash:
           sign_in_required: "Please sign in first and then we'll send you right along."
+      current_organisation:
+        text:
+          account_does_not_exist: That account does not exist.
 
     organisations_controller:
       actions:

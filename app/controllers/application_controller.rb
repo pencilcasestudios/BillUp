@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :user_signed_in?
 
+  before_filter :current_organisation, :set_user_time_zone
+
 private
 
   def current_user
@@ -36,5 +38,17 @@ private
   def redirect_back_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
+  end
+
+  def set_user_time_zone
+    Time.zone = current_user.time_zone if user_signed_in?
+  end
+  
+  def current_organisation
+    if request.subdomain.present? && Organisation.find_by_subdomain(request.subdomain).nil? 
+      render :text => t('controllers.application_controller.current_organisation.text.account_does_not_exist')
+    else
+      @current_organisation ||= Organisation.find_by_subdomain(request.subdomain)
+    end
   end
 end
