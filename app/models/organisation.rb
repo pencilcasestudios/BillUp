@@ -1,6 +1,6 @@
 class Organisation < ActiveRecord::Base
   validates :name, :presence => true
-  validates :subdomain, :presence => true, :uniqueness => true
+  validates :subdomain, :presence => true, :uniqueness => true, :subdomain_format => true
   validates :invoices_left, :presence => true, :numericality => true
   validates :receipts_left, :presence => true, :numericality => true
 

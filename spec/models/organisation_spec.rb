@@ -30,8 +30,8 @@ describe Organisation do
 
     it "fails validation with no subdomain" do
       organisation = Organisation.new
-      organisation.should have(1).error_on(:subdomain)
-      organisation.errors[:subdomain].should == ["can't be blank"]
+      organisation.should have(2).error_on(:subdomain)
+      organisation.errors[:subdomain].should == ["can't be blank", "is not formatted properly"]
     end
 
     it "fails validation when receipts_left is nil" do
