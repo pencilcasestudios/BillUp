@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def new
     if current_user
+      flash[:notice] = t('controllers.users_controller.actions.new.error')
       redirect_to root_path
     else
       @user = User.new

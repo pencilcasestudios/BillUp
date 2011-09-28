@@ -51,6 +51,7 @@ en:
         show:
           title:
         new:
+          error: "You want to create a new account? That's awesome! Just remember to sign out first."
           title:
         edit:
           title:
