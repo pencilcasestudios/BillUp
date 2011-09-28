@@ -26,3 +26,11 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+
+
+
+Capybara.configure do |config|
+  config.run_server = false
+  config.app_host   = 'http://billup.site'  # Set 127.0.0.1 billup.site in /etc/hosts
+end
