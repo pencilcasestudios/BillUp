@@ -6,7 +6,7 @@ Factory.define :user do |f|
   f.name "Grace Nyambe"
   f.language "eng"
   f.password AppConfig.test_user_password
-  f.time_zone "(GMT+02:00) Harare"
+  f.time_zone "Harare"
 end
 
 

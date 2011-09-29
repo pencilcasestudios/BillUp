@@ -3,10 +3,11 @@ require 'authentication_helper'
 
 describe "User management" do
   describe "when not signed in" do
+    # users#index
     describe "requesting /users" do
       it "redirects to the sign up page" do
-        get users_path
-        response.should redirect_to(sign_up_path)
+        visit users_path
+        page.should have_content(I18n.t('views.sessions.new.title'))  # As a result of the redirect to sign_up_path
       end
     end
   end
@@ -16,6 +17,7 @@ describe "User management" do
       sign_in_with_username
     end
 
+    # users#index
     describe "requesting /users" do
       it "redirects to the root path" do
         visit users_path
@@ -23,6 +25,7 @@ describe "User management" do
       end
     end
 
+    # users#new
     describe "requesting sign up" do
       it "redirects to the root path" do
         visit sign_up_path

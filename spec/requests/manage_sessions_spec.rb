@@ -7,8 +7,8 @@ describe "Session management" do
     # sessions#index
     describe "requesting /sessions" do
       it "redirects to the sign in page" do
-        get sessions_path
-        response.status.should redirect_to(sign_in_path)
+        visit sessions_path
+        page.should have_content(I18n.t('views.sessions.new.title'))  # As a result of the redirect to sign_in_path
       end
     end
 
@@ -23,8 +23,8 @@ describe "Session management" do
     # sessions#destroy
     describe "requesting sign out" do
       it "redirects to the sign in page" do
-        get sign_out_path
-        response.status.should redirect_to(sign_in_path)
+        visit sign_out_path
+        page.should have_content(I18n.t('views.sessions.new.title'))  # As a result of the redirect to sign_in_path
       end
     end
   end

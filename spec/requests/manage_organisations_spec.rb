@@ -2,10 +2,14 @@ require 'spec_helper'
 require 'authentication_helper'
 
 describe "Organisation management" do
+  # Guest session
   describe "when not signed in" do
-    it "denies the User to access the organisation creation page" do
-      get new_organisation_path
-      response.should redirect_to(sign_in_path)
+    # organisation#new
+    describe "requesting /organisations/new" do
+      it "redirects to the sign in page" do
+        visit new_organisation_path
+        page.should have_content(I18n.t('views.sessions.new.title'))  # As a result of the direct
+      end
     end
   end
 
