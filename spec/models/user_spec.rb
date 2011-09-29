@@ -4,8 +4,8 @@ describe User do
   describe "presence" do
     it "fails validation with no cell_phone_number" do
       user = User.new
-      user.should have(1).error_on(:cell_phone_number)
-      user.errors[:cell_phone_number].should == ["can't be blank"]
+      user.should have(2).error_on(:cell_phone_number)
+      user.errors[:cell_phone_number].should == ["can't be blank", "is not formatted properly"]
     end
 
     it "fails validation with no email" do

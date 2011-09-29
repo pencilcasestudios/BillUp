@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  validates :cell_phone_number, :presence => true, :uniqueness => true
+  validates :cell_phone_number, :presence => true, :uniqueness => true, :phone_number_format => true
   validates :email, :presence => true, :uniqueness => true, :email_format => true
   validates :name, :presence => true
   validates :language, :presence => true

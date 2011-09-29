@@ -7,7 +7,9 @@ describe "SignUps" do
     fill_in I18n.t('views.users.new.form.label.name'), :with => 'Silumesii Maboshe'
 
     fill_in I18n.t('views.users.new.form.label.email'), :with => 'silumesii@example.com'
-    fill_in I18n.t('views.users.new.form.label.cell_phone_number'), :with => '097 519 1837'
+
+    cell_phone_number = [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
+    fill_in I18n.t('views.users.new.form.label.cell_phone_number'), :with => cell_phone_number
     
     password = 'password'
     fill_in I18n.t('views.users.new.form.label.username'), :with => 'silumesii'

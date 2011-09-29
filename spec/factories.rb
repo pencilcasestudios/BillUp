@@ -1,8 +1,9 @@
 Factory.define :user do |f|
-  f.sequence(:cell_phone_number) { |n| "097 519 #{n}" }
   f.sequence(:email) { |n| "grace#{n}@example.com" }
   f.sequence(:username) { |n| "grace#{n}" }
 
+  # Random 12 digit, zero-padded number with an optional, leading "+"
+  f.cell_phone_number [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
   f.name "Grace Nyambe"
   f.language "eng"
   f.password AppConfig.test_user_password
