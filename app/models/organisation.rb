@@ -6,4 +6,12 @@ class Organisation < ActiveRecord::Base
 
   has_many :memberships
   has_many :members, :through => :memberships, :source => :user
+
+  before_save :downcase_subdomain
+
+private
+
+  def downcase_subdomain
+    self.subdomain.downcase!
+  end
 end
