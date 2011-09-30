@@ -79,10 +79,36 @@ en:
     application:
       _navigation:
         link:
-          home: Home
+          dashboard: Dashboard
           sign_in: Sign in
           sign_out: Sign out
           sign_up: Sign up
+
+    dashboard:
+      _sidebar:
+        links:
+          create_an_organisation: Create an Organisation
+      _user_has_no_organisations:
+        body:
+          p1: "To get started using %{application_name}, please create an <em>Organisation</em>."
+        buttons:
+          create_an_organisation: Create an Organisation
+        title: Get started!
+      title: Welcome
+      subtitle:
+        s0: "Here's to happy clients and bills paid."
+        s1: Great to have you!
+        s2: What a wonderful day to invoice some clients.
+        s3: Let's get some work done.
+        s4: Awesome to have you!
+        s5: Fantastic to have you!
+        s6: Working hard?
+        s7: How are you doing?
+        s8: Hope you are enjoying this app.
+        s9: What an honour to have you use this app.
+      body:
+        header:
+          organisations_you_can_invoice_for: Organisations you can invoice for
 
     organisations:
       new:
@@ -125,16 +151,6 @@ en:
               english: English
 
     welcome:
-      _sidebar:
-        links:
-          create_an_organisation: Create an Organisation
-      _user_has_no_organisations:
-        buttons:
-          create_an_organisation: Create an Organisation
-        body:
-          p1: "To get started using %{application_name}, please create an <em>Organisation</em>."
-        buttons:
-          new_organisation: Create an Organisation
       index:
         title: CareerVillage
       pricing:
@@ -143,19 +159,3 @@ en:
         title: Terms of Use
       tour:
         title: Tour
-      signed_in_home:
-        title: Welcome
-        subtitle:
-          s0: "Here's to happy clients and bills paid."
-          s1: Great to have you!
-          s2: What a wonderful day to invoice some clients.
-          s3: Let's get some work done.
-          s4: Awesome to have you!
-          s5: Fantastic to have you!
-          s6: Working hard?
-          s7: How are you doing?
-          s8: Hope you are enjoying this app.
-          s9: What an honour to have you use this app.
-        body:
-          header:
-            organisations_you_can_invoice_for: Organisations you can invoice for
