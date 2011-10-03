@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
   
   def index
     if user_signed_in?
-      redirect_to dashboard_path
+      render :signed_in_home, :layout => 'application'
     end
   end
 
@@ -11,6 +11,9 @@ class WelcomeController < ApplicationController
   end
 
   def terms
+  end
+
+  def signed_in_home
   end
 
   def tour

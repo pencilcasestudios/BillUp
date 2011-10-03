@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   http_basic_authenticate_with :name => AppConfig.http_basic_name, :password => AppConfig.http_basic_password unless Rails.env == "test"
 
-  helper_method :current_user, :user_signed_in?
+  helper_method :current_user, :user_signed_in?, :current_organisation
 
   before_filter :set_user_time_zone
 
@@ -42,5 +42,13 @@ private
 
   def set_user_time_zone
     Time.zone = current_user.time_zone if user_signed_in?
+  end
+
+  def current_organisation
+    @current_organisation ||= Organisation.find_by_subdomain(request.subdomain) || resource_not_found
+  end
+
+  def resource_not_found
+    raise ActionController::RoutingError.new('Not Found')
   end
 end

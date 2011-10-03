@@ -19,17 +19,17 @@ describe "User management" do
 
     # users#index
     describe "requesting /users" do
-      it "redirects to the root path" do
+      it "redirects to the root_path" do
         visit users_path
-        page.should have_content(I18n.t("views.welcome.signed_in_home.title"))  # As a result of the redirect to root_path
+        page.should have_content(I18n.t('views.welcome.signed_in_home.title'))  # As a result of the redirect to the root_path
       end
     end
 
     # users#new
     describe "requesting sign up" do
-      it "redirects to the root path" do
+      it "redirects to the root_path" do
         visit sign_up_path
-        page.should have_content(I18n.t("views.welcome.signed_in_home.title"))  # As a result of the redirect to root_path
+        page.should have_content(I18n.t('views.welcome.signed_in_home.title'))  # As a result of the redirect to the root_path
       end
     end
   end

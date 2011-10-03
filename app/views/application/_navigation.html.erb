@@ -14,7 +14,7 @@
 			</ul><!-- /nav -->
 			<ul class="nav secondary-nav">
 				<% if user_signed_in? %>
-					<li><%= link_to t("views.application._navigation.link.dashboard"), dashboard_path %></li>
+					<li><%= link_to t("views.application._navigation.link.home"), root_url(:subdomain => false) %></li>
 					<li id="tab_sign_out" class="dropdown" data-dropdown="dropdown" >
 						<a href="#" class="dropdown-toggle"><%=raw truncate(current_user.name, :length => 20) %></a>
 						<ul class="dropdown-menu">

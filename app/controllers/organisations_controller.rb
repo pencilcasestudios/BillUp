@@ -1,5 +1,10 @@
 class OrganisationsController < ApplicationController
   before_filter :sign_in_required
+  before_filter :current_organisation, :except => [:new, :create]
+
+  def show
+    @organisation = current_organisation
+  end
 
   def new
     @organisation = Organisation.new
@@ -10,7 +15,7 @@ class OrganisationsController < ApplicationController
     @organisation.memberships.build(user: current_user)
     if @organisation.save
       flash[:success] = t('controllers.organisations_controller.actions.create.success')
-      redirect_to root_path
+      redirect_to root_url(:subdomain => false)
     else
       render action: "new"
     end

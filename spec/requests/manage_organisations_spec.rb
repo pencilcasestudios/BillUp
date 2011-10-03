@@ -32,7 +32,7 @@ describe "Organisation management" do
       @current_user.organisations.size.should eq(organisations_at_start + 1)
 
       page.should have_content(I18n.t('controllers.organisations_controller.actions.create.success'))
-      page.should have_content(I18n.t("views.welcome.signed_in_home.body.header.organisations_you_can_invoice_for"))
+      page.should have_content(I18n.t("views.welcome.signed_in_home._user_has_organisations.title"))
       page.should have_content(organisation_name)
     end
   end

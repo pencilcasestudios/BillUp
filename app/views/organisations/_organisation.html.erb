@@ -1,1 +1,5 @@
-<h2><%= link_to organisation.name, root_url(:subdomain => organisation.subdomain) %></h2>
+<h2>
+	<%= link_to organisation.name, root_path, :subdomain => organisation.subdomain %><br />
+	Organisation name: <%= organisation.name %><br />
+	Organisation subdomain: <%= organisation.subdomain %>
+</h2>

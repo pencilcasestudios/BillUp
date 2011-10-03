@@ -1,0 +1,11 @@
+<% title t('views.welcome.signed_in_home.title') %>
+
+<div class="page-header">
+	<h1><%= yield :title %></h1>
+</div>
+
+<% if current_user.organisations.blank? %>
+<%= render "user_has_no_organisations" %>
+<% else %>
+<%= render "user_has_organisations" %>
+<% end %>

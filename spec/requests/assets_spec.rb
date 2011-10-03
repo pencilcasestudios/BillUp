@@ -1,10 +1,8 @@
 require 'spec_helper'
 
 describe "Assets" do
-
   # In vendor/assets/stylesheets/
   describe "vendor/assets/stylesheets/" do
-
     # Bootstrap stylesheets
     describe "bootstrap/" do
       it "has Bootstrap stylesheet assets" do
@@ -16,7 +14,6 @@ describe "Assets" do
 
   # In vendor/assets/javascripts/
   describe "vendor/assets/javascripts/" do
-
     # Bootstrap javascripts
     describe "bootstrap/" do
       it "has Bootrap javascript assets" do
@@ -46,11 +43,7 @@ describe "Assets" do
 
   # In app/assets/stylesheets/
   describe "app/assets/stylesheets/" do
-
     it "has stylesheet assets" do
-      get "/assets/dashboard.css"
-      response.status.should be(200)
-
       get "/assets/organisations.css"
       response.status.should be(200)
 
@@ -71,7 +64,6 @@ describe "Assets" do
 
   # In app/assets/images/
   describe "app/assets/images/" do
-
     it "has image assets" do
       get "/assets/apple-touch-icon.png"
       response.status.should be(200)
