@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     if current_user
-      redirect_to root_url(:subdomain => false)
+      redirect_to root_url(:host => request.domain)
     else
       redirect_to sign_up_path
     end
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def new
     if current_user
       flash[:notice] = t('controllers.users_controller.actions.new.error')
-      redirect_to root_url(:subdomain => false)
+      redirect_to root_url(:host => request.domain)
     else
       @user = User.new
     end

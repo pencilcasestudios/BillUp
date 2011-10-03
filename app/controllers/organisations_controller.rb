@@ -15,7 +15,7 @@ class OrganisationsController < ApplicationController
     @organisation.memberships.build(user: current_user)
     if @organisation.save
       flash[:success] = t('controllers.organisations_controller.actions.create.success')
-      redirect_to root_url(:subdomain => false)
+      redirect_to root_url(:host => request.domain)
     else
       render action: "new"
     end
