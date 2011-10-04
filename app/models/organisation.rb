@@ -1,4 +1,6 @@
 class Organisation < ActiveRecord::Base
+  default_scope order("name")
+  
   validates :name, :presence => true
   validates :subdomain, :presence => true, :uniqueness => true, :subdomain_format => true
   validates :invoices_left, :presence => true, :numericality => true
