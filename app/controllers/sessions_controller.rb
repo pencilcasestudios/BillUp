@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def index
     if current_user
-      redirect_to root_url(:host => request.domain)
+      redirect_to root_path
     else
       redirect_to sign_in_path
     end
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   
   def new
     if current_user
-      redirect_to root_url(:host => request.domain)
+      redirect_to root_path
     end
   end
 
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = t('controllers.sessions_controller.actions.create.success')
-      redirect_back_or_default root_url(:host => request.domain)
+      redirect_back_or_default root_path #root_url(:host => request.domain)
     else
       flash.now[:error] = t('controllers.sessions_controller.actions.create.error')
       render "new"

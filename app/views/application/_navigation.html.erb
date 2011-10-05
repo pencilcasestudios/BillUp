@@ -10,6 +10,7 @@
 				<% else %>
 					<li id="tab_tour"><%= link_to t("views.application._navigation.link.tour"), "/#tour" %></li>
 					<li id="tab_pricing"><%= link_to t("views.application._navigation.link.pricing"), "/#pricing" %></li>
+					<li id="tab_sign_up"><%= link_to t("views.application._navigation.link.sign_up"), sign_up_path %></li>
 				<% end %>
 			</ul><!-- /nav -->
 			<ul class="nav secondary-nav">
@@ -24,7 +25,6 @@
 						</ul>
 					</li>
 				<% else %>
-					<li id="tab_sign_up"><%= link_to t("views.application._navigation.link.sign_up"), sign_up_path %></li>
 	        <li id="tab_sign_in"><%= link_to t("views.application._navigation.link.sign_in"), sign_in_path %></li>
 				<% end %>
 			</ul><!-- /.nav .secondary-nav -->
