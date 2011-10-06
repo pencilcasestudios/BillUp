@@ -167,7 +167,8 @@ en:
       signed_in_home:
         _sidebar:
           links:
-            create_an_organisation: Create an Organisation
+            create_an_organisation: Create an organisation
+            purchase_units: Purchase units
         _user_has_organisations:
           title: Organisations you can invoice for
         _user_has_no_organisations:
