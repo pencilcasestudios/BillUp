@@ -64,7 +64,7 @@ en:
           title:
         update:
           error:
-          success:
+          success: Your settings were successfully updated.
           title:
         destroy:
           title:
@@ -83,6 +83,8 @@ en:
           sign_in: Sign in
           sign_out: Sign out
           sign_up: Sign up
+          units_balance: "%{units} units"
+          user_settings: User settings
 
     organisations:
       new:
@@ -120,8 +122,35 @@ en:
             language: Language
             time_zone: Time zone
             terms_of_use: Terms of use
+          legend:
+            account_information: Account information
+            contact_information: Contant information
+            localisation: Location
+            name: Name
           button:
             submit: Sign up
+          selector:
+            language:
+              english: English
+      edit:
+        title: User settings
+        form:
+          label:
+            name: Name
+            email: Email
+            cell_phone_number: Cell phone number
+            username: Username
+            password: Update password
+            password_confirmation: Password confirmation
+            language: Language
+            time_zone: Time zone
+          legend:
+            account_information: Account information
+            contact_information: Contant information
+            localisation: Location
+            name: Name
+          button:
+            submit: Save
           selector:
             language:
               english: English

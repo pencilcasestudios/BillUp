@@ -1,0 +1,81 @@
+<% title t("views.users.edit.title") %>
+
+<h1><%= yield :title %></h1>
+
+<ul class="pills" data-pills="pills">
+  <li class="active"><a href="#name"><%= t("views.users.edit.form.legend.name") %></a></li>
+  <li><a href="#contact_information"><%= t("views.users.edit.form.legend.contact_information") %></a></li>
+  <li><a href="#account_information"><%= t("views.users.edit.form.legend.account_information") %></a></li>
+  <li><a href="#localisation"><%= t("views.users.edit.form.legend.localisation") %></a></li>
+</ul>
+
+<div id="user_settings_form">
+	<%= form_for(@user, :html => {:class => "form-stacked"} ) do |f| %>
+		<fieldset>
+			<div class="pill-content">
+				<div class="active" id="name">
+					<fieldset>
+						<legend><%= t("views.users.edit.form.legend.name") %></legend>
+						<div class="field clearfix">
+					    <%= f.label :name, t("views.users.edit.form.label.name") %>
+					    <div class="input"><%= f.text_field :name, :class => "xlarge" %></div>
+					  </div>
+					</fieldset>
+				</div><!-- /#name -->
+
+				<div id="contact_information">
+					<fieldset>
+						<legend><%= t("views.users.edit.form.legend.contact_information") %></legend>
+					  <div class="field clearfix">
+					    <%= f.label :email, t("views.users.edit.form.label.email") %>
+					    <div class="input"><%= f.text_field :email, :class => "xlarge" %></div>
+					  </div>
+
+					  <div class="field clearfix">
+					    <%= f.label :cell_phone_number, t("views.users.edit.form.label.cell_phone_number") %>
+					    <div class="input"><%= f.text_field :cell_phone_number, :class => "xlarge" %></div>
+					  </div>
+					</fieldset>
+				</div><!-- /#contact_information -->
+
+				<div id="account_information">
+					<fieldset>
+						<legend><%= t("views.users.edit.form.legend.account_information") %></legend>
+					  <div class="field clearfix">
+					    <%= f.label :username, t("views.users.edit.form.label.username") %>
+					    <div class="input"><%= f.text_field :username, :class => "xlarge", :readonly => true %></div>
+					  </div>
+
+					  <div class="field clearfix">
+					    <%= f.label :password, t("views.users.edit.form.label.password") %>
+					    <div class="input"><%= f.password_field :password, :class => "xlarge" %></div>
+					  </div>
+					  <div class="field clearfix">
+					    <%= f.label :password_confirmation, t("views.users.edit.form.label.password_confirmation") %>
+					    <div class="input"><%= f.password_field :password_confirmation, :class => "xlarge" %></div>
+					  </div>
+					</fieldset>
+				</div><!-- /#account_information -->
+
+				<div id="localisation">
+					<fieldset>
+						<legend><%= t("views.users.edit.form.legend.localisation") %></legend>
+					  <div class="field clearfix">
+					    <%= f.label :language, t("views.users.edit.form.label.language") %>
+							<div class="input"><%= f.select :language, { t("views.users.edit.form.selector.language.english") => "eng" }, :prompt => true, :class => "xlarge" %></div>
+					  </div>
+
+					  <div class="field clearfix">
+					    <%= f.label :time_zone, t("views.users.edit.form.label.time_zone") %>
+					    <div class="input"><%= f.time_zone_select :time_zone, nil, :include_blank => false, :prompt =>true, :class => "xlarge" %></div>
+					  </div>
+					</fieldset>
+				</div><!-- /#localisation -->
+			</div><!-- /.pill-content -->
+
+		  <div class="actions">
+		    <%= f.submit t("views.users.edit.form.button.submit"), :class => "btn large primary" %>
+		  </div>
+		</fieldset>
+	<% end %>
+</div><!-- /#user_settings_form -->

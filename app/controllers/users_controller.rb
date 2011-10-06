@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
+  before_filter :sign_in_required, :except => [:new, :create]
+  
   def index
-    if current_user
-      redirect_to root_url(:host => request.domain)
-    else
-      redirect_to sign_up_path
-    end
+    redirect_to root_url(:host => request.domain)
   end
 
   def new
@@ -23,6 +21,19 @@ class UsersController < ApplicationController
       redirect_to sign_in_path
     else
       render action: "new"
+    end
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      redirect_to(user_settings_path, :notice => t('controllers.users_controller.actions.update.success'))
+    else
+      render :action => "edit"
     end
   end
 end
