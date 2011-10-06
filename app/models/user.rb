@@ -3,11 +3,12 @@ class User < ActiveRecord::Base
 
   validates :cell_phone_number, :presence => true, :uniqueness => true, :phone_number_format => true
   validates :email, :presence => true, :uniqueness => true, :email_format => true
-  validates :name, :presence => true
   validates :language, :presence => true
-  validates :time_zone, :presence => true
-  validates :username, :presence => true, :uniqueness => true
+  validates :name, :presence => true
   validates :terms_of_use, :acceptance => true, :on => :create
+  validates :time_zone, :presence => true
+  validates :units, :numericality => true
+  validates :username, :presence => true, :uniqueness => true
 
   has_many :memberships
   has_many :organisations, :through => :memberships
