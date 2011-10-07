@@ -78,11 +78,15 @@ en:
   views:
     application:
       _navigation:
+        body:
+          left: "(%{left} left)"
         link:
+          create_an_organisation: New organisation
           home: Home
           sign_in: Sign in
           sign_out: Sign out
           sign_up: Sign up
+          switch_to: Switch to
           units_balance: "%{units} units"
           user_settings: User settings
 

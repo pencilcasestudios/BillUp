@@ -43,7 +43,7 @@ private
   def set_user_time_zone
     Time.zone = current_user.time_zone if user_signed_in?
   end
-
+  
   def current_organisation
     @current_organisation ||= Organisation.find_by_subdomain(request.subdomain) || resource_not_found
   end

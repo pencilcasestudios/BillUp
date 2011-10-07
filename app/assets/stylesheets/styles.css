@@ -41,3 +41,7 @@ footer {
 .content {
 	min-height: 300px;
 }
+
+#page {
+	min-height: 300px;
+}

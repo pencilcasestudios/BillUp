@@ -2,6 +2,54 @@
   <div class="topbar-inner">
 		<div class="container-fluid">
 			<% if user_signed_in? %>
+				<% if @current_organisation.present? %>
+					<ul class="nav">
+						<li id="tab_organisations_dropdown" class="dropdown" data-dropdown="dropdown">
+							<a href="#" class="dropdown-toggle"><%= t("views.application._navigation.link.switch_to") %></a>
+							<ul class="dropdown-menu">
+								<li id="tab_create_organisation"><%= link_to t("views.application._navigation.link.create_an_organisation"), new_organisation_url(:host => request.domain) %></li>
+								<li class="divider"></li>
+								<% current_user.organisations.each do |organisation| %>
+									<% if organisation == @current_organisation %>
+										<%# Do nothing %>
+									<% else %>
+										<li id="tab_<%= organisation.subdomain %>"><%= link_to organisation.name, root_url(:subdomain => organisation.subdomain) %></li>
+									<% end %>
+								<% end %>
+							</ul>
+						</li>
+					</ul>
+
+					<%= link_to truncate(@current_organisation.name, :length => 30), root_path, :class => "brand" %>
+
+					<ul class="nav">
+						<li id="tab_invoices_dropdown" class="dropdown" data-dropdown="dropdown">
+							<a href="#" class="dropdown-toggle">
+								<%= t("views.application._navigation.link.invoices") %>
+								<small><%= t("views.application._navigation.body.left", :left => @current_organisation.invoices_left) %></small>
+							</a>
+							<ul class="dropdown-menu">
+								<li id="tab_create_invoice"><%= link_to t("views.application._navigation.link.create_an_invoice"), "new_invoice_path" %></li>
+								<li class="divider"></li>
+								<li id="tab_invoices"><%= link_to t("views.application._navigation.link.invoices"), "new_invoice_path" %></li>
+							</ul>
+						</li>
+					</ul>
+
+					<ul class="nav">
+						<li id="tab_receipts_dropdown" class="dropdown" data-dropdown="dropdown">
+							<a href="#" class="dropdown-toggle">
+								<%= t("views.application._navigation.link.receipts") %>
+								<small><%= t("views.application._navigation.body.left", :left => @current_organisation.receipts_left) %></small>
+							</a>
+							<ul class="dropdown-menu">
+								<li id="tab_create_receipt"><%= link_to t("views.application._navigation.link.create_a_receipt"), "new_receipt_path" %></li>
+								<li class="divider"></li>
+								<li id="tab_receipts"><%= link_to t("views.application._navigation.link.receipts"), "new_receipt_path" %></li>
+							</ul>
+						</li>
+					</ul>
+				<% end %>
 			<% else %>
 				<%= link_to t("application.name"), root_path, :class => "brand" %>
 			<% end %>
@@ -16,18 +64,18 @@
 			<ul class="nav secondary-nav">
 				<% if user_signed_in? %>
 					<li><%= link_to t("views.application._navigation.link.home"), root_url(:host => request.domain) %></li>
-					<li id="tab_units" class="dropdown" data-dropdown="dropdown" >
+					<li id="tab_units_dropdown" class="dropdown" data-dropdown="dropdown" >
 						<a href="#" class="dropdown-toggle"><%= t("views.application._navigation.link.units_balance", :units => number_to_currency(current_user.units, :unit => "")) %></a>
 						<ul class="dropdown-menu">
-							<li><%= link_to "Purchase units", "#" %></li>					
+							<li><%= link_to "Purchase units", "#" %></li>
 						</ul>
 					</li>
 					<li id="tab_sign_out" class="dropdown" data-dropdown="dropdown" >
-						<a href="#" class="dropdown-toggle"><%=raw truncate(current_user.name, :length => 20) %></a>
+						<a href="#" class="dropdown-toggle"><%= truncate(current_user.name, :length => 20) %></a>
 						<ul class="dropdown-menu">
-							<li><%= link_to t("views.application._navigation.link.user_settings"), user_settings_path %></li>					
+							<li><%= link_to t("views.application._navigation.link.user_settings"), user_settings_path %></li>
 							<li class="divider"></li>
-							<li><%= link_to t("views.application._navigation.link.sign_out"), sign_out_path %></li>					
+							<li><%= link_to t("views.application._navigation.link.sign_out"), sign_out_path %></li>
 						</ul>
 					</li>
 				<% else %>
