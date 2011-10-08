@@ -1,0 +1,16 @@
+<ul class="nav">
+	<li id="tab_organisations_dropdown" class="dropdown" data-dropdown="dropdown">
+		<a href="#" class="dropdown-toggle"><%= t("views.application._navigation.link.switch_to") %></a>
+		<ul class="dropdown-menu">
+			<li id="tab_create_organisation"><%= link_to t("views.application._navigation.link.create_an_organisation"), new_organisation_url(:host => request.domain) %></li>
+			<li class="divider"></li>
+			<% current_user.organisations.each do |organisation| %>
+				<% if organisation == @current_organisation %>
+					<%# Do nothing %>
+				<% else %>
+					<li id="tab_<%= organisation.subdomain %>"><%= link_to organisation.name, root_url(:subdomain => organisation.subdomain) %></li>
+				<% end %>
+			<% end %>
+		</ul>
+	</li>
+</ul>

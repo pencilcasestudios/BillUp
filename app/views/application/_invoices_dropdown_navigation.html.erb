@@ -1,0 +1,13 @@
+<ul class="nav">
+	<li id="tab_invoices_dropdown" class="dropdown" data-dropdown="dropdown">
+		<a href="#" class="dropdown-toggle">
+			<%= t("views.application._navigation.link.invoices") %>
+			<small><%= t("views.application._navigation.body.left", :left => @current_organisation.invoices_left) %></small>
+		</a>
+		<ul class="dropdown-menu">
+			<li id="tab_create_invoice"><%= link_to t("views.application._navigation.link.create_an_invoice"), "new_invoice_path" %></li>
+			<li class="divider"></li>
+			<li id="tab_invoices"><%= link_to t("views.application._navigation.link.invoices"), "new_invoice_path" %></li>
+		</ul>
+	</li>
+</ul>

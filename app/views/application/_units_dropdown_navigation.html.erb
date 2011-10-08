@@ -1,0 +1,6 @@
+<li id="tab_units_dropdown" class="dropdown" data-dropdown="dropdown" >
+	<a href="#" class="dropdown-toggle"><%= t("views.application._navigation.link.units_balance", :units => number_to_currency(current_user.units, :unit => "")) %></a>
+	<ul class="dropdown-menu">
+		<li><%= link_to "Purchase units", "#" %></li>
+	</ul>
+</li>
