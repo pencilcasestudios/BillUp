@@ -12,7 +12,6 @@ gem "rails", "3.1.1"
 # Used accross environments
 gem "bcrypt-ruby", "~> 3.0.0"
 gem "jquery-rails"
-gem "rack", "1.3.3"
 gem "settingslogic"
 
 
