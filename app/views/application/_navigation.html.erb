@@ -23,6 +23,7 @@
 			<ul class="nav secondary-nav">
 				<% if user_signed_in? %>
 					<li><%= link_to t("views.application._navigation.link.home"), root_url(:host => request.domain) %></li>
+					<%= render "units_dropdown_navigation" %>
 					<%= render "user_dropdown_navigation" %>
 				<% else %>
 	        <li id="tab_sign_in"><%= link_to t("views.application._navigation.link.sign_in"), sign_in_path %></li>
