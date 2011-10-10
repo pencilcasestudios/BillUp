@@ -17,3 +17,13 @@ Factory.define :organisation do |f|
   f.sequence(:name) { |n| "Organisation #{n}" }
   f.sequence(:subdomain) { |n| "subdomain#{n}" }
 end
+
+
+
+
+Factory.define :client do |f|
+  f.sequence(:name) { |n| "Client #{n}" }
+  f.sequence(:organisation_id) { |n| "#{n}" }
+
+  #f.association :organisation
+end

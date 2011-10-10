@@ -14,15 +14,20 @@ BillUp::Application.routes.draw do
 
 
 
+  resources :organisations
   resources :sessions
   resources :users
-  resources :organisations
 
 
 
 
   constraints :subdomain => /.+/ do
+    resources :clients
     root :to => 'organisations#show'
   end
+
+
+
+
   root :to => 'welcome#index'
 end

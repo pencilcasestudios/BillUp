@@ -1,0 +1,22 @@
+<% title t("views.clients.index.title") %>
+
+<div class="page-header">
+	<div class="row">
+		<div class="span13">
+			<h1><%= yield :title %></h1>
+		</div>
+		<div class="span3 add">
+			<%= link_to t("views.clients.index.buttons.add_a_client"), new_client_path, :class => "btn" %>
+		</div>
+	</div>
+</div>
+
+<table>
+<% @clients.each do |client| %>
+  <tr>
+    <td><h3><%= link_to client.name, client %></h3></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -1,0 +1,30 @@
+<%= form_for(@client) do |f| %>
+	<fieldset>
+
+	  <% if @client.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+	      <ul>
+	      <% @client.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	   <%= f.hidden_field :organisation_id, :value => @current_organisation.id %>
+
+		<fieldset>
+			<legend><%= t("views.clients.new.form.legend.client") %></legend>
+			<div class="field clearfix">
+		    <%= f.label :name, t("views.clients.new.form.label.name") %>
+		    <div class="input"><%= f.text_field :name, :class => "xlarge" %></div>
+		  </div>
+		</fieldset>
+
+	  <div class="actions">
+	    <%= f.submit t("views.clients.new.form.button.submit"), :class => "btn large primary" %>
+	  </div>
+	</fieldset>
+<% end %>
