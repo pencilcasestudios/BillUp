@@ -38,6 +38,14 @@ footer {
   margin: -20px -20px 20px;
 }
 
+.page-header .add {
+	text-align: right;
+}
+
+.page-header .add .btn {
+	text-align: center;
+}
+
 .content {
 	min-height: 300px;
 }
