@@ -4,20 +4,20 @@ describe "SignUps" do
   it "allows a new user to sign up" do
     visit sign_up_path
 
-    fill_in I18n.t('views.users.new.form.label.name'), :with => 'Silumesii Maboshe'
+    fill_in I18n.t('views.users.new.form.label.name'), with: 'Silumesii Maboshe'
 
-    fill_in I18n.t('views.users.new.form.label.email'), :with => 'silumesii@example.com'
+    fill_in I18n.t('views.users.new.form.label.email'), with: 'silumesii@example.com'
 
     cell_phone_number = [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
-    fill_in I18n.t('views.users.new.form.label.cell_phone_number'), :with => cell_phone_number
+    fill_in I18n.t('views.users.new.form.label.cell_phone_number'), with: cell_phone_number
     
     password = 'password'
-    fill_in I18n.t('views.users.new.form.label.username'), :with => 'silumesii'
-    fill_in I18n.t('views.users.new.form.label.password'), :with => password
-    fill_in I18n.t('views.users.new.form.label.password_confirmation'), :with => password
+    fill_in I18n.t('views.users.new.form.label.username'), with: 'silumesii'
+    fill_in I18n.t('views.users.new.form.label.password'), with: password
+    fill_in I18n.t('views.users.new.form.label.password_confirmation'), with: password
     
-    select I18n.t('views.users.new.form.selector.language.english'), :from => I18n.t('views.users.new.form.label.language')
-    select "(GMT+02:00) Harare", :from => I18n.t('views.users.new.form.label.time_zone')
+    select I18n.t('views.users.new.form.selector.language.english'), from: I18n.t('views.users.new.form.label.language')
+    select "(GMT+02:00) Harare", from: I18n.t('views.users.new.form.label.time_zone')
     
     check I18n.t('views.users.new.form.label.terms_of_use')
 

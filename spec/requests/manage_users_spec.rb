@@ -53,7 +53,7 @@ describe "User management" do
         page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to user_settings_path
 
         updated_field = "#{Time.now.strftime("%s")} " + @current_user.name
-        fill_in I18n.t('views.users.edit.form.label.name'), :with => updated_field
+        fill_in I18n.t('views.users.edit.form.label.name'), with: updated_field
 
         click_button I18n.t('views.users.edit.form.button.submit')
 
@@ -68,7 +68,7 @@ describe "User management" do
         page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to user_settings_path
 
         updated_field = "#{Time.now.strftime("%s")}" + @current_user.email
-        fill_in I18n.t('views.users.edit.form.label.email'), :with => updated_field
+        fill_in I18n.t('views.users.edit.form.label.email'), with: updated_field
 
         click_button I18n.t('views.users.edit.form.button.submit')
 
@@ -83,7 +83,7 @@ describe "User management" do
         page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to user_settings_path
 
         updated_field = [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
-        fill_in I18n.t('views.users.edit.form.label.cell_phone_number'), :with => updated_field
+        fill_in I18n.t('views.users.edit.form.label.cell_phone_number'), with: updated_field
 
         click_button I18n.t('views.users.edit.form.button.submit')
 

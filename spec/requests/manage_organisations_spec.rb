@@ -24,8 +24,8 @@ describe "Organisation management" do
       visit new_organisation_path
 
       organisation_name = "Widgets Since #{Time.now.strftime("%Y%m%d%H%M%S")}"
-      fill_in I18n.t('views.organisations.new.form.label.name'), :with => organisation_name
-      fill_in I18n.t('views.organisations.new.form.label.subdomain'), :with => organisation_name.downcase.strip.gsub(" ", "")
+      fill_in I18n.t('views.organisations.new.form.label.name'), with: organisation_name
+      fill_in I18n.t('views.organisations.new.form.label.subdomain'), with: organisation_name.downcase.strip.gsub(" ", "")
 
       click_button I18n.t('views.organisations.new.form.button.submit')
 
@@ -34,6 +34,12 @@ describe "Organisation management" do
       page.should have_content(I18n.t('controllers.organisations_controller.actions.create.success'))
       page.should have_content(I18n.t("views.welcome.signed_in_home._user_has_organisations.title"))
       page.should have_content(organisation_name)
+    end
+    
+    describe "is not a member of an organisation" do
+    end
+
+    describe "is a member of an organisation" do
     end
   end
 end

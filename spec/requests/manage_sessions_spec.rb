@@ -108,10 +108,10 @@ describe "Session management" do
     end
 
     it "rejects a user with invalid sign in credentials" do
-      user = Factory(:user)  
+      user = Factory(:user)
       visit sign_in_path
-      fill_in I18n.t('views.sessions.new.form.label.identifier'), :with => user.email
-      fill_in I18n.t('views.sessions.new.form.label.password'), :with => Time.now # Incorrect password
+      fill_in I18n.t('views.sessions.new.form.label.identifier'), with: user.email
+      fill_in I18n.t('views.sessions.new.form.label.password'), with: Time.now # Incorrect password
 
       click_button I18n.t('views.sessions.new.form.button.submit')
 
