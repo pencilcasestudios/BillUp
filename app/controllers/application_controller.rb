@@ -17,10 +17,21 @@ private
     current_user.present?
   end
   
+  def membership_required
+    if @current_organisation.members.exists?(id: current_user.id)
+      # The current user can access this Organisation
+      # Do nothing
+    else
+      # The current user is not allowed to access this Organisation
+      flash[:error] = t('controllers.application_controller.flash.membership_required')
+      redirect_to root_url(:host => request.domain)
+    end
+  end
+
   def sign_in_required
     unless current_user
       store_location
-      flash[:notice] = t('controllers.application_controller.sign_in_required.flash.sign_in_required')
+      flash[:notice] = t('controllers.application_controller.flash.sign_in_required')
       redirect_to sign_in_path
       return false
     end

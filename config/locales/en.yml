@@ -10,9 +10,9 @@ en:
 # Controllers
   controllers:
     application_controller:
-      sign_in_required:
-        flash:
-          sign_in_required: "Please sign in first and then we'll send you right along."
+      flash:
+        membership_required: "Access denied."
+        sign_in_required: "Please sign in first and then we'll send you right along."
       current_organisation:
         text:
           account_does_not_exist: That account does not exist.
@@ -104,7 +104,7 @@ en:
 
     sessions:
       new:
-        title: Sign in
+        title: Sign in to your account
         form:
           label:
             identifier: Username/Email/Cell Phone Number
