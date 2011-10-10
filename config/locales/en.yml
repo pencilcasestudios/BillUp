@@ -90,6 +90,21 @@ en:
           units_balance: "%{units} units"
           user_settings: User settings
 
+    clients:
+      index:
+        title: Clients
+        buttons:
+          add_a_client: Add a Client
+      new:
+        title: Add a Client
+        form:
+          label:
+            name: Name
+          button:
+            submit: Create
+      show:
+        title: "%{client_name}"
+
     organisations:
       new:
         title: Create an Organisation
