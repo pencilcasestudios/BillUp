@@ -6,6 +6,7 @@ class Organisation < ActiveRecord::Base
   validates :invoices_left, :presence => true, :numericality => true
   validates :receipts_left, :presence => true, :numericality => true
 
+  has_many :clients
   has_many :memberships
   has_many :members, :through => :memberships, :source => :user
 
