@@ -6,6 +6,20 @@ en:
 
 
 
+# Helpers
+  helpers:
+    submit:
+      user_session:
+        create: "Sign in"
+      user:
+        create: "Sign up"
+        update: "Save"
+      create: "Create this %{model}"
+      update: "Save changes to this %{model}"
+
+
+
+
 
 # Controllers
   controllers:
@@ -16,6 +30,28 @@ en:
       current_organisation:
         text:
           account_does_not_exist: That account does not exist.
+
+    clients_controller:
+      actions:
+        index:
+          title:
+        show:
+          title:
+        new:
+          title:
+        edit:
+          title:
+        create:
+          error:
+          success: The client was successfully created.
+          title:
+        update:
+          error:
+          success:
+          title:
+        destroy:
+          title:
+          success:
 
     organisations_controller:
       actions:
@@ -29,7 +65,7 @@ en:
           title:
         create:
           error:
-          success: Your organisation was successfully created.
+          success: The organisation was successfully created.
           title:
         update:
           error:
@@ -77,6 +113,8 @@ en:
 # Views
   views:
     application:
+      copy:
+        full_stop: .
       _navigation:
         body:
           left: "(%{left} left)"
@@ -87,10 +125,12 @@ en:
           create_a_client: New client
           home: Home
           invoices: Invoices
+          pricing: Pricing
           sign_in: Sign in
           sign_out: Sign out
           sign_up: Sign up
           switch_to: Switch to
+          tour: Tour
           units_balance: "%{units} units"
           user_settings: User settings
 
@@ -100,14 +140,16 @@ en:
         buttons:
           add_a_client: Add a Client
       new:
-        title: Add a Client
+        title: New client
         form:
           label:
             name: Name
-          button:
-            submit: Create
+          legend:
+            client: Client
       show:
-        title: "%{client_name}"
+        title: "Client: %{client_name}"
+        copy:
+          client_of: "A client of %{organisation_name}"
 
     invoices:
       index:
@@ -115,7 +157,7 @@ en:
         buttons:
           add_an_invoice: Add an Invoice
       new:
-        title: Add an Invoice
+        title: New invoice
         form:
           label:
             name: Name
@@ -148,6 +190,9 @@ en:
 
     users:
       new:
+        copy:
+          accept_terms_of_use: I have read and accept the
+          terms_of_use: terms of use
         title: Sign up
         form:
           label:
@@ -165,6 +210,7 @@ en:
             contact_information: Contant information
             localisation: Location
             name: Name
+            confirmation: Confirmation
           button:
             submit: Sign up
           selector:
