@@ -80,9 +80,12 @@ en:
       _navigation:
         body:
           left: "(%{left} left)"
-        link:
+        links:
+          create_an_invoice: New invoice
           create_an_organisation: New organisation
+          create_a_client: New client
           home: Home
+          invoices: Invoices
           sign_in: Sign in
           sign_out: Sign out
           sign_up: Sign up
@@ -105,6 +108,21 @@ en:
       show:
         title: "%{client_name}"
 
+    invoices:
+      index:
+        title: Invoices
+        buttons:
+          add_an_invoice: Add an Invoice
+      new:
+        title: Add an Invoice
+        form:
+          label:
+            name: Name
+          button:
+            submit: Create
+      show:
+        title: "Invoice %{invoice_number}"
+
     organisations:
       new:
         title: Create an Organisation
@@ -122,7 +140,7 @@ en:
         title: Sign in to your account
         form:
           label:
-            identifier: Username/Email/Cell Phone Number
+            identifier: "Username, email or cell phone number"
             password: Password
           button:
             submit: Sign in
