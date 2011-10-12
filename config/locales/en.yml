@@ -208,8 +208,8 @@ en:
           legend:
             account_information: Account information
             contact_information: Contant information
-            localisation: Location
-            name: Name
+            localisation: Localisation
+            personal_information: Personal information
             confirmation: Confirmation
           button:
             submit: Sign up
