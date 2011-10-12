@@ -22,7 +22,7 @@
 			</ul><!-- /nav -->
 			<ul class="nav secondary-nav">
 				<% if user_signed_in? %>
-					<li><%= link_to t("views.application._navigation.link.home"), root_url(:host => request.domain) %></li>
+					<li><%= link_to t("views.application._navigation.links.home"), root_url(:host => request.domain) %></li>
 					<%= render "units_dropdown_navigation" %>
 					<%= render "user_dropdown_navigation" %>
 				<% else %>
