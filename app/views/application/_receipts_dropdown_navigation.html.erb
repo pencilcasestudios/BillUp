@@ -1,13 +1,13 @@
 <ul class="nav">
 	<li id="tab_receipts_dropdown" class="dropdown" data-dropdown="dropdown">
 		<a href="#" class="dropdown-toggle">
-			<%= t("views.application._navigation.link.receipts") %>
+			<%= t("views.application._navigation.links.receipts") %>
 			<small><%= t("views.application._navigation.body.left", :left => @current_organisation.receipts_left) %></small>
 		</a>
 		<ul class="dropdown-menu">
-			<li id="tab_create_receipt"><%= link_to t("views.application._navigation.link.create_a_receipt"), "new_receipt_path" %></li>
+			<li id="tab_create_receipt"><%= link_to t("views.application._navigation.links.create_a_receipt"), "new_receipt_path" %></li>
 			<li class="divider"></li>
-			<li id="tab_receipts"><%= link_to t("views.application._navigation.link.receipts"), "new_receipt_path" %></li>
+			<li id="tab_receipts"><%= link_to t("views.application._navigation.links.receipts"), "new_receipt_path" %></li>
 		</ul>
 	</li>
 </ul>

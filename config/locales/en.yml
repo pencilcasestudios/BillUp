@@ -81,6 +81,7 @@ en:
         body:
           left: "(%{left} left)"
         links:
+          clients: Clients
           create_an_invoice: New invoice
           create_an_organisation: New organisation
           create_a_client: New client

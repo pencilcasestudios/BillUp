@@ -1,12 +1,12 @@
 <ul class="nav">
 	<li id="tab_clients_dropdown" class="dropdown" data-dropdown="dropdown">
 		<a href="#" class="dropdown-toggle">
-			<%= t("views.application._navigation.link.clients") %>
+			<%= t("views.application._navigation.links.clients") %>
 		</a>
 		<ul class="dropdown-menu">
-			<li id="tab_create_client"><%= link_to t("views.application._navigation.link.add_a_client"), new_client_path %></li>
+			<li id="tab_create_client"><%= link_to t("views.application._navigation.links.create_a_client"), new_client_path %></li>
 			<li class="divider"></li>
-			<li id="tab_clients"><%= link_to t("views.application._navigation.link.clients"), clients_path %></li>
+			<li id="tab_clients"><%= link_to t("views.application._navigation.links.clients"), clients_path %></li>
 		</ul>
 	</li>
 </ul>
