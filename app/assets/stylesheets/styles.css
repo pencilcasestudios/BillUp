@@ -15,6 +15,11 @@ footer {
 	text-align: center;
 }
 
+.translation_missing {
+	/* Visual cue to translate text */
+	background: red;
+}
+
 .alert-message {
   /* padding: 20px 20px 10px; */
   margin: -20px -23px 20px;
