@@ -25,6 +25,10 @@ footer {
   margin: -20px -23px 20px;
 }
 
+.control-group .controls {
+	padding-bottom: 1em;
+}
+
 .container {
   background-color: #fff;
   padding: 20px;
