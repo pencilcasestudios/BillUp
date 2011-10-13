@@ -4,22 +4,19 @@
 	<h1><%= yield :title %></h1>
 </div>
 
-<%= form_for(@organisation) do |f| %>
-	<fieldset>
-		<fieldset>
+<%= form_for(@organisation, html: { class: "form-vertical" } ) do |f| %>
+	<fieldset class="control-group">
+		<fieldset class="control-group">
 			<legend><%= t("views.organisations.new.form.legend.organisation") %></legend>
-			<div class="field clearfix">
-		    <%= f.label :name, t("views.organisations.new.form.label.name") %>
-		    <div class="input"><%= f.text_field :name, :class => "xlarge" %></div>
-		  </div>
-			<div class="field clearfix">
-		    <%= f.label :subdomain, t("views.organisations.new.form.label.subdomain") %>
-		    <div class="input"><%= f.text_field :subdomain, :class => "xlarge" %></div>
-		  </div>
+		    <%= f.label :name, t("views.organisations.new.form.label.name"), class: "control-label" %>
+		    <div class="controls"><%= f.text_field :name, class:  "xlarge" %></div>
+
+		    <%= f.label :subdomain, t("views.organisations.new.form.label.subdomain"), class: "control-label" %>
+		    <div class="controls"><%= f.text_field :subdomain, class:  "xlarge" %></div>
 		</fieldset>
 
-	  <div class="actions">
-	    <%= f.submit t("views.organisations.new.form.button.submit"), :class => "btn large primary" %>
+	  <div class="actions well">
+	    <%= f.submit class:  "btn large primary" %>
 	  </div>
 	</fieldset>
 <% end %>
