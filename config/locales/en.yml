@@ -143,8 +143,19 @@ en:
         title: New client
         form:
           label:
+            country: Country
+            email: Email
+            fax: Fax
+            label: Label
             name: Name
+            phone: Phone
+            postal_code: Postal code
+            province: Province
+            street: Street
+            town: City/Town
+            website: Website
           legend:
+            address: Address
             client: Client
       show:
         title: "Client: %{client_name}"
@@ -173,8 +184,8 @@ en:
           label:
             name: Name
             subdomain: Subdomain
-          button:
-            submit: Create
+          legend:
+            organisation: Organisation
       show:
         title: "%{organisation_name}"
 
