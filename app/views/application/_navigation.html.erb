@@ -1,34 +1,32 @@
 <div class="navbar navbar-fixed" data-scrollspy="scrollspy">
-  <div class="navbar-inner">
+	<div class="navbar-inner">
 		<div class="fluid-container">
 			<% if user_signed_in? %>
 				<% if @current_organisation.present? %>
 					<%= render "switch_to_dropdown_navigation" %>
-					<%= link_to truncate(@current_organisation.name, :length => 30), root_path, :class => "brand" %>
+					<%= link_to truncate(@current_organisation.name, :length => 30), root_path, class:  "brand" %>
 					<%= render "invoices_dropdown_navigation" %>
 					<%= render "receipts_dropdown_navigation" %>
 					<%= render "clients_dropdown_navigation" %>
 				<% end %>
-			<% else %>
-				<%= link_to t("application.name"), root_path, :class => "brand" %>
-			<% end %>
-      <ul class="nav">
-				<% if user_signed_in? %>
-				<% else %>
-					<li id="tab_tour"><%= link_to t("views.application._navigation.links.tour"), "/#tour" %></li>
-					<li id="tab_pricing"><%= link_to t("views.application._navigation.links.pricing"), "/#pricing" %></li>
-					<li id="tab_sign_up"><%= link_to t("views.application._navigation.links.sign_up"), sign_up_path %></li>
-				<% end %>
-			</ul><!-- /nav -->
-			<ul class="nav secondary-nav">
-				<% if user_signed_in? %>
+
+				<ul class="nav secondary-nav">
 					<li><%= link_to t("views.application._navigation.links.home"), root_url(:host => request.domain) %></li>
 					<%= render "units_dropdown_navigation" %>
 					<%= render "user_dropdown_navigation" %>
-				<% else %>
+				</ul>
+			<% else %>
+				<%= link_to t("application.name"), root_path, class:  "brand" %>
+				<ul class="nav">
+					<li id="tab_tour"><%= link_to t("views.application._navigation.links.tour"), "/#tour" %></li>
+					<li id="tab_pricing"><%= link_to t("views.application._navigation.links.pricing"), "/#pricing" %></li>
+					<li id="tab_sign_up"><%= link_to t("views.application._navigation.links.sign_up"), sign_up_path %></li>
+	      </ul><!-- /.nav -->
+
+				<ul class="nav secondary-nav">
 	        <li id="tab_sign_in"><%= link_to t("views.application._navigation.links.sign_in"), sign_in_path %></li>
-				<% end %>
-			</ul><!-- /.nav .secondary-nav -->
-		</div><!-- /.fluid-container -->
-	</div><!-- /.topboar-inner -->
-</div><!-- /.navbar -->
+				</ul>
+			<% end %>
+		</div><!-- /fluid-conteiner -->
+  </div><!-- /.navbar-inner -->
+</div><!-- /.navbar navbar-fixed -->
