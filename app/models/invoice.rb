@@ -8,4 +8,7 @@ class Invoice < ActiveRecord::Base
   validates :invoice_number, :uniqueness => { scope: [:organisation_id] }
   validates :to, :presence => true
   validates :to_address, :presence => true
+
+  has_many :line_items, :dependent => :destroy
+  accepts_nested_attributes_for :line_items, :allow_destroy => true
 end

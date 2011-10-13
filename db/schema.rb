@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111012080408) do
+ActiveRecord::Schema.define(:version => 20111013135832) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(:version => 20111012080408) do
 
   add_index "invoices", ["client_id"], :name => "index_invoices_on_client_id"
   add_index "invoices", ["organisation_id"], :name => "index_invoices_on_organisation_id"
+
+  create_table "line_items", :force => true do |t|
+    t.decimal  "quantity"
+    t.decimal  "unit_price"
+    t.integer  "invoice_id"
+    t.string   "description"
+    t.string   "units"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
 
   create_table "memberships", :force => true do |t|
     t.integer  "user_id"
