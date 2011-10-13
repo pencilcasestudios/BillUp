@@ -31,8 +31,20 @@ describe Invoice do
       invoice.should have(1).error_on(:to_address)
       invoice.errors[:to_address].should == ["can't be blank"]
     end
+
+    it "fails validation with no uuid" do
+      invoice = Invoice.new
+      invoice.should have(1).error_on(:uuid)
+      invoice.errors[:uuid].should == ["can't be blank"]
+    end
   end
   
   describe "uniqueness" do
+    it "fails validation with a duplicate uuid" do
+      invoice = Factory(:invoice)
+      duplicate = Invoice.new(uuid: invoice.uuid)
+      duplicate.should have(1).error_on(:uuid)
+      duplicate.errors[:uuid].should == ["has already been taken"]
+    end
   end
 end
