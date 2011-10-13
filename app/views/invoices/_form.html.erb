@@ -1,0 +1,99 @@
+<%= form_for(@invoice, html: { class: "form-vertical" } ) do |f| %>
+	<fieldset class="control-group">
+
+		<% if @invoice.errors.any? %>
+		  <div id="error_explanation">
+		    <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+		    <ul>
+		    <% @invoice.errors.full_messages.each do |msg| %>
+		      <li><%= msg %></li>
+		    <% end %>
+		    </ul>
+		  </div>
+		<% end %>
+
+		<div class="row">
+			<div class="span-one-third">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.state") %></legend>
+					<%= f.label :state, t("views.invoices._form.labels.state") %>
+					<div class="controls">
+						<%= f.select :state, { t('views.invoices._form.fields.quote').titleize => "quote", t('views.invoices._form.fields.invoice').titleize => "invoice" }, prompt: true %>
+					</div>
+				</fieldset>
+			</div>
+			<div class="span-one-third">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.uuid") %></legend>
+					<%= f.label :uuid, t("views.invoices._form.labels.uuid") %>
+			    <div class="controls"><%= f.text_field :uuid, class: "span5" %></div>
+				</fieldset>
+			</div>
+			<div class="span-one-third">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.invoice_number") %></legend>
+					<%= f.label :invoice_number, t("views.invoices._form.labels.invoice_number") %>
+			    <div class="controls"><%= f.text_field :invoice_number, class: "span5" %></div>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span8">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.to") %></legend>
+
+					<%= f.label :to, t("views.invoices._form.labels.to") %>
+					<div class="controls"><%= f.collection_select(:client_id, @current_organisation.clients, :id, :name, :prompt => true) %></div>
+				</fieldset>
+			</div>
+			<div class="span8">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.from") %></legend>
+					
+					<%= f.hidden_field :organisation_id, :value => @current_organisation.id %>
+
+					<%= f.label :from, t("views.invoices._form.labels.from") %>
+			    <div class="controls"><%= f.text_field :from, class: "span5", disabled: true %></div>
+				</fieldset>
+			</div>
+		</div>
+
+		<fieldset class="control-group">
+			<legend><%= t("views.invoices._form.legends.dates") %></legend>
+			<%= f.label :invoiced_at, t("views.invoices._form.labels.invoiced_at") %>
+	    <div class="controls"><%= f.date_select :invoiced_at %></div>
+
+			<%= f.label :due_at, t("views.invoices._form.labels.due_at") %>
+	    <div class="controls"><%= f.date_select :due_at, class: "span3" %></div>
+		</fieldset>
+
+		<fieldset class="control-group">
+			<legend><%= t("views.invoices._form.legends.description") %></legend>
+			<%= f.label :description, t("views.invoices._form.labels.description") %>
+	    <div class="controls"><%= f.text_area :description, class: "span16", rows: 5 %></div>
+		</fieldset>
+
+		<div class="row">
+			<div class="span8">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.terms") %></legend>
+					<%= f.label :terms, t("views.invoices._form.labels.terms") %>
+			    <div class="controls"><%= f.text_area :terms, class: "span8", rows: 3 %></div>
+				</fieldset>
+			</div>
+			<div class="span8">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.notes") %></legend>
+					<%= f.label :notes, t("views.invoices._form.labels.notes") %>
+			    <div class="controls"><%= f.text_area :notes, class: "span8", rows: 3 %></div>
+				</fieldset>
+			</div>
+		</div>
+
+	  <div class="actions form-actions">
+	    <%= f.submit class: "btn large primary" %>
+	  </div>
+	</fieldset>
+<% end %>

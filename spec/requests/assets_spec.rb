@@ -47,6 +47,9 @@ describe "Assets" do
       get "/assets/clients.css"
       response.status.should be(200)
 
+      get "/assets/invoices.css"
+      response.status.should be(200)
+
       get "/assets/organisations.css"
       response.status.should be(200)
 

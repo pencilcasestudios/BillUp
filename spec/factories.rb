@@ -24,6 +24,32 @@ end
 Factory.define :client do |f|
   f.sequence(:name) { |n| "Client #{n}" }
   f.sequence(:organisation_id) { |n| "#{n}" }
+  # TODO - build the owning organisation
+end
 
-  #f.association :organisation
+
+
+
+Factory.define :invoice do |f|
+  f.sequence(:from) { |n| "To #{n}" }
+  f.sequence(:from_address) { |n| "To address #{n}" }
+
+  f.sequence(:to) { |n| "To #{n}" }
+  f.sequence(:to_address) { |n| "To address #{n}" }
+end
+
+
+
+
+Factory.define :address do |f|
+  f.sequence(:label) { |n| "Label #{n}" }
+  f.sequence(:street) { |n| "Street #{n}" }
+  f.sequence(:town) { |n| "Town #{n}" }
+  f.sequence(:province) { |n| "Province #{n}" }
+  f.sequence(:country) { |n| "Country #{n}" }
+  f.sequence(:postal_code) { |n| "Postal Code #{n}" }
+  f.sequence(:fax) { |n| "Fax #{n}" }
+  f.sequence(:phone) { |n| "Phone #{n}" }
+  f.sequence(:website) { |n| "http://website#{n}.example.com" }
+  f.sequence(:email) { |n| "email#{n}@example.com" }
 end

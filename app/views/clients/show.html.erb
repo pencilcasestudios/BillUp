@@ -1,15 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% title t("views.clients.show.title", client_name: @client.name) %>
 
-<p>
-  <b>Organisation:</b>
-  <%= @client.organisation %>
-</p>
+<div class="page-header">
+	<h1>
+		<%= @client.name %><br />
+		<small><%= t("views.clients.show.copy.client_of", organisation_name: @client.organisation.name ) %></small>
+	</h1>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @client.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>

@@ -13,6 +13,7 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
+    @client.addresses.build
   end
 
   # GET /clients/1/edit

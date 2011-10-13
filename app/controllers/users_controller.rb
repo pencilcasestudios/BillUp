@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :sign_in_required, :except => [:new, :create]
-  
+
   def index
     redirect_to root_url(:host => request.domain)
   end

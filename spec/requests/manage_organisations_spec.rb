@@ -27,7 +27,7 @@ describe "Organisation management" do
       fill_in I18n.t('views.organisations.new.form.label.name'), with: organisation_name
       fill_in I18n.t('views.organisations.new.form.label.subdomain'), with: organisation_name.downcase.strip.gsub(" ", "")
 
-      click_button I18n.t('views.organisations.new.form.button.submit')
+      click_button I18n.t('helpers.submit.create', :model => "Organisation")
 
       @current_user.organisations.size.should eq(organisations_at_start + 1)
 

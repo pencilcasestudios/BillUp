@@ -75,7 +75,7 @@ describe "Session management" do
 
       current_path.should eq(root_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.success'))
-      page.should have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should have_content(I18n.t('views.application._navigation.links.sign_out'))
       page.should have_content(I18n.t('views.welcome.signed_in_home.title'))
     end
 
@@ -84,7 +84,7 @@ describe "Session management" do
 
       current_path.should eq(root_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.success'))
-      page.should have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should have_content(I18n.t('views.application._navigation.links.sign_out'))
       page.should have_content(I18n.t('views.welcome.signed_in_home.title'))
     end
 
@@ -93,7 +93,7 @@ describe "Session management" do
 
       current_path.should eq(root_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.success'))
-      page.should have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should have_content(I18n.t('views.application._navigation.links.sign_out'))
       page.should have_content(I18n.t('views.welcome.signed_in_home.title'))
     end
 
@@ -104,7 +104,7 @@ describe "Session management" do
 
       current_path.should eq(sessions_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.error'))
-      page.should_not have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should_not have_content(I18n.t('views.application._navigation.links.sign_out'))
     end
 
     it "rejects a user with invalid sign in credentials" do
@@ -117,7 +117,7 @@ describe "Session management" do
 
       current_path.should eq(sessions_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.error'))
-      page.should_not have_content(I18n.t('views.application._navigation.link.sign_out'))
+      page.should_not have_content(I18n.t('views.application._navigation.links.sign_out'))
     end
   end
 end

@@ -163,6 +163,31 @@ en:
           client_of: "A client of %{organisation_name}"
 
     invoices:
+      _form:
+        fields:
+          invoice: Invoice
+          quote: Quote
+        labels:
+          description: Description
+          due_at: Due date
+          from: From
+          invoiced_at: Invoice date
+          invoice_number: Invoice number
+          notes: Notes
+          state: Quote/Invoice
+          terms: Terms
+          to: To
+          uuid: UUID
+        legends:
+          dates: Dates
+          description: Description
+          from: From
+          invoice_number: Invoice number
+          notes: Notes
+          state: State
+          terms: Terms
+          to: To
+          uuid: UUID
       index:
         title: Invoices
         buttons:

@@ -3,5 +3,10 @@ class Client < ActiveRecord::Base
 
   belongs_to :organisation
 
-  validates :name, :presence => true, :uniqueness => {:scope => [:organisation_id]}
+  validates :name, :presence => true, :uniqueness => { scope: [:organisation_id] }
+
+  has_many :addresses, :as => :addressable, :dependent => :destroy
+  has_many :invoices
+
+  accepts_nested_attributes_for :addresses
 end

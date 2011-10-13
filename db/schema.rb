@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111008040546) do
+ActiveRecord::Schema.define(:version => 20111012080408) do
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.string   "country"
+    t.string   "email"
+    t.string   "fax"
+    t.string   "label"
+    t.string   "phone"
+    t.string   "postal_code"
+    t.string   "province"
+    t.string   "street"
+    t.string   "town"
+    t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clients", :force => true do |t|
     t.integer  "organisation_id"
@@ -21,6 +38,28 @@ ActiveRecord::Schema.define(:version => 20111008040546) do
   end
 
   add_index "clients", ["organisation_id"], :name => "index_clients_on_organisation_id"
+
+  create_table "invoices", :force => true do |t|
+    t.datetime "due_at"
+    t.datetime "invoiced_at"
+    t.integer  "invoice_number"
+    t.integer  "client_id"
+    t.integer  "organisation_id"
+    t.string   "from"
+    t.string   "state"
+    t.string   "to"
+    t.string   "uuid"
+    t.text     "description"
+    t.text     "from_address"
+    t.text     "notes"
+    t.text     "terms"
+    t.text     "to_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invoices", ["client_id"], :name => "index_invoices_on_client_id"
+  add_index "invoices", ["organisation_id"], :name => "index_invoices_on_organisation_id"
 
   create_table "memberships", :force => true do |t|
     t.integer  "user_id"
