@@ -14,8 +14,14 @@ describe LineItem do
       line_item.errors[:invoice_id].should == ["can't be blank", "is not a number"]
     end
 
-    it "fails validation with no quantity" do
+    it "quantity is 0 by default" do
       line_item = LineItem.new
+      line_item.should have(0).error_on(:quantity)
+      line_item.quantity.should eq(0)
+    end
+
+    it "fails validation with no quantity" do
+      line_item = LineItem.new(quantity: nil)
       line_item.should have(2).error_on(:quantity)
       line_item.errors[:quantity].should == ["can't be blank", "is not a number"]
     end
@@ -26,8 +32,14 @@ describe LineItem do
       line_item.errors[:units].should == ["can't be blank"]
     end
 
-    it "fails validation with no unit_price" do
+    it "unit_price is 0 by default" do
       line_item = LineItem.new
+      line_item.should have(0).error_on(:unit_price)
+      line_item.unit_price.should eq(0)
+    end
+
+    it "fails validation with no unit_price" do
+      line_item = LineItem.new(unit_price: nil)
       line_item.should have(2).error_on(:unit_price)
       line_item.errors[:unit_price].should == ["can't be blank", "is not a number"]
     end

@@ -32,6 +32,18 @@ describe User do
       user.errors[:time_zone].should == ["can't be blank"]
     end
 
+    it "units is 0 by default" do
+      user = User.new
+      user.should have(0).error_on(:units)
+      user.units.should eq(0)
+    end
+
+    it "fails validation with no units" do
+      user = User.new(units: nil)
+      user.should have(2).error_on(:units)
+      user.errors[:units].should == ["can't be blank", "is not a number"]
+    end
+
     it "fails validation with no username" do
       user = User.new
       user.should have(1).error_on(:username)

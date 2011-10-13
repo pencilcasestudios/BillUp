@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :name, :presence => true
   validates :terms_of_use, :acceptance => true, :on => :create
   validates :time_zone, :presence => true
-  validates :units, :numericality => true
+  validates :units, :presence => true, :numericality => true
   validates :username, :presence => true, :uniqueness => true
 
   has_many :memberships
