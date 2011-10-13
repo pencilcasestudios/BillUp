@@ -17,8 +17,8 @@
 
 		<fieldset class="control-group">
 			<legend><%= t("views.clients.new.form.legend.client") %></legend>
-		    <%= f.label :name, t("views.clients.new.form.label.name"), class: "control-label" %>
-		    <div class="controls"><%= f.text_field :name %></div>
+	    <%= f.label :name, t("views.clients.new.form.label.name"), class: "control-label" %>
+	    <div class="controls"><%= f.text_field :name, class: "span14" %></div>
 		</fieldset>
 
 		<br />
@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="span-one-third">
 						<fieldset class="control-group">
-							<%= builder.label :label, t("views.clients.new.form.label.label"), class: "control-label" %>
+							<%= builder.label :label, t("views.clients.new.form.label.label") %>
 							<div class="controls"><%= builder.text_field :label %></div>
 						</fieldset>
 					</div>			    
