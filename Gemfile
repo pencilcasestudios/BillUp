@@ -12,7 +12,7 @@ gem "rails", "3.1.1"
 # Used accross environments
 gem "bcrypt-ruby", "~> 3.0.0"
 gem "jquery-rails"
-gem "nested_form"
+gem "nested_form", git: "git://github.com/ryanb/nested_form.git"
 gem "settingslogic"
 
 
