@@ -26,10 +26,10 @@ describe LineItem do
       line_item.errors[:quantity].should == ["can't be blank", "is not a number"]
     end
 
-    it "fails validation with no units" do
+    it "fails validation with no currency" do
       line_item = LineItem.new
-      line_item.should have(1).error_on(:units)
-      line_item.errors[:units].should == ["can't be blank"]
+      line_item.should have(1).error_on(:currency)
+      line_item.errors[:currency].should == ["can't be blank"]
     end
 
     it "unit_price is 0 by default" do

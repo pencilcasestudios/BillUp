@@ -4,8 +4,8 @@ class CreateLineItems < ActiveRecord::Migration
       t.decimal :quantity, :precision => 12, :scale => 2, :default => 0
       t.decimal :unit_price, :precision => 12, :scale => 2, :default => 0
       t.references :invoice
+      t.string :currency
       t.string :description
-      t.string :units
 
       t.timestamps
     end

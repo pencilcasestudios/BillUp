@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20111013151915) do
     t.decimal  "quantity",    :precision => 12, :scale => 2, :default => 0.0
     t.decimal  "unit_price",  :precision => 12, :scale => 2, :default => 0.0
     t.integer  "invoice_id"
+    t.string   "currency"
     t.string   "description"
-    t.string   "units"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
