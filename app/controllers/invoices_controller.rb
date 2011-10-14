@@ -13,6 +13,7 @@ class InvoicesController < ApplicationController
     @invoice.from = @current_organisation.name
     @invoice.from_address = @current_organisation.current_address
     @invoice.uuid = `uuidgen`.strip.downcase
+    #@invoice.line_items.build
 
     if @current_organisation.invoices.blank?
       @invoice.invoice_number = 1

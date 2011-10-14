@@ -4,11 +4,11 @@ class LineItem < ActiveRecord::Base
   validates :description, :presence => true
   validates :invoice_id, :presence => true, :numericality => true
   validates :quantity, :presence => true, :numericality => true
-  validates :units, :presence => true
+  validates :currency, :presence => true
   validates :unit_price, :presence => true, :numericality => true
 
   has_many :sub_factors, :dependent => :destroy
-  accepts_nested_attributes_for :sub_factors, :allow_destroy => true
+  accepts_nested_attributes_for :sub_factors, :allow_destroy => true, :reject_if => :all_blank
 
   def total
     running_multiple = 1.0

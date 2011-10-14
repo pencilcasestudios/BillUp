@@ -1,4 +1,4 @@
-<%= form_for(@invoice, html: { class: "form-vertical" } ) do |f| %>
+<%= nested_form_for(@invoice, html: { class: "form-vertical" } ) do |f| %>
 	<fieldset class="control-group">
 
 		<% if @invoice.errors.any? %>
@@ -19,7 +19,7 @@
 					<legend><%= t("views.invoices._form.legends.state") %></legend>
 					<%= f.label :state, t("views.invoices._form.labels.state") %>
 					<div class="controls">
-						<%= f.select :state, { t('views.invoices._form.fields.quote').titleize => "quote", t('views.invoices._form.fields.invoice').titleize => "invoice" }, prompt: true %>
+						<%= f.select :state, { t("views.invoices._form.fields.quote") => "quote", t("views.invoices._form.fields.invoice") => "invoice" }, prompt: true %>
 					</div>
 				</fieldset>
 			</div>
@@ -45,7 +45,7 @@
 					<legend><%= t("views.invoices._form.legends.to") %></legend>
 
 					<%= f.label :to, t("views.invoices._form.labels.to") %>
-					<div class="controls"><%= f.collection_select(:client_id, @current_organisation.clients, :id, :name, :prompt => true) %></div>
+					<div class="controls"><%= f.collection_select(:client_id, @current_organisation.clients, :id, :name, { prompt: true }, { class: "span7" }) %></div>
 				</fieldset>
 			</div>
 			<div class="span8">
@@ -55,25 +55,40 @@
 					<%= f.hidden_field :organisation_id, :value => @current_organisation.id %>
 
 					<%= f.label :from, t("views.invoices._form.labels.from") %>
-			    <div class="controls"><%= f.text_field :from, class: "span5", disabled: true %></div>
+			    <div class="controls"><%= f.text_field :from, class: "span7", disabled: true %></div>
 				</fieldset>
 			</div>
 		</div>
 
-		<fieldset class="control-group">
-			<legend><%= t("views.invoices._form.legends.dates") %></legend>
-			<%= f.label :invoiced_at, t("views.invoices._form.labels.invoiced_at") %>
-	    <div class="controls"><%= f.date_select :invoiced_at %></div>
+		<div class="row">
+			<div class="span10">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.description") %></legend>
+					<%= f.label :description, t("views.invoices._form.labels.description") %>
+			    <div class="controls"><%= f.text_area :description, class: "span10", rows: 7 %></div>
+				</fieldset>
+			</div>
+			<div class="span6">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.dates") %></legend>
+					<%= f.label :invoiced_at, t("views.invoices._form.labels.invoiced_at") %>
+			    <div class="controls"><%= f.date_select :invoiced_at, {}, class: "span2" %></div>
 
-			<%= f.label :due_at, t("views.invoices._form.labels.due_at") %>
-	    <div class="controls"><%= f.date_select :due_at, class: "span3" %></div>
+					<%= f.label :due_at, t("views.invoices._form.labels.due_at") %>
+			    <div class="controls"><%= f.date_select :due_at, {}, class: "span2" %></div>
+				</fieldset>
+			</div>
+		</div>
+		
+		<!-- Line Items -->
+		<fieldset id="line_items" class="control-group">
+			<legend><%= t("views.invoices._form.legends.line_items") %></legend>
+			<%= f.fields_for :line_items do |builder| %>
+				<%= render "line_item_fields", :f => builder %>
+			<% end %>
+			<p><small><%= f.link_to_add t("views.invoices._form.links.add_a_line_item"), :line_items %></small></p>
 		</fieldset>
-
-		<fieldset class="control-group">
-			<legend><%= t("views.invoices._form.legends.description") %></legend>
-			<%= f.label :description, t("views.invoices._form.labels.description") %>
-	    <div class="controls"><%= f.text_area :description, class: "span16", rows: 5 %></div>
-		</fieldset>
+		<!-- /Line Items -->
 
 		<div class="row">
 			<div class="span8">

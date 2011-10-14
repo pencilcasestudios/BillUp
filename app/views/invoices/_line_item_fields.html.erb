@@ -1,0 +1,45 @@
+<div class="row fields">
+	<div class="span2">
+		<fieldset class="control-group">
+			<%= f.label :quantity, t("views.invoices._form.labels.quantity"), class: "control-label" %>
+	    <div class="controls"><%= f.text_field :quantity, class: "span2" %></div>
+		</fieldset>
+	</div>
+
+	<div class="span5">
+		<fieldset class="control-group">
+			<%= f.label :description, t("views.invoices._form.labels.description"), class: "control-label" %>
+	    <div class="controls"><%= f.text_field :description, class: "span5" %></div>
+		</fieldset>
+	</div>
+
+	<!-- Line Item Sub-Factors -->
+	<div class="span4">
+		<%= f.fields_for :sub_factors do |builder| %>
+			<%= render "sub_factor_fields", :f => builder %>
+		<% end %>
+		<span class="actions"><%= f.link_to_add t("views.invoices._form.links.add_a_sub_factor"), :sub_factors %></span>
+	</div>
+	<!-- /Line Item Sub-Factors -->
+
+	<div class="span2">
+		<fieldset class="control-group">
+			<%= f.label :unit_price, t("views.invoices._form.labels.unit_price"), class: "control-label" %>
+	    <div class="controls"><%= f.text_field :unit_price, class: "span2" %></div>
+		</fieldset>
+	</div>
+
+	<div class="span2">
+		<fieldset class="control-group">
+			<%= f.label :units, t("views.invoices._form.labels.currency"), class: "control-label" %>
+	    <div class="controls"><%= f.select :units, { "ZMK" => "ZMK", "USD" => "USD", "CAD" => "CAD" }, { prompt: true }, { class: "span2" } %></div>
+		</fieldset>
+	</div>
+
+	<div class="span1">
+		<fieldset class="control-group">
+			<%= f.label :units, t("views.invoices._form.labels.action"), class: "control-label" %>
+			<p><small><%= f.link_to_remove t("views.invoices._form.links.remove_this_line_item") %></small></p>
+		</fieldset>
+	</div>
+</div>

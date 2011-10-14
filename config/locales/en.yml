@@ -168,26 +168,38 @@ en:
           invoice: Invoice
           quote: Quote
         labels:
+          action: Action
+          amount: Amount
+          currency: Currency
           description: Description
           due_at: Due date
           from: From
           invoiced_at: Invoice date
           invoice_number: Invoice number
           notes: Notes
+          quantity: Quantity
           state: Quote/Invoice
           terms: Terms
           to: To
+          units: Units
+          unit_price: Unit price
           uuid: UUID
         legends:
           dates: Dates
           description: Description
           from: From
           invoice_number: Invoice number
+          line_items: Line items
           notes: Notes
           state: State
           terms: Terms
           to: To
           uuid: UUID
+        links:
+          add_a_line_item: Add a line item
+          add_a_sub_factor: Add a sub-factor
+          remove_this_line_item: Remove
+          remove_this_sub_item: Remove
       index:
         title: Invoices
         buttons:

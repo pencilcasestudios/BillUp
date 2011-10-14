@@ -11,7 +11,7 @@ class Invoice < ActiveRecord::Base
   validates :uuid, :presence => true, :uniqueness => true
 
   has_many :line_items, :dependent => :destroy
-  accepts_nested_attributes_for :line_items, :allow_destroy => true
+  accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => :all_blank
 
   # TODO - Implement this as a custom validation
   #before_save :due_date_is_not_before_invoice_date, :message => "due date must be after invoice date."
