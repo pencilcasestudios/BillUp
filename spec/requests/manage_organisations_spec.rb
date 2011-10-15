@@ -23,10 +23,17 @@ describe "Organisation management" do
 
       visit new_organisation_path
 
-      organisation_name = "Widgets Since #{Time.now.strftime("%Y%m%d%H%M%S")}"
-      fill_in I18n.t('views.organisations.new.form.label.name'), with: organisation_name
-      fill_in I18n.t('views.organisations.new.form.label.subdomain'), with: organisation_name.downcase.strip.gsub(" ", "")
+      # Organisation
+      organisation_name = "Fake Widgets Since #{Time.now.strftime("%Y%m%d%H%M%S")}"
+      fill_in I18n.t('views.organisations._form.labels.name'), with: organisation_name
+      fill_in I18n.t('views.organisations._form.labels.subdomain'), with: organisation_name.downcase.strip.gsub(" ", "")
 
+      # Address
+      fill_in I18n.t("views.addresses._form.labels.label"), with: "Fake"
+      fill_in I18n.t("views.addresses._form.labels.street"), with: "123 Fake Street"
+      fill_in I18n.t("views.addresses._form.labels.town"), with: "Fake Town"
+      select I18n.t("models.country.names.zambia"), from: I18n.t("views.addresses._form.labels.country")
+      
       click_button I18n.t('helpers.submit.create', :model => "Organisation")
 
       @current_user.organisations.size.should eq(organisations_at_start + 1)

@@ -9,16 +9,27 @@ class InvoicesController < ApplicationController
 
   def new
     @invoice = Invoice.new
-    @invoice.due_at = Time.now + 4.weeks    
+    @invoice.due_at = Time.now + 4.weeks
     @invoice.from = @current_organisation.name
     @invoice.from_address = @current_organisation.current_address
     @invoice.uuid = `uuidgen`.strip.downcase
-    #@invoice.line_items.build
+    @invoice.line_items.build
 
     if @current_organisation.invoices.blank?
       @invoice.invoice_number = 1
     else
       @invoice.invoice_number = @current_organisation.invoices.first.invoice_number + 1
+    end
+  end
+
+  def create
+    @invoice = Invoice.new(params[:invoice])
+
+    if @invoice.save
+      flash[:success] = t('controllers.invoices_controller.actions.create.success', :state => @invoice.state)
+      redirect_to invoices_path
+    else
+      render :action => "new"
     end
   end
 end

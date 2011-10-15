@@ -1,0 +1,50 @@
+<%= nested_form_for(@organisation, html: { class: "form-vertical" } ) do |f| %>
+
+	<% if @organisation.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
+
+	    <ul>
+	    <% @organisation.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+	<fieldset class="control-group">
+		<fieldset class="control-group">
+			<legend><%= t("views.organisations._form.legend.organisation") %></legend>
+			<div class="row">
+				<div class="span9">
+					<fieldset class="control-group">
+				    <%= f.label :name, t("views.organisations._form.labels.name"), class: "control-label" %>
+				    <div class="controls"><%= f.text_field :name, class: "span8" %></div>
+					</fieldset>
+				</div>
+				<div class="span7">
+					<fieldset class="control-group">
+				    <%= f.label :subdomain, t("views.organisations._form.labels.subdomain"), class: "control-label" %>
+				    <div class="controls">
+							<%=  t("views.application.copy.http") %><%= f.text_field :subdomain %><%= ".#{request.domain}" %>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Address -->
+		<fieldset class="control-group">
+			<legend><%= t("views.addresses._form.legends.address") %></legend>
+				<%= f.fields_for :addresses do |builder| %>
+					<%= render "address/address_fields", :f => builder %>
+				<% end %>
+			<p><small><%= f.link_to_add t("views.addresses._form.links.add_an_address"), :addresses %></small></p>
+		</fieldset>
+		<!-- Address -->
+
+	  <div class="actions form-actions">
+	    <%= f.submit class: "btn large primary" %>
+	  </div>
+	</fieldset>
+<% end %>

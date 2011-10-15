@@ -1,4 +1,4 @@
-<%= form_for(@client, html: { class: "form-vertical" } ) do |f| %>
+<%= nested_form_for(@client, html: { class: "form-vertical" } ) do |f| %>
 	<fieldset class="control-group">
 
 	  <% if @client.errors.any? %>
@@ -16,59 +16,23 @@
 	   <%= f.hidden_field :organisation_id, :value => @current_organisation.id %>
 
 		<fieldset class="control-group">
-			<legend><%= t("views.clients.new.form.legend.client") %></legend>
-	    <%= f.label :name, t("views.clients.new.form.label.name"), class: "control-label" %>
-	    <div class="controls"><%= f.text_field :name, class: "span14" %></div>
+			<legend><%= t("views.clients._form.legends.client") %></legend>
+	    <%= f.label :name, t("views.clients._form.labels.name"), class: "control-label" %>
+	    <div class="controls">
+				<%= f.text_field :name, class: "span14" %>
+				<p class="help-text"><%=raw t("views.clients._form.copy.hints.name") %></p>
+			</div>
 		</fieldset>
 
-		<br />
-
-		<%= f.fields_for :addresses do |builder| %>  
-			<fieldset class="control-group">
-				<legend><%= t("views.clients.new.form.legend.address") %></legend>
-				<div class="row">
-					<div class="span-one-third">
-						<fieldset class="control-group">
-							<%= builder.label :label, t("views.clients.new.form.label.label") %>
-							<div class="controls"><%= builder.text_field :label %></div>
-						</fieldset>
-					</div>			    
-					<div class="span-one-third">
-						<fieldset class="control-group">
-					    <%= builder.label :street, t("views.clients.new.form.label.street"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :street %></div>
-					
-					    <%= builder.label :town, t("views.clients.new.form.label.town"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :town %></div>
-					
-					    <%= builder.label :province, t("views.clients.new.form.label.province"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :province %></div>
-					
-					    <%= builder.label :country, t("views.clients.new.form.label.country"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :country %></div>
-					
-					    <%= builder.label :postal_code, t("views.clients.new.form.label.postal_code"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :postal_code %></div>
-						</fieldset>
-				  </div>
-					<div class="span-one-third">
-						<fieldset class="control-group">
-					    <%= builder.label :email, t("views.clients.new.form.label.email"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :email %></div>
-				
-					    <%= builder.label :phone, t("views.clients.new.form.label.phone"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :phone %></div>
-				
-					    <%= builder.label :fax, t("views.clients.new.form.label.fax"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :fax %></div>
-				
-					    <%= builder.label :website, t("views.clients.new.form.label.website"), class: "control-label" %>
-					    <div class="controls"><%= builder.text_field :website %></div>
-						</fieldset>
-					</div>
-				</div>
-			</fieldset>
-		<% end %>		
+		<!-- Address -->
+		<fieldset class="control-group">
+			<legend><%= t("views.addresses._form.legends.address") %></legend>
+				<%= f.fields_for :addresses do |builder| %>
+					<%= render "address/address_fields", :f => builder %>
+				<% end %>
+			<p><small><%= f.link_to_add t("views.addresses._form.links.add_an_address"), :addresses %></small></p>
+		</fieldset>
+		<!-- Address -->
 
 	  <div class="actions form-actions">
 	    <%= f.submit class: "btn large primary" %>

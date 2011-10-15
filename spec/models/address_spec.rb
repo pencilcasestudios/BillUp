@@ -29,15 +29,33 @@ describe Address do
   
   describe "format" do
     it "fails validation with an incorrect format for email" do
-      address = Address.new(email: "improperly formatted email address")
+      address = Address.new(email: "improperly formatted email")
       address.should have(1).error_on(:email)
       address.errors[:email].should == ["is not formatted properly"]
     end
 
     it "fails validation with an incorrect format for website" do
-      address = Address.new(website: "improperly formatted website address")
+      address = Address.new(website: "improperly formatted website")
       address.should have(1).error_on(:website)
       address.errors[:website].should == ["is not formatted properly"]
+    end
+
+    it "fails validation with an incorrect format for land_line_number" do
+      address = Address.new(land_line_number: "improperly formatted land_line_number")
+      address.should have(1).error_on(:land_line_number)
+      address.errors[:land_line_number].should == ["is not formatted properly"]
+    end
+
+    it "fails validation with an incorrect format for cell_phone_number" do
+      address = Address.new(cell_phone_number: "improperly formatted cell_phone_number")
+      address.should have(1).error_on(:cell_phone_number)
+      address.errors[:cell_phone_number].should == ["is not formatted properly"]
+    end
+
+    it "fails validation with an incorrect format for fax_number" do
+      address = Address.new(fax_number: "improperly formatted fax_number")
+      address.should have(1).error_on(:fax_number)
+      address.errors[:fax_number].should == ["is not formatted properly"]
     end
   end
 

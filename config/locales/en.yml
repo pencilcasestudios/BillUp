@@ -123,14 +123,54 @@ en:
         zamtel_airtime_units: Zamtel Airtime Units
         zmk: ZMK
 
+  models:
+    country:
+      names:
+        zambia: Zambia
+
 
 
 
 # Views
   views:
+    addresses:
+      _form:
+        copy:
+          hints:
+            label: A phrase to remember this address by<br /> e.g. <em>Livingston branch</em>
+            street: e.g. <em>5 Kabulonga Road</em>
+            town: e.g. <em>Lusaka</em>
+            province: e.g. <em>Luapula</em>
+            country: Select one e.g. <em>Zambia</em>
+            postal_code: e.g. <em>P.O. Box 343</em> or <em>PBag 12</em>
+            email: e.g. <em>mail@example.co.zm</em>
+            cell_phone_number: No spaces, just like you&rsquo;d enter it on your phone
+            land_line_number: No spaces, just like you&rsquo;d enter it on your phone
+            fax_number: No spaces, just like you&rsquo;d enter it on your phone
+            website: With the <em>http://</em> e.g. <em>http://example.co.zm</em>
+        labels:
+          cell_phone_number: Cell phone number
+          country: Country
+          email: Email
+          fax: Fax
+          label: Label
+          land_line_number: Land line number
+          postal_code: P.O. Box/Private Bag
+          province: Province
+          street: Street
+          town: City/Town
+          website: Website
+        legends:
+          address: Address
+        links:
+          add_an_address: Add an address
+          remove_this_address: Remove this address
+
     application:
       copy:
+        blank_select_option: None
         full_stop: .
+        http: http://
       _navigation:
         body:
           left: "(%{left} left)"
@@ -151,28 +191,20 @@ en:
           user_settings: User settings
 
     clients:
+      _form:
+        copy:
+          hints:
+            name: e.g. <em>Mushe Milling</em>
+        labels:
+          name: Name
+        legends:
+          client: Client
       index:
         title: Clients
         buttons:
           add_a_client: Add a Client
       new:
         title: New client
-        form:
-          label:
-            country: Country
-            email: Email
-            fax: Fax
-            label: Label
-            name: Name
-            phone: Phone
-            postal_code: Postal code
-            province: Province
-            street: Street
-            town: City/Town
-            website: Website
-          legend:
-            address: Address
-            client: Client
       show:
         title: "Client: %{client_name}"
         copy:
@@ -231,16 +263,26 @@ en:
         title: "Invoice %{invoice_number}"
 
     organisations:
+      _form:
+        labels:
+          name: Name
+          subdomain: Subdomain
+        legend:
+          organisation: Organisation
+      _organisation_has_no_clients:
+        copy:
+          p1: "Before you can start sending invoices, please add the contact information of the <em>Client</em> you are invoicing. You&rsquo;ll need to do this for each of your Clients."
+        links:
+          create_a_client: Create a client
+        title: Set up your clients        
+      edit:
+        title: "Update %{organisation_name}"
       new:
         title: Create an Organisation
-        form:
-          label:
-            name: Name
-            subdomain: Subdomain
-          legend:
-            organisation: Organisation
       show:
-        title: "%{organisation_name}"
+        links:
+          organisation_settings: Organisation settings
+        title: "%{organisation_name}"        
 
     sessions:
       new:

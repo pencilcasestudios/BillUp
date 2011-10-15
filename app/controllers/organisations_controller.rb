@@ -4,11 +4,12 @@ class OrganisationsController < ApplicationController
   before_filter :membership_required, :except => [:new, :create]
 
   def show
-    @organisation = current_organisation
+    @organisation = @current_organisation
   end
 
   def new
     @organisation = Organisation.new
+    @organisation.addresses.build
   end
 
   def create
@@ -19,6 +20,21 @@ class OrganisationsController < ApplicationController
       redirect_to root_url(:host => request.domain)
     else
       render action: "new"
+    end
+  end
+
+  def edit
+    @organisation = @current_organisation
+  end
+
+  def update
+    @organisation = @current_organisation
+
+    if @organisation.update_attributes(params[:organisation])
+      flash[:success] = t('controllers.organisations_controller.actions.update.success')
+      redirect_to root_path
+    else
+      render action: "edit"
     end
   end
 end

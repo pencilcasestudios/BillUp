@@ -5,5 +5,16 @@
 </div>
 
 <div class="row">
+	<div class="span11">
+		<% if @organisation.clients.blank? %>
+			<%= render "organisation_has_no_clients" %>
+		<% else %>
+			<%= render "organisation_has_clients" %>
+		<% end %>
+	</div>
+	<div class="span4 offset1 sidebar">
+		<p>
+			<%= link_to t("views.organisations.show.links.organisation_settings"), edit_organisation_path(@organisation) %>
+		</p>
+	</div>
 </div>
-		

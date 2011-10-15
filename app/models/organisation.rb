@@ -6,11 +6,13 @@ class Organisation < ActiveRecord::Base
   validates :invoices_left, :presence => true, :numericality => true
   validates :receipts_left, :presence => true, :numericality => true
 
-  has_many :addresses, :as => :addressable  
+  has_many :addresses, :as => :addressable, :dependent => :destroy
   has_many :clients
   has_many :invoices
   has_many :memberships
   has_many :members, :through => :memberships, :source => :user
+
+  accepts_nested_attributes_for :addresses, :allow_destroy => true
 
   before_save :downcase_subdomain
 

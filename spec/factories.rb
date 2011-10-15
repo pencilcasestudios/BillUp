@@ -46,14 +46,16 @@ end
 
 
 Factory.define :address do |f|
+  f.sequence(:country) { |n| "Country #{n}" }
+  f.sequence(:email) { |n| "email#{n}@example.com" }
   f.sequence(:label) { |n| "Label #{n}" }
+  f.sequence(:postal_code) { |n| "Postal Code #{n}" }
+  f.sequence(:province) { |n| "Province #{n}" }
   f.sequence(:street) { |n| "Street #{n}" }
   f.sequence(:town) { |n| "Town #{n}" }
-  f.sequence(:province) { |n| "Province #{n}" }
-  f.sequence(:country) { |n| "Country #{n}" }
-  f.sequence(:postal_code) { |n| "Postal Code #{n}" }
-  f.sequence(:fax) { |n| "Fax #{n}" }
-  f.sequence(:phone) { |n| "Phone #{n}" }
   f.sequence(:website) { |n| "http://website#{n}.example.com" }
-  f.sequence(:email) { |n| "email#{n}@example.com" }
+
+  f.cell_phone_number [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
+  f.fax [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
+  f.land_line_number [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
 end
