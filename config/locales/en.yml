@@ -110,6 +110,22 @@ en:
 
 
 
+# Models
+  models:
+    currency:
+      codes:
+        airtel_airtime_units: Airtel Airtime Units
+        cad: CAD
+        eur: EUR
+        gbp: GBP
+        mtn_airtime_units: MTN Airtime Units
+        usd: USD
+        zamtel_airtime_units: Zamtel Airtime Units
+        zmk: ZMK
+
+
+
+
 # Views
   views:
     application:

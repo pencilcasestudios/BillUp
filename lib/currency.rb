@@ -1,10 +1,10 @@
 class Currency < ActiveRecord::Base
   CODES = {
-    "ZMK" => "zmk",
-    "USD" => "usd",
-    "CAD" => "cad",
-    "Airtel Airtime Units" => "airtel_airtime_units",
-    "MTN Airtime Units" => "mtn_airtime_units",
-    "Zamtel Airtime Units" => "units_airtime_units",
+    # Translation                                                             # Database key
+    I18n.t("models.currency.codes.zmk")                =>                     "zmk",
+    I18n.t("models.currency.codes.usd")                =>                     "usd",
+    I18n.t("models.currency.codes.cad")                =>                     "cad",
+    I18n.t("models.currency.codes.gbp")                =>                     "gbp",
+    I18n.t("models.currency.codes.eur")                =>                     "eur",
   }
 end
