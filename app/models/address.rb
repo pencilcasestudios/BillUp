@@ -13,4 +13,24 @@ class Address < ActiveRecord::Base
   validates :website, :url_format => true, :allow_blank => true
 
   belongs_to :addressable, :polymorphic => true
+  
+  def formatted_address
+    [
+      self.addressable.name,
+      self.street,
+      self.town,
+      self.province,
+      self.country,
+      self.postal_code,
+      self.email,
+      self.cell_phone_number.present? ? "Mobile: #{self.cell_phone_number}" : nil,
+      self.fax_number.present? ? "Fax: #{self.fax_number}" : nil,
+      self.land_line_number.present? ? "Land line: #{self.land_line_number}" : nil,
+      self.website,
+    ].compact.collect(&:strip).join("\n").strip
+  end
+
+  def summary
+    [self.addressable.name, "(#{self.label})"].join(" ").strip
+  end
 end

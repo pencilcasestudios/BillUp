@@ -14,7 +14,7 @@
 <table>
 <% @invoices.each do |invoice| %>
   <tr>
-    <td><h3><%= link_to invoice.name, invoice %></h3></td>
+    <td><h3><%= link_to invoice.client.name, invoice %></h3></td>
   </tr>
 <% end %>
 </table>

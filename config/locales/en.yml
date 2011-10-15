@@ -123,7 +123,6 @@ en:
         zamtel_airtime_units: Zamtel Airtime Units
         zmk: ZMK
 
-  models:
     country:
       names:
         zambia: Zambia
@@ -260,7 +259,11 @@ en:
           button:
             submit: Create
       show:
-        title: "Invoice %{invoice_number}"
+        copy:
+          states:
+            invoice: Invoice
+            quote: Quote
+        title: "%{state} %{number}"
 
     organisations:
       _form:

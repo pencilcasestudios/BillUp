@@ -1,0 +1,17 @@
+<% title t("views.invoices.show.title", state: @invoice.state, number: @invoice.invoice_number) %>
+
+<h1>
+	<%= t("views.invoices.show.copy.states.#{@invoice.state}") %>
+	<%= @invoice.invoice_number %>
+</h1>
+
+<div class="row">
+	<div class="span8">
+		<h2><%= @invoice.to %></h2>
+		<p><%=simple_format @invoice.to_address %></p>
+	</div>
+	<div class="span8">
+		<h2><%= @invoice.from %></h2>
+		<p><%=simple_format @invoice.from_address %></p>
+	</div>
+</div>

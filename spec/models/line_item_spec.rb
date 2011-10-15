@@ -8,12 +8,6 @@ describe LineItem do
       line_item.errors[:description].should == ["can't be blank"]
     end
 
-    it "fails validation with no invoice_id" do
-      line_item = LineItem.new
-      line_item.should have(2).error_on(:invoice_id)
-      line_item.errors[:invoice_id].should == ["can't be blank", "is not a number"]
-    end
-
     it "quantity is 0 by default" do
       line_item = LineItem.new
       line_item.should have(0).error_on(:quantity)
@@ -46,12 +40,6 @@ describe LineItem do
   end
 
   describe "format" do
-    it "fails validation if invoice_id is not a number" do
-      line_item = LineItem.new(invoice_id: "Something that is not a number")
-      line_item.should have(1).error_on(:invoice_id)
-      line_item.errors[:invoice_id].should == ["is not a number"]
-    end
-
     it "fails validation if quantity is not a number" do
       line_item = LineItem.new(quantity: "Something that is not a number")
       line_item.should have(1).error_on(:quantity)
