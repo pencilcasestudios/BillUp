@@ -2,8 +2,9 @@
 
 <h1>
 	<%= t("views.invoices.show.copy.states.#{@invoice.state}") %>
-	<%= @invoice.invoice_number %>
+	<%= @invoice.invoice_number %><br />
 </h1>
+<p><small><%= @invoice.uuid %></small></p>
 
 <div class="row">
 	<div class="span8">

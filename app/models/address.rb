@@ -16,13 +16,13 @@ class Address < ActiveRecord::Base
   
   def formatted_address
     [
-      self.addressable.name,
-      self.street,
-      self.town,
-      self.province,
-      self.country,
-      self.postal_code,
-      self.email,
+      self.addressable.name.present? ? self.addressable.name : nil,
+      self.street.present? ? self.street : nil,
+      self.town.present? ? self.town : nil,
+      self.province.present? ? self.province : nil,
+      self.country.present? ? self.country : nil,
+      self.postal_code.present? ? self.postal_code : nil,
+      self.email.present? ? self.email : nil,
       self.cell_phone_number.present? ? "Mobile: #{self.cell_phone_number}" : nil,
       self.fax_number.present? ? "Fax: #{self.fax_number}" : nil,
       self.land_line_number.present? ? "Land line: #{self.land_line_number}" : nil,
