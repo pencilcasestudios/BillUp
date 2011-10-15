@@ -32,7 +32,7 @@
 	<div class="span2">
 		<fieldset class="control-group">
 			<%= f.label :currency, t("views.invoices._form.labels.currency"), class: "control-label" %>
-	    <div class="controls"><%= f.select :currency, { "ZMK" => "ZMK", "USD" => "USD", "CAD" => "CAD" }, { prompt: true }, { class: "span2" } %></div>
+	    <div class="controls"><%= f.select :currency, Currency::CODES, { prompt: true }, { class: "span2" } %></div>
 		</fieldset>
 	</div>
 
