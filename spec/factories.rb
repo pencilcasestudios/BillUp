@@ -31,15 +31,10 @@ end
 
 
 Factory.define :invoice do |f|
-  f.sequence(:from) { |n| "To #{n}" }
-  f.sequence(:from_address) { |n| "To address #{n}" }
-
-  f.sequence(:to) { |n| "To #{n}" }
-  f.sequence(:to_address) { |n| "To address #{n}" }
-
   f.sequence(:description) { |n| "Description #{n}" }
 
   f.uuid Time.now.strftime("%s")
+  f.state "invoice"
 end
 
 
