@@ -27,17 +27,17 @@ class Invoice < ActiveRecord::Base
   before_create :fill_in_addresses
 
   def line_item_units
-    line_items.group_by { |u| u.units }
+    line_items.group_by { |u| u.currency }
   end
 
   def totals
     totals = {}
-    self.line_item_units.each do |unit, line_items|
+    self.line_item_units.each do |currency, line_items|
       unit_total = 0.0
       for line_item in line_items do 
         unit_total = unit_total + line_item.total
       end
-      totals[unit] = unit_total
+      totals[currency] = unit_total
     end
     totals
   end

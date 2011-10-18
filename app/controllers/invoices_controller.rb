@@ -41,4 +41,19 @@ class InvoicesController < ApplicationController
       render :action => "new"
     end
   end
+
+  def edit
+    @invoice = @current_organisation.invoices.find_by_id(params[:id])
+  end
+
+  def update
+    @invoice = @current_organisation.invoices.find_by_id(params[:id])
+
+    if @invoice.update_attributes(params[:invoice])
+      flash[:success] = t('controllers.invoices_controller.actions.update.success', :state => @invoice.state)
+      redirect_to @invoice
+    else
+      render action: "edit"
+    end
+  end
 end

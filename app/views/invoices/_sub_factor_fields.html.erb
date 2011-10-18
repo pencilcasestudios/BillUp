@@ -1,8 +1,8 @@
-<div class="row fields">
+<div class="row">
 	<div class="span2">
 		<fieldset class="control-group">
 			<%= f.label :amount, t("views.invoices._form.labels.amount"), class: "control-label" %>
-	    <div class="controls"><%= f.text_field :amount, class: "span2" %></div>
+	    <div class="controls"><%= f.text_field :amount, class: "span1" %></div>
 			<p><small><%= f.link_to_remove t('views.invoices._form.links.remove_this_sub_item') %></small></p>
 		</fieldset>
 	</div>
@@ -10,7 +10,7 @@
 	<div class="span2">
 		<fieldset class="control-group">
 			<%= f.label :units, t("views.invoices._form.labels.units"), class: "control-label" %>
-	    <div class="controls"><%= f.text_field :units, class: "span2" %></div>
+	    <div class="controls"><%= f.text_field :units, class: "span1" %></div>
 		</fieldset>
 	</div>
 </div>

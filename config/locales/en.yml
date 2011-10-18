@@ -222,7 +222,7 @@ en:
           due_at: Due date
           from: From
           invoiced_at: Invoice date
-          invoice_number: Invoice number
+          invoice_number: Number
           notes: Notes
           quantity: Quantity
           state: Quote/Invoice
@@ -251,6 +251,14 @@ en:
         title: Invoices
         buttons:
           add_an_invoice: Add an Invoice
+        copy:
+          table_headings:
+            actions: Actions
+            due_at: Due Date
+            invoiced_at: Invoice Date
+            invoice_number: Number
+            to: Client
+            total: Total
       new:
         title: New invoice
         form:
