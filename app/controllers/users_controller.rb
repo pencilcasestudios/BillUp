@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      redirect_to(user_settings_path, :notice => t('controllers.users_controller.actions.update.success'))
+      redirect_to(account_settings_path, :notice => t('controllers.users_controller.actions.update.success'))
     else
       render :action => "edit"
     end

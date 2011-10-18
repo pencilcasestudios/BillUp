@@ -11,7 +11,7 @@ BillUp::Application.routes.draw do
   match "sign_up", :to => "users#new", :as => "sign_up"
   match "terms", :to => "welcome#terms", :as => "terms"
   match "tour", :to => "welcome#tour", :as => "tour"
-  match "user_settings", :to => "users#edit", :as => "user_settings"
+  match "account_settings", :to => "users#edit", :as => "account_settings"
 
 
 

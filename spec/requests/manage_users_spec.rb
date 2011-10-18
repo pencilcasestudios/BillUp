@@ -12,9 +12,9 @@ describe "User management" do
     end
 
     # users#show
-    describe "requesting /user_settings" do
+    describe "requesting /account_settings" do
       it "redirects to the sign up page" do
-        visit user_settings_path
+        visit account_settings_path
         page.should have_content(I18n.t('views.sessions.new.title'))  # As a result of the redirect to sign_up_path
       end
     end
@@ -42,52 +42,52 @@ describe "User management" do
     end
 
     # users#edit
-    describe "requesting /user_settings" do
+    describe "requesting /account_settings" do
       it "displays the user's settings" do
-        visit user_settings_path
-        page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to user_settings_path
+        visit account_settings_path
+        page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to account_settings_path
       end
 
       it "allows the user to edit their name" do
-        visit user_settings_path
-        page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to user_settings_path
+        visit account_settings_path
+        page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to account_settings_path
 
         updated_field = "#{Time.now.strftime("%s")} " + @current_user.name
         fill_in I18n.t('views.users.edit.form.label.name'), with: updated_field
 
         click_button I18n.t('views.users.edit.form.button.submit')
 
-        current_path.should eq(user_settings_path)
+        current_path.should eq(account_settings_path)
         
         page.should have_content(I18n.t('controllers.users_controller.actions.update.success'))
         find_field(I18n.t('views.users.edit.form.label.name')).value.should eq(updated_field)
       end
 
       it "allows the user to edit their email" do
-        visit user_settings_path
-        page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to user_settings_path
+        visit account_settings_path
+        page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to account_settings_path
 
         updated_field = "#{Time.now.strftime("%s")}" + @current_user.email
         fill_in I18n.t('views.users.edit.form.label.email'), with: updated_field
 
         click_button I18n.t('views.users.edit.form.button.submit')
 
-        current_path.should eq(user_settings_path)
+        current_path.should eq(account_settings_path)
         
         page.should have_content(I18n.t('controllers.users_controller.actions.update.success'))
         find_field(I18n.t('views.users.edit.form.label.email')).value.should eq(updated_field)
       end
 
       it "allows the user to edit their cell_phone_number" do
-        visit user_settings_path
-        page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to user_settings_path
+        visit account_settings_path
+        page.should have_content(I18n.t('views.users.edit.title'))  # As a result of the redirect to account_settings_path
 
         updated_field = [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
         fill_in I18n.t('views.users.edit.form.label.cell_phone_number'), with: updated_field
 
         click_button I18n.t('views.users.edit.form.button.submit')
 
-        current_path.should eq(user_settings_path)
+        current_path.should eq(account_settings_path)
         
         page.should have_content(I18n.t('controllers.users_controller.actions.update.success'))
         find_field(I18n.t('views.users.edit.form.label.cell_phone_number')).value.should eq(updated_field)

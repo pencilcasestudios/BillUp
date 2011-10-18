@@ -1,62 +1,7 @@
 <% title t("views.users.new.title") %>
 
-<h1><%= yield :title %></h1>
+<div class="page-header">
+	<h1><%= yield :title %></h1>
+</div>
 
-<div id="sign_up_form">
-	<%= form_for(@user, html: { class: "form-vertical" } ) do |f| %>
-		<fieldset class="control-group">
-			<div class="row">
-				<div class="span-one-third">
-					<fieldset class="control-group">
-						<legend><%= t("views.users.new.form.legend.personal_information") %></legend>
-				    <%= f.label :name, t("views.users.new.form.label.name"), class: "control-label" %>
-				    <div class="controls"><%= f.text_field :name, class: "xlarge" %></div>
-
-						<%= f.label :email, t("views.users.new.form.label.email"), class: "control-label" %>
-						<div class="controls"><%= f.text_field :email, class: "xlarge" %></div>
-
-						<%= f.label :cell_phone_number, t("views.users.new.form.label.cell_phone_number"), class: "control-label" %>
-						<div class="controls"><%= f.text_field :cell_phone_number, class: "xlarge" %></div>
-					</fieldset>
-				</div>
-
-				<div class="span-one-third">
-					<fieldset class="control-group">
-						<legend><%= t("views.users.new.form.legend.account_information") %></legend>
-						<%= f.label :username, t("views.users.new.form.label.username"), class: "control-label" %>
-						<div class="controls"><%= f.text_field :username, class: "xlarge" %></div>
-
-						<%= f.label :password, t("views.users.new.form.label.password"), class: "control-label" %>
-						<div class="controls"><%= f.password_field :password, class: "xlarge" %></div>
-
-						<%= f.label :password_confirmation, t("views.users.new.form.label.password_confirmation"), class: "control-label" %>
-						<div class="controls"><%= f.password_field :password_confirmation, class: "xlarge" %></div>
-					</fieldset>
-				</div>
-
-				<div class="span-one-third">
-					<fieldset class="control-group">
-						<legend><%= t("views.users.new.form.legend.localisation") %></legend>
-						<%= f.label :language, t("views.users.new.form.label.language"), class: "control-label" %>
-						<div class="controls"><%= f.select :language, { t("views.users.new.form.selector.language.english") => "eng" }, :prompt => true, class: "xlarge" %></div>
-
-						<%= f.label :time_zone, t("views.users.new.form.label.time_zone") %>
-						<div class="controls"><%= f.time_zone_select :time_zone, nil, :include_blank => false, :prompt =>true, class: "xlarge" %></div>
-					</fieldset>
-				</div>
-			</div>
-
-			<% if new_or_create_action? %>
-				<fieldset class="control-group">
-					<legend><%= t("views.users.new.form.legend.confirmation") %></legend>
-			    <%= f.label :terms_of_use, t("views.users.new.form.label.terms_of_use"), class: "control-label" %>
-			    <div class="controls"><%= f.check_box :terms_of_use %> <%= t("views.users.new.copy.accept_terms_of_use") %> <%= link_to t("views.users.new.copy.terms_of_use"), terms_path, class: "xlarge" %><%= t("views.application.copy.full_stop") %></div>
-				</fieldset>
-			<% end %>
-
-		  <div class="actions form-actions">
-		    <%= f.submit t("views.users.new.form.button.submit"), class: "btn large primary" %>
-		  </div>
-		</fieldset>
-	<% end %>
-</div><!-- /.sign_up_form -->
+<%= render 'form' %>

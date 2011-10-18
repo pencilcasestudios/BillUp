@@ -5,14 +5,14 @@
 </div>
 
 <div class="row">
-	<div class="span12">
+	<div class="span9">
 		<% if current_user.organisations.blank? %>
 		<%= render "user_has_no_organisations" %>
 		<% else %>
 		<%= render "user_has_organisations" %>
 		<% end %>
 	</div>
-	<div class="span4 sidebar">
+	<div class="span3 sidebar">
 		<p>
 			<%= link_to t('views.welcome.signed_in_home._sidebar.links.create_an_organisation'), new_organisation_path %><br />
 			<%= link_to t('views.welcome.signed_in_home._sidebar.links.purchase_units'), "purchase units" %><br />

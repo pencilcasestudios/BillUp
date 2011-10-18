@@ -187,7 +187,7 @@ en:
           switch_to: Switch to
           tour: Tour
           units_balance: "%{units} units"
-          user_settings: User settings
+          account_settings: Account settings
 
     clients:
       _form:
@@ -326,7 +326,7 @@ en:
             language:
               english: English
       edit:
-        title: User settings
+        title: Account settings
         form:
           label:
             name: Name
