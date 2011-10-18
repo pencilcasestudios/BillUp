@@ -1,6 +1,8 @@
 class Invoice < ActiveRecord::Base
   default_scope order("invoice_number DESC")
 
+  has_paper_trail
+
   belongs_to :organisation
   belongs_to :client
 
