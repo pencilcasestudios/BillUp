@@ -13,8 +13,8 @@ gem "rails", "3.1.1"
 gem "bcrypt-ruby", "~> 3.0.0"
 gem "jquery-rails"
 gem "nested_form", git: "git://github.com/ryanb/nested_form.git"
+gem "paper_trail", "~> 2"
 gem "settingslogic"
-
 
 
 
