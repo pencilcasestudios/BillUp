@@ -143,9 +143,9 @@ en:
             country: Select one e.g. <em>Zambia</em>
             postal_code: e.g. <em>P.O. Box 343</em> or <em>PBag 12</em>
             email: e.g. <em>mail@example.co.zm</em>
-            cell_phone_number: No spaces, just like you&rsquo;d enter it on your phone
-            land_line_number: No spaces, just like you&rsquo;d enter it on your phone
-            fax_number: No spaces, just like you&rsquo;d enter it on your phone
+            cell_phone_number: No spaces, just like you&rsquo;d dial it on your phone
+            land_line_number: No spaces, just like you&rsquo;d dial it on your phone
+            fax_number: No spaces, just like you&rsquo;d dial it on your phone
             website: With the <em>http://</em> e.g. <em>http://example.co.zm</em>
         labels:
           cell_phone_number: Cell phone number
@@ -166,8 +166,11 @@ en:
           remove_this_address: Remove this address
 
     application:
+      links:
+        edit: Edit        
       copy:
         blank_select_option: None
+        full_colon: ":"
         full_stop: .
         http: http://
       _navigation:
@@ -271,7 +274,23 @@ en:
           states:
             invoice: Invoice
             quote: Quote
+        labels:
+          dates: Dates
+          description: Description
+          due_at: Due date
+          from: From
+          invoiced_at: Invoice date
+          to: Attention
+          uuid: UUID
+          notes: Notes
         title: "%{state} %{number}"
+      table:
+        headings:
+          quantity: Quantity        
+          description: Description
+          sub_factors: Sub-Factors
+          unit_price: Unit price
+          total: Total
 
     organisations:
       _form:

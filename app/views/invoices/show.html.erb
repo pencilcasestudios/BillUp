@@ -1,18 +1,108 @@
 <% title t("views.invoices.show.title", state: @invoice.state, number: @invoice.invoice_number) %>
 
-<h1>
-	<%= t("views.invoices.show.copy.states.#{@invoice.state}") %>
-	<%= @invoice.invoice_number %><br />
-</h1>
-<p><small><%= @invoice.uuid %></small></p>
+<div id="invoice">
+	<div id="header">
+		<h1>
+			<%= t("views.invoices.show.copy.states.#{@invoice.state}") %>
+			<%= @invoice.invoice_number %><br />
+		</h1>
+		<p><small><%= t("views.invoices.show.labels.uuid") %><%= t("views.application.copy.full_colon") %> <%= @invoice.uuid %></small></p>
+	</div>
 
-<div class="row">
-	<div class="span6">
-		<h2><%= @invoice.to %></h2>
-		<p><%=simple_format @invoice.to_address %></p>
+	<div id="addresses">
+		<div class="row">
+			<div class="span4">
+				<h2>
+					<small><%= t("views.invoices.show.labels.to") %></small><br />
+					<%= @invoice.to %>
+				</h2>
+
+				<%=simple_format @invoice.to_address %>
+			</div>
+
+			<div class="span4 offset4">
+				<h2>
+					<small><%= t("views.invoices.show.labels.from") %></small><br />
+					<%= @invoice.from %>
+				</h2>
+
+				<%=simple_format @invoice.from_address %>
+			</div>
+		</div>
 	</div>
-	<div class="span6">
-		<h2><%= @invoice.from %></h2>
-		<p><%=simple_format @invoice.from_address %></p>
+	
+	<div id="dates">
+		<h2><small><%= t("views.invoices.show.labels.dates") %></small></h2>
+		<p>
+			<strong><%= t("views.invoices.show.labels.invoiced_at") %></strong><%= t("views.application.copy.full_colon") %> <%= @invoice.invoiced_at.strftime("%A, %m %B %Y") %><br />
+			<strong><%= t("views.invoices.show.labels.due_at") %></strong><%= t("views.application.copy.full_colon") %> <%= @invoice.due_at.strftime("%A, %m %B %Y") %><br />
+			<!-- TODO: PAID AT --><br />
+		</p>
 	</div>
+
+	<div id="description">
+		<h2><small><%= t("views.invoices.show.labels.description") %></small></h2>
+		<%=simple_format @invoice.description, class: "description" %>
+	</div>
+
+	<div id="line_items">
+		<table class="zebra-striped">
+			<thead>
+				<tr>
+					<th class="quantity"><%= t("views.invoices.table.headings.quantity") %></th>
+					<th class="description"><%= t("views.invoices.table.headings.description") %></th>
+					<th class="sub_factor"><%= t("views.invoices.table.headings.sub_factors") %></th>
+					<th class="cost"><%= t("views.invoices.table.headings.unit_price") %></th>
+					<th class="total"><%= t("views.invoices.table.headings.total") %></th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @invoice.line_item_units.each do |currency, line_items| %>
+				<% currency_total = 0.0 %>
+				<% for line_item in line_items do %>
+					<% currency_total = currency_total + line_item.total %>
+					<tr>
+						<td class="quantity"><%= line_item.quantity %></td>
+						<td class="description"><%=simple_format(line_item.description) %></td>
+						<td class="sub_factor">
+							<% line_item.sub_factors.each do |sub_factor| %>
+								<%= sub_factor.amount %>
+								<%= sub_factor.units %>
+							<% end %>
+						</td>
+						<td class="cost"><%= t("models.currency.codes.#{line_item.currency}") %><%= number_to_currency(line_item.unit_price, :unit => "") %></td>
+						<td class="total"><%= t("models.currency.codes.#{line_item.currency}") %><%= number_to_currency(line_item.total, :unit => "") %></td>
+					</tr>
+				<% end %>
+				<tr class="currency_total">
+					<td class="currency_total_units" colspan="4"><%= t("views.invoices.table.headings.total") %></td>
+					<td class="currency_total_total"><%= t("models.currency.codes.#{line_item.currency}") %><%= number_to_currency(currency_total, :unit => "") %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+		<!-- /Invoice Line Items -->
+	</div>
+
+	<% if @invoice.notes.present? %>
+		<div id="notes">
+			<div class="row">
+				<span class="span8 offset4">
+					<h2><small><%= t("views.invoices.show.labels.notes") %></small></h2>
+					<%=simple_format @invoice.notes, class: "notes" %>
+				</span>
+			</div>
+		</div>
+	<% end %>
+
+	<% if @invoice.terms.present? %>
+		<div id="terms">
+			<div class="row">
+				<span class="span8 offset4">
+					<h2><small><%= t("views.invoices.show.labels.terms") %></small></h2>
+					<%=simple_format @invoice.terms, class: "terms" %>
+				</span>
+			</div>
+		</div>
+	<% end %>
 </div>

@@ -1,3 +1,38 @@
-// Place all the styles related to the invoices controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#invoice {
+	padding-bottom: 3em;
+}
+
+#header {
+	border-bottom: 1px solid #eeeeee;	
+}
+
+#addresses {
+	margin-top: 3em;
+}
+
+#dates {
+	margin-top: 3em;
+}
+
+#line_items {
+	margin-top: 3em;
+}
+
+#description {
+	margin-top: 3em;
+}
+
+#description .description {
+	font-size: 1.5em;
+	line-height: 1.3em;
+}
+
+#notes {
+	text-align: right;
+	margin-top: 3em;
+}
+
+#terms {
+	text-align: right;
+	margin-top: 3em;
+}

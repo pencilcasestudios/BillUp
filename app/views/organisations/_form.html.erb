@@ -37,7 +37,7 @@
 		<fieldset class="control-group">
 			<legend><%= t("views.addresses._form.legends.address") %></legend>
 				<%= f.fields_for :addresses do |builder| %>
-					<%= render "address/address_fields", :f => builder %>
+					<%= render "addresses/address_fields", :f => builder %>
 				<% end %>
 			<p><small><%= f.link_to_add t("views.addresses._form.links.add_an_address"), :addresses %></small></p>
 		</fieldset>

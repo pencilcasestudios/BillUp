@@ -1,6 +1,8 @@
 class Address < ActiveRecord::Base
   default_scope order("label")
 
+  has_paper_trail
+
   validates :label, :presence => true#, :uniqueness => { scope: [addressable_id, addressable_type] }
   validates :street, :presence => true
   validates :town, :presence => true
@@ -16,7 +18,6 @@ class Address < ActiveRecord::Base
   
   def formatted_address
     [
-      self.addressable.name.present? ? self.addressable.name : nil,
       self.street.present? ? self.street : nil,
       self.town.present? ? self.town : nil,
       self.province.present? ? self.province : nil,

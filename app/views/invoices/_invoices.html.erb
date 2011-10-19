@@ -1,0 +1,36 @@
+<% if invoices.present? %>
+	<table class="zebra-striped">
+	  <thead>
+			<tr>
+			  <th class="invoice_number"><%= t("views.invoices.index.copy.table_headings.invoice_number") %></th>
+			  <th class="to"><%= t("views.invoices.index.copy.table_headings.to") %></th>
+			  <th class="total"><%= t("views.invoices.index.copy.table_headings.total") %></th>
+			  <th class="invoiced_at"><%= t("views.invoices.index.copy.table_headings.invoiced_at") %></th>
+			  <th class="due_at"><%= t("views.invoices.index.copy.table_headings.due_at") %></th>
+				<th class="actions"><%= t("views.invoices.index.copy.table_headings.actions") %></th>
+			</tr>
+		</thead>
+	  <tbody>
+			<% invoices.each do |invoice| %>
+		  <tr class="invoice">
+		    <td class="invoice_number"><%= invoice.invoice_number %></td>
+		    <td class="to"><%= invoice.to %></td>
+		    <td class="total">
+					<% totals = [] %>
+					<% invoice.totals.each do |currency, total| %>
+						<% totals << "#{t("models.currency.codes.#{currency}")}#{number_to_currency(total, :unit => "")}" %>
+					<% end %>
+					<%= totals.join(", ") %>
+				</td>
+		    <td class="invoiced_at"><%= invoice.invoiced_at.strftime("%a, %d %b %Y") %></td>
+		    <td class="due_at"><%= invoice.due_at.strftime("%a, %d %b %Y") %></td>
+		    <td class="actions">
+					<%= render "invoices/actions", invoice: invoice %>
+				</td>
+		  </tr>
+			<% end %>
+		</tbody>
+	</table>
+<% else %>
+	<%= render "invoices/no_invoices"%>
+<% end %>

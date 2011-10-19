@@ -1,4 +1,6 @@
 class LineItem < ActiveRecord::Base
+  has_paper_trail
+
   belongs_to :invoice
 
   validates :description, :presence => true
