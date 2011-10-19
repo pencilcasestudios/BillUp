@@ -75,8 +75,8 @@
 					</tr>
 				<% end %>
 				<tr class="currency_total">
-					<td class="currency_total_units" colspan="4"><%= t("views.invoices.table.headings.total") %></td>
-					<td class="currency_total_total"><%= t("models.currency.codes.#{line_item.currency}") %><%= number_to_currency(currency_total, :unit => "") %></td>
+					<td class="units" colspan="4"><strong><%= t("views.invoices.table.headings.total") %></strong></td>
+					<td class="total"><strong><%= t("models.currency.codes.#{line_item.currency}") %><%= number_to_currency(currency_total, :unit => "") %></strong></td>
 				</tr>
 			<% end %>
 			</tbody>
