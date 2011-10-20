@@ -275,7 +275,7 @@ en:
             invoice: Invoice
             quote: Quote
         labels:
-          dates: Dates
+          dates: Important dates
           description: Description
           due_at: Due date
           from: From
