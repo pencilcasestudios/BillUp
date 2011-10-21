@@ -139,7 +139,7 @@ en:
             label: A phrase to remember this address by<br /> e.g. <em>Livingston branch</em>
             street: e.g. <em>5 Kabulonga Road</em>
             town: e.g. <em>Lusaka</em>
-            province: e.g. <em>Luapula</em>
+            province: e.g. <em>Luapula Province</em>
             country: Select one e.g. <em>Zambia</em>
             postal_code: e.g. <em>P.O. Box 343</em> or <em>PBag 12</em>
             email: e.g. <em>mail@example.co.zm</em>
@@ -213,6 +213,11 @@ en:
           client_of: "A client of %{organisation_name}"
 
     invoices:
+      _actions:
+        links:
+          edit: Edit
+          pdf: Download PDF
+          view: View
       _form:
         fields:
           invoice: Invoice
@@ -250,6 +255,8 @@ en:
           add_a_sub_factor: Add a sub-factor
           remove_this_line_item: Remove
           remove_this_sub_item: Remove
+      create:
+        success: The new invoice was successfully created.
       index:
         title: Invoices
         buttons:
@@ -280,15 +287,16 @@ en:
           due_at: Due date
           from: From
           invoiced_at: Invoice date
+          notes: Notes
+          terms: Terms
           to: Attention
           uuid: UUID
-          notes: Notes
         title: "%{state} %{number}"
       table:
         headings:
-          quantity: Quantity        
+          quantity: Qty.        
           description: Description
-          sub_factors: Sub-Factors
+          sub_factors: Over
           unit_price: Unit price
           total: Total
 
