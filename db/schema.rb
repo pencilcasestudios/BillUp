@@ -88,8 +88,7 @@ ActiveRecord::Schema.define(:version => 20111021183807) do
 
   create_table "organisations", :force => true do |t|
     t.integer  "preferred_due_in_period", :default => 28
-    t.integer  "invoices_left",           :default => 0
-    t.integer  "receipts_left",           :default => 0
+    t.integer  "leaves_left",             :default => 0
     t.string   "name"
     t.string   "subdomain"
     t.text     "preferred_notes"

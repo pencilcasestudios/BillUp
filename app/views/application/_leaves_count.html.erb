@@ -1,0 +1,8 @@
+<ul class="nav">
+	<li id="tab_leaves_left" class="dropdown">
+		<a href="#" class="dropdown-toggle" data-dropdown="true"><%= t("views.application._navigation.copy.leaves_left", leaves_left: @current_organisation.leaves_left) %></a>
+		<ul class="dropdown-menu">
+			<li id="tab_purchase_leaves"><%= link_to t("views.application._navigation.links.purchase_leaves"), new_invoice_path %></li>
+		</ul>
+	</li>
+</ul>

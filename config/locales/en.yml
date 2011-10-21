@@ -209,8 +209,9 @@ en:
         full_stop: .
         http: http://
       _navigation:
-        body:
-          left: "(%{left} left)"
+        copy:
+          leaf_left: "%{leaves_left} leaf"
+          leaves_left: "%{leaves_left} leaves"
         links:
           clients: Clients
           create_an_invoice: New invoice

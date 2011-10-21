@@ -1,9 +1,6 @@
 <ul class="nav">
 	<li id="tab_receipts_dropdown" class="dropdown">
-		<a href="#" class="dropdown-toggle" data-dropdown="true">
-			<%= t("views.application._navigation.links.receipts") %>
-			<small><%= t("views.application._navigation.body.left", :left => @current_organisation.receipts_left) %></small>
-		</a>
+		<a href="#" class="dropdown-toggle" data-dropdown="true"><%= t("views.application._navigation.links.receipts") %></a>
 		<ul class="dropdown-menu">
 			<li id="tab_create_receipt"><%= link_to t("views.application._navigation.links.create_a_receipt"), "new_receipt_path" %></li>
 			<li class="divider"></li>

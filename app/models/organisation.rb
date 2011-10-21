@@ -3,10 +3,9 @@ class Organisation < ActiveRecord::Base
 
   has_paper_trail
 
-  validates :invoices_left, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :leaves_left, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :name, presence: true
   validates :preferred_due_in_period, presence: true, numericality: { greater_than: 0 }
-  validates :receipts_left, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :subdomain, presence: true, uniqueness: true, subdomain_format: true
 
   has_many :addresses, as: :addressable, dependent: :destroy
