@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111018174229) do
+ActiveRecord::Schema.define(:version => 20111021183807) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -97,6 +97,27 @@ ActiveRecord::Schema.define(:version => 20111018174229) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "receipts", :force => true do |t|
+    t.string   "from"
+    t.string   "from_address"
+    t.string   "to"
+    t.string   "to_address"
+    t.decimal  "amount"
+    t.string   "currency"
+    t.datetime "received_at"
+    t.text     "notes"
+    t.string   "payment_method"
+    t.integer  "client_id"
+    t.integer  "reconciliation_id"
+    t.integer  "organisation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "receipts", ["client_id"], :name => "index_receipts_on_client_id"
+  add_index "receipts", ["organisation_id"], :name => "index_receipts_on_organisation_id"
+  add_index "receipts", ["reconciliation_id"], :name => "index_receipts_on_reconciliation_id"
 
   create_table "sub_factors", :force => true do |t|
     t.decimal  "amount",       :precision => 12, :scale => 2, :default => 1.0
