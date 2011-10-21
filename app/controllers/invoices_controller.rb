@@ -16,7 +16,7 @@ class InvoicesController < ApplicationController
     # Ref: http://stackoverflow.com/questions/7211846/rails-nested-has-many-association-finding-all-children
 
     @invoice = Invoice.new
-    @invoice.due_at = Time.now + 4.weeks
+    @invoice.due_at = Time.now + @current_organisation.preferred_due_in_period.days
     @invoice.from = @current_organisation.name
     @invoice.from_address = @current_organisation.current_address
     @invoice.uuid = `uuidgen`.strip.downcase
