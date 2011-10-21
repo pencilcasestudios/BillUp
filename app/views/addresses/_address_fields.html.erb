@@ -45,16 +45,16 @@
 	  </div>
 		<div class="span4">
 			<fieldset class="control-group">
-		    <%= f.label :land_line_number, t("views.addresses._form.labels.land_line_number"), class: "control-label" %>
-		    <div class="controls">
-					<%= f.text_field :land_line_number %>
-					<p class="help-text"><%=raw t("views.addresses._form.copy.hints.land_line_number") %></p>
-				</div>
-
 		    <%= f.label :cell_phone_number, t("views.addresses._form.labels.cell_phone_number"), class: "control-label" %>
 		    <div class="controls">
 					<%= f.text_field :cell_phone_number %>
 					<p class="help-text"><%=raw t("views.addresses._form.copy.hints.cell_phone_number") %></p>
+				</div>
+
+		    <%= f.label :land_line_number, t("views.addresses._form.labels.land_line_number"), class: "control-label" %>
+		    <div class="controls">
+					<%= f.text_field :land_line_number %>
+					<p class="help-text"><%=raw t("views.addresses._form.copy.hints.land_line_number") %></p>
 				</div>
 
 		    <%= f.label :fax_number, t("views.addresses._form.labels.fax"), class: "control-label" %>

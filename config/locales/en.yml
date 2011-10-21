@@ -53,6 +53,28 @@ en:
           title:
           success:
 
+    invoices_controller:
+      actions:
+        index:
+          title:
+        show:
+          title:
+        new:
+          title:
+        edit:
+          title:
+        create:
+          error:
+          success: The invoice was successfully created.
+          title:
+        update:
+          error:
+          success:
+          title:
+        destroy:
+          title:
+          success:
+
     organisations_controller:
       actions:
         index:
@@ -217,6 +239,8 @@ en:
           add_a_client: Add a Client
       new:
         title: New client
+        hints:
+          clients: Create clients to keep track of who you are inovicing.<br />Make sure their address information is correct!
       show:
         title: "Client: %{client_name}"
         copy:
@@ -265,8 +289,6 @@ en:
           add_a_sub_factor: Add a sub-factor
           remove_this_line_item: Remove
           remove_this_sub_item: Remove
-      create:
-        success: The new invoice was successfully created.
       index:
         title: Invoices
         buttons:

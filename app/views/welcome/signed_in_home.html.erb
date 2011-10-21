@@ -3,7 +3,7 @@
 <div class="page-header">
 	<h1>
 		<%= yield :title %><br />
-		<small><%= t("views.welcome.signed_in_home.subtitle.s#{ rand 10 }") %></small>
+		<small><%= t("views.welcome.signed_in_home.subtitle.s#{ rand t("views.welcome.signed_in_home.subtitle").size }") %></small>
 	</h1>
 </div>
 
