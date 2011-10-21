@@ -32,7 +32,7 @@
 	
 		    <%= f.label :country, t("views.addresses._form.labels.country"), class: "control-label" %>
 		    <div class="controls">
-					<%= f.select :country, Country::NAME, { prompt: true } %>
+					<%= f.select :country, Country::NAMES, { prompt: true } %>
 					<p class="help-text"><%=raw t("views.addresses._form.copy.hints.country") %></p>
 				</div>
 	

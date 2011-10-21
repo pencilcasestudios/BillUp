@@ -39,7 +39,7 @@
 					<legend><%= t("views.invoices._form.legends.state") %></legend>
 					<%= f.label :state, t("views.invoices._form.labels.state") %>
 					<div class="controls">
-						<%= f.select :state, InvoiceState::NAME %>
+						<%= f.select :state, InvoiceState::STATES %>
 					</div>
 				</fieldset>
 			</div>
