@@ -1,7 +1,10 @@
-<% title t('views.welcome.signed_in_home.title') %>
+<% title t("views.welcome.signed_in_home.title") %>
 
 <div class="page-header">
-	<h1><%= yield :title %></h1>
+	<h1>
+		<%= yield :title %><br />
+		<small><%= t("views.welcome.signed_in_home.subtitle.s#{ rand 10 }") %></small>
+	</h1>
 </div>
 
 <div class="row">
@@ -14,8 +17,8 @@
 	</div>
 	<div class="span3 sidebar">
 		<p>
-			<%= link_to t('views.welcome.signed_in_home._sidebar.links.create_an_organisation'), new_organisation_path %><br />
-			<%= link_to t('views.welcome.signed_in_home._sidebar.links.purchase_units'), "purchase units" %><br />
+			<%= link_to t("views.welcome.signed_in_home._sidebar.links.create_an_organisation"), new_organisation_path %><br />
+			<%= link_to t("views.welcome.signed_in_home._sidebar.links.purchase_units"), "purchase units" %><br />
 		</p>
 	</div>
 </div>
