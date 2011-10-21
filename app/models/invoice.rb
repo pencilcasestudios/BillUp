@@ -44,6 +44,10 @@ class Invoice < ActiveRecord::Base
     totals
   end
 
+  def file_name
+    "#{I18n.t("views.invoices.show.copy.states.#{self.state}")} #{self.invoice_number} #{I18n.t("views.invoices.show.labels.to")} #{self.client.name}.pdf"
+  end
+
 private
 
   #def due_date_is_not_before_invoice_date

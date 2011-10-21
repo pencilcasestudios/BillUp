@@ -1,10 +1,11 @@
 class Organisation < ActiveRecord::Base
   default_scope order("name")
   
-  validates :name, :presence => true
-  validates :subdomain, :presence => true, :uniqueness => true, :subdomain_format => true
   validates :invoices_left, :presence => true, :numericality => true
+  validates :name, :presence => true
+  validates :preferred_due_in_period, :presence => true, :numericality => true
   validates :receipts_left, :presence => true, :numericality => true
+  validates :subdomain, :presence => true, :uniqueness => true, :subdomain_format => true
 
   has_many :addresses, :as => :addressable, :dependent => :destroy
   has_many :clients
