@@ -8,10 +8,10 @@ describe LineItem do
       line_item.errors[:description].should == ["can't be blank"]
     end
 
-    it "quantity is 0 by default" do
+    it "quantity is 1 by default" do
       line_item = LineItem.new
       line_item.should have(0).error_on(:quantity)
-      line_item.quantity.should eq(0)
+      line_item.quantity.should eq(1)
     end
 
     it "fails validation with no quantity" do

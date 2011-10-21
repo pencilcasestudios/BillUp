@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe SubFactor do
   describe "presence" do
-    it "amount is 0 by default" do
+    it "amount is 1 by default" do
       sub_factor = SubFactor.new
       sub_factor.should have(0).error_on(:amount)
-      sub_factor.amount.should eq(0)
+      sub_factor.amount.should eq(1)
     end
 
     it "fails validation with no amount" do

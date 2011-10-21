@@ -22,6 +22,18 @@ describe Organisation do
       organisation.errors[:invoices_left].should == ["can't be blank", "is not a number"]
     end
 
+    it "fails validation when preferred_due_in_period is nil" do
+      organisation = Organisation.new(preferred_due_in_period: nil)
+      organisation.should have(2).error_on(:preferred_due_in_period)
+      organisation.errors[:preferred_due_in_period].should == ["can't be blank", "is not a number"]
+    end
+
+    it "preferred_due_in_period is 28 by default" do
+      organisation = Organisation.new
+      organisation.should have(0).error_on(:preferred_due_in_period)
+      organisation.preferred_due_in_period.should eq(28)
+    end
+
     it "fails validation with no name" do
       organisation = Organisation.new
       organisation.should have(1).error_on(:name)
@@ -48,6 +60,14 @@ describe Organisation do
       duplicate = Organisation.new(subdomain: organisation.subdomain)
       duplicate.should have(1).error_on(:subdomain)
       duplicate.errors[:subdomain].should == ["has already been taken"]
+    end
+  end
+
+  describe "format" do
+    it "fails validation if preferred_due_in_period is not a number" do
+      organisation = Organisation.new(preferred_due_in_period: "Something that is not a number")
+      organisation.should have(1).error_on(:preferred_due_in_period)
+      organisation.errors[:preferred_due_in_period].should == ["is not a number"]
     end
   end
 end
