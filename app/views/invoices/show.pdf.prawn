@@ -7,7 +7,9 @@ prawn_document(page_size: "A4", page_layout: :landscape, filename: @invoice.file
   pdf.bounding_box([0,523], width: 198, height: 523) do
     #pdf.stroke_bounds
     pdf.text "#{t("views.invoices.show.copy.states.#{@invoice.state}")} #{ @invoice.invoice_number}", size: 18, style: :bold, align: :right
-    pdf.text "#{t("views.invoices.show.labels.uuid")}#{t("views.application.copy.full_colon")} #{@invoice.uuid}", align: :right
+
+    pdf.move_down(1) # Align with the description text
+    pdf.text "#{t("views.invoices.show.labels.uuid")}#{t("views.application.copy.full_colon")} #{@invoice.uuid}", size: 8, align: :right
 
     pdf.text "\n\n"
 

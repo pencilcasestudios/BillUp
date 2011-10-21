@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20111018174229) do
   create_table "clients", :force => true do |t|
     t.integer  "organisation_id"
     t.string   "name"
-    t.string   "preferred_password"
+    t.string   "invoice_password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

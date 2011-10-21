@@ -21,6 +21,8 @@ class InvoicesController < ApplicationController
     @invoice.from_address = @current_organisation.current_address
     @invoice.uuid = `uuidgen`.strip.downcase
     @invoice.line_items.build
+    @invoice.terms = @current_organisation.preferred_terms
+    @invoice.notes = @current_organisation.preferred_notes
     
     if @current_organisation.invoices.blank?
       @invoice.invoice_number = 1

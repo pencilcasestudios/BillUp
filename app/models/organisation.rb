@@ -3,7 +3,7 @@ class Organisation < ActiveRecord::Base
   
   validates :invoices_left, :presence => true, :numericality => true
   validates :name, :presence => true
-  validates :preferred_due_in_period, :presence => true, :numericality => true
+  validates :preferred_due_in_period, :presence => true, :numericality => { :greater_than => 0 }
   validates :receipts_left, :presence => true, :numericality => true
   validates :subdomain, :presence => true, :uniqueness => true, :subdomain_format => true
 

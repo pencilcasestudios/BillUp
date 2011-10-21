@@ -14,7 +14,7 @@
 
 	<fieldset class="control-group">
 		<fieldset class="control-group">
-			<legend><%= t("views.organisations._form.legend.organisation") %></legend>
+			<legend><%= t("views.organisations._form.legends.organisation") %></legend>
 			<div class="row">
 				<div class="span7">
 					<fieldset class="control-group">
@@ -31,6 +31,40 @@
 					</fieldset>
 				</div>
 			</div>
+		</fieldset>
+
+		<!-- Preferences -->
+		<fieldset class="control-group">
+			<legend><%= t("views.organisations._form.legends.preferences") %></legend>
+			<div class="row">
+				<div class="span4">
+					<fieldset class="control-group">
+				    <%= f.label :preferred_due_in_period, t("views.organisations._form.labels.preferred_due_in_period"), class: "control-label" %>
+				    <div class="controls">
+							<%= f.text_field :preferred_due_in_period, class: "span1" %> <%= t("views.organisations._form.copy.days") %>
+							<p class="help-text"><%=raw t("views.organisations._form.copy.hints.preferred_due_in_period") %></p>
+						</div>
+					</fieldset>
+				</div>
+				<div class="span4">
+					<fieldset class="control-group">
+				    <%= f.label :preferred_terms, t("views.organisations._form.labels.preferred_terms"), class: "control-label" %>
+				    <div class="controls">
+							<%= f.text_area :preferred_terms, class: "span3", rows: 5 %>
+							<p class="help-text"><%=raw t("views.organisations._form.copy.hints.preferred_terms") %></p>
+						</div>
+					</fieldset>
+				</div>
+				<div class="span4">
+					<fieldset class="control-group">
+				    <%= f.label :preferred_notes, t("views.organisations._form.labels.preferred_notes"), class: "control-label" %>
+				    <div class="controls">
+							<%= f.text_area :preferred_notes, class: "span3", rows: 5 %>
+							<p class="help-text"><%=raw t("views.organisations._form.copy.hints.preferred_notes") %></p>
+						</div>
+					</fieldset>
+				</div>
+			</div><!-- /.row -->
 		</fieldset>
 
 		<!-- Address -->

@@ -196,8 +196,10 @@ en:
       _form:
         copy:
           hints:
+            invoice_password: "If you provide a password, PDF invoices for this client will be encrypted with it."
             name: e.g. <em>Mushe Milling</em>
         labels:
+          invoice_password: Invoice password
           name: Name
         legends:
           client: Client
@@ -302,11 +304,21 @@ en:
 
     organisations:
       _form:
+        copy:
+          days: days
+          hints:
+            preferred_due_in_period: The preferred range of days for an invoice to be paid e.g. <em>28 days</em>
+            preferred_notes: "Notes included in an invoice e.g.<br /><em>A pleasure doing business with you!</em>"
+            preferred_terms: "Terms included in an invoice e.g.<br /><em>Njovu Bank, Account # 012345<br />A 10% penalty will be incurred on late payments.</em>"
         labels:
           name: Name
           subdomain: Subdomain
-        legend:
+          preferred_due_in_period: Invoices are due in
+          preferred_terms: Terms
+          preferred_notes: Notes
+        legends:
           organisation: Organisation
+          preferences: Invoice preferences
       _organisation_has_no_clients:
         copy:
           p1: "Before you can start sending invoices, please add the contact information of the <em>Client</em> you are invoicing. You&rsquo;ll need to do this for each of your Clients."

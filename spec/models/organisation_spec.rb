@@ -70,4 +70,13 @@ describe Organisation do
       organisation.errors[:preferred_due_in_period].should == ["is not a number"]
     end
   end
+
+  describe "range" do
+    it "fails validation if preferred_due_in_period is less than 0" do
+      organisation = Organisation.new(preferred_due_in_period: 0)
+      organisation.should have(1).error_on(:preferred_due_in_period)
+      organisation.errors[:preferred_due_in_period].should == ["must be greater than 0"]
+      organisation.preferred_due_in_period < 0
+    end
+  end
 end
