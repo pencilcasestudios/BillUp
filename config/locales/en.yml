@@ -196,13 +196,17 @@ en:
       _form:
         copy:
           hints:
-            invoice_password: "If you provide a password, PDF invoices for this client will be encrypted with it."
             name: e.g. <em>Mushe Milling</em>
+            pdf_password_hint: "A phrase to help you remember the PDF password."
+            pdf_password: "If you provide a password, PDFs generated for this client will be encrypted with it."
         labels:
           invoice_password: Invoice password
           name: Name
+          pdf_password: PDF encryption
+          pdf_password_hint: PDF password hint
         legends:
           client: Client
+          security: Security
       index:
         title: Clients
         buttons:

@@ -3,7 +3,8 @@ class CreateClients < ActiveRecord::Migration
     create_table :clients do |t|
       t.references :organisation
       t.string :name
-      t.string :invoice_password
+      t.string :pdf_password
+      t.string :pdf_password_hint
 
       t.timestamps
     end

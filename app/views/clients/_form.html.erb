@@ -16,10 +16,10 @@
 	   <%= f.hidden_field :organisation_id, :value => @current_organisation.id %>
 
 		<fieldset class="control-group">
-			<legend><%= t("views.clients._form.legends.client") %></legend>
 			<div class="row">
 				<div class="span8">
 					<fieldset class="control-group">
+						<legend><%= t("views.clients._form.legends.client") %></legend>
 				    <%= f.label :name, t("views.clients._form.labels.name"), class: "control-label" %>
 				    <div class="controls">
 							<%= f.text_field :name, class: "span6" %>
@@ -29,10 +29,16 @@
 				</div>
 				<div class="span4">
 					<fieldset class="control-group">
-				    <%= f.label :invoice_password, t("views.clients._form.labels.invoice_password"), class: "control-label" %>
+						<legend><%= t("views.clients._form.legends.security") %></legend>
+				    <%= f.label :pdf_password, t("views.clients._form.labels.pdf_password"), class: "control-label" %>
 				    <div class="controls">
-							<%= f.password_field :invoice_password, class: "span3" %>
-							<p class="help-text"><%=raw t("views.clients._form.copy.hints.invoice_password") %></p>
+							<%= f.password_field :pdf_password, value: @client.pdf_password, class: "span3" %>
+							<p class="help-text"><%=raw t("views.clients._form.copy.hints.pdf_password") %></p>
+						</div>
+				    <%= f.label :pdf_password_hint, t("views.clients._form.labels.pdf_password_hint"), class: "control-label" %>
+				    <div class="controls">
+							<%= f.text_field :pdf_password_hint, class: "span3" %>
+							<p class="help-text"><%=raw t("views.clients._form.copy.hints.pdf_password_hint") %></p>
 						</div>
 					</fieldset>
 				</div>

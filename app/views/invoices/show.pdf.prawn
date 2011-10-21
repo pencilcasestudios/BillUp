@@ -1,4 +1,8 @@
 prawn_document(page_size: "A4", page_layout: :landscape, filename: @invoice.file_name, force_download: true) do |pdf|
+  if @invoice.client.pdf_password.present?
+   pdf.encrypt_document user_password: @invoice.client.pdf_password, owner_password: :random
+  end
+
   pdf.font "Helvetica"
   pdf.font_size = 9
 
