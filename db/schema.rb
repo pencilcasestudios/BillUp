@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20111018174229) do
   create_table "clients", :force => true do |t|
     t.integer  "organisation_id"
     t.string   "name"
+    t.string   "preferred_password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20111018174229) do
   add_index "invoices", ["organisation_id"], :name => "index_invoices_on_organisation_id"
 
   create_table "line_items", :force => true do |t|
-    t.decimal  "quantity",    :precision => 12, :scale => 2, :default => 0.0
+    t.decimal  "quantity",    :precision => 12, :scale => 2, :default => 1.0
     t.decimal  "unit_price",  :precision => 12, :scale => 2, :default => 0.0
     t.integer  "invoice_id"
     t.string   "currency"
@@ -85,16 +86,19 @@ ActiveRecord::Schema.define(:version => 20111018174229) do
   add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
 
   create_table "organisations", :force => true do |t|
-    t.integer  "invoices_left", :default => 0
-    t.integer  "receipts_left", :default => 0
+    t.integer  "preferred_due_in_period", :default => 28
+    t.integer  "invoices_left",           :default => 0
+    t.integer  "receipts_left",           :default => 0
     t.string   "name"
     t.string   "subdomain"
+    t.text     "preferred_notes"
+    t.text     "preferred_terms"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sub_factors", :force => true do |t|
-    t.decimal  "amount",       :precision => 12, :scale => 2, :default => 0.0
+    t.decimal  "amount",       :precision => 12, :scale => 2, :default => 1.0
     t.integer  "line_item_id"
     t.string   "units"
     t.datetime "created_at"
