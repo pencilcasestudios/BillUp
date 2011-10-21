@@ -1,107 +1,111 @@
-prawn_document(page_size: "A4", page_layout: :landscape) do |pdf|
+prawn_document(page_size: "A4", page_layout: :landscape, filename: @invoice.file_name, force_download: true) do |pdf|
   pdf.font "Helvetica"
   pdf.font_size = 9
 
   #pdf.stroke_bounds
 
-  pdf.bounding_box([0,523], width: 210, height: 523) do
+  pdf.bounding_box([0,523], width: 198, height: 523) do
     #pdf.stroke_bounds
-    pdf.text "#{t("views.invoices.show.copy.states.#{@invoice.state}")} #{@invoice.invoice_number}", size: 18, style: :bold
-    pdf.text "#{t("views.invoices.show.labels.uuid")}#{t("views.application.copy.full_colon")} #{@invoice.uuid}"
-
-    pdf.text "\n"
-
-    pdf.text t("views.invoices.show.labels.to"), style: :bold
-    pdf.text @invoice.to
-    pdf.text @invoice.to_address
-
-    pdf.text "\n"
-
-    pdf.text t("views.invoices.show.labels.from"), style: :bold
-    pdf.text @invoice.from
-    pdf.text @invoice.from_address
+    pdf.text "#{t("views.invoices.show.copy.states.#{@invoice.state}")} #{ @invoice.invoice_number}", size: 18, style: :bold, align: :right
+    pdf.text "#{t("views.invoices.show.labels.uuid")}#{t("views.application.copy.full_colon")} #{@invoice.uuid}", align: :right
 
     pdf.text "\n\n"
 
-    pdf.text t("views.invoices.show.labels.dates"), style: :bold
-    pdf.text "#{t("views.invoices.show.labels.invoiced_at")}#{t("views.application.copy.full_colon")} #{@invoice.invoiced_at.strftime("%A, %m %B %Y")}"
-    pdf.text "#{t("views.invoices.show.labels.due_at")}#{t("views.application.copy.full_colon")} #{@invoice.due_at.strftime("%A, %m %B %Y")}"
-    # TODO: PAID AT
+    pdf.text t("views.invoices.show.labels.to"), style: :bold, align: :right
+    pdf.text @invoice.to, size: 16, align: :right
+    pdf.text @invoice.to_address, align: :right
+
+    pdf.text "\n"
+
+    pdf.text t("views.invoices.show.labels.from"), style: :bold, align: :right
+    pdf.text @invoice.from, size: 15, align: :right
+    pdf.text @invoice.from_address, align: :right
+
+    pdf.text "\n\n"
+
+    pdf.text t("views.invoices.show.labels.invoiced_at"), style: :bold, align: :right
+    pdf.text @invoice.invoiced_at.strftime("%A, %m %B %Y"), align: :right
+    
+    pdf.text "\n"
+
+    pdf.text t("views.invoices.show.labels.due_at"), style: :bold, align: :right
+    pdf.text @invoice.due_at.strftime("%A, %m %B %Y"), size: 16, align: :right
+
+    # TODO - Figure out how I'm going to do reconciliation for invoices
+    #if @invoice.paid_at.present?
+    #  pdf.text "#{t("views.invoices.show.labels.paid_at")}#{t("views.application.copy.full_colon")} #{@invoice.paid_at.strftime("%A, %m %B %Y")}"
+    #end
   end
   
-  pdf.bounding_box([220,523], width: 550, height: 50) do
+  pdf.bounding_box([220,523], width: 550, height: 75) do
     #pdf.stroke_bounds
     pdf.text t("views.invoices.show.labels.description"), size: 18, style: :bold
     pdf.text @invoice.description
   end
 
-  pdf.bounding_box([220,465], width: 550, height: 380) do
-    #invoiceinfo = [
-    #  ["Item Name", "#{@invoice.item_name}"],
-    #  ["Item Price", "#{@invoice.item_price}"],
-    #  ["Item Quantity", "#{@invoice.item_qty}"]
-    #]
-    #
-    #pdf.table invoiceinfo,
-    #:border_style => :grid,
-    #:font_size => 11,
-    #:position => :center,
-    #:column_widths => { 0 => 150, 1 => 250},
-    #:align => { 0 => :right, 1 => :left, 2 => :right, 3 => :left},
-    #:row_colors => ["eeeeee", "ffffff"]
+  pdf.bounding_box([220,440], width: 550, height: 355) do
+    pdf.stroke_color "cccccc"
+    pdf.stroke_bounds
+    table_data = [
+      [
+        t("views.invoices.table.headings.quantity"),
+        t("views.invoices.table.headings.description"),
+        t("views.invoices.table.headings.sub_factors"),
+        t("views.invoices.table.headings.unit_price"),
+        t("views.invoices.table.headings.total")
+      ]
+    ]
 
-    #pdf.stroke_bounds
-    #
-    #  	<div id="line_items">
-    #  		<table class="zebra-striped">
-    #  			<thead>
-    #  				<tr>
-    #  					<th class="quantity"><%= t("views.invoices.table.headings.quantity") %></th>
-    #  					<th class="description"><%= t("views.invoices.table.headings.description") %></th>
-    #  					<th class="sub_factor"><%= t("views.invoices.table.headings.sub_factors") %></th>
-    #  					<th class="cost"><%= t("views.invoices.table.headings.unit_price") %></th>
-    #  					<th class="total"><%= t("views.invoices.table.headings.total") %></th>
-    #  				</tr>
-    #  			</thead>
-    #  			<tbody>
-    #  			<% @invoice.line_item_units.each do |currency, line_items| %>
-    #  				<% currency_total = 0.0 %>
-    #  				<% for line_item in line_items do %>
-    #  					<% currency_total = currency_total + line_item.total %>
-    #  					<tr>
-    #  						<td class="quantity"><%= line_item.quantity %></td>
-    #  						<td class="description"><%=simple_format(line_item.description) %></td>
-    #  						<td class="sub_factor">
-    #  							<% line_item.sub_factors.each do |sub_factor| %>
-    #  								<%= sub_factor.amount %>
-    #  								<%= sub_factor.units %>
-    #  							<% end %>
-    #  						</td>
-    #  						<td class="cost"><%= t("models.currency.codes.#{line_item.currency}") %><%= number_to_currency(line_item.unit_price, :unit => "") %></td>
-    #  						<td class="total"><%= t("models.currency.codes.#{line_item.currency}") %><%= number_to_currency(line_item.total, :unit => "") %></td>
-    #  					</tr>
-    #  				<% end %>
-    #  				<tr class="currency_total">
-    #  					<td class="units" colspan="4"><strong><%= t("views.invoices.table.headings.total") %></strong></td>
-    #  					<td class="total"><strong><%= t("models.currency.codes.#{line_item.currency}") %><%= number_to_currency(currency_total, :unit => "") %></strong></td>
-    #  				</tr>
-    #  			<% end %>
-    #  			</tbody>
-    #  		</table>
-    #  		<!-- /Invoice Line Items -->
-    #  	</div>
+    totals = []
+    
+    @invoice.line_item_units.each do |currency, line_items|
+      currency_total = 0.0
+      for line_item in line_items do
+        currency_total = currency_total + line_item.total
+        sub_line_array = []
+        line_item.sub_factors.each do |sub_factor|
+          sub_line_array << "#{sub_factor.amount} #{sub_factor.units}"
+        end
+        sub_line = sub_line_array.join(",\n")
+        
+        line = [
+          line_item.quantity,
+          line_item.description,
+          sub_line,
+          "#{t("models.currency.codes.#{line_item.currency}")}#{number_to_currency(line_item.unit_price, :unit => "")}",
+          "#{t("models.currency.codes.#{line_item.currency}")}#{number_to_currency(line_item.total, :unit => "")}"
+        ]
+        table_data << line
+      end
+      totals << "#{t("views.invoices.table.headings.total")}#{t("views.application.copy.full_colon")} #{t("models.currency.codes.#{line_item.currency}")}#{number_to_currency(currency_total, :unit => "")}"
+     end
+     
+    pdf.table table_data,
+    column_widths: { 0 => 50, 1 => 210, 2 => 70, 3 => 110, 4 => 110 },
+    row_colors: ["efefef", "ffffff"]
+
+    pdf.move_down(10)
+    
+    totals.each do |total|
+      pdf.indent 5, 5 do
+        pdf.text total, size: 16, style: :bold, align: :right
+      end
+    end
   end
   
-  pdf.bounding_box([220,75], width: 550, height: 75) do
-    #pdf.stroke_bounds
-    if @invoice.notes.present?
-      pdf.text t("views.invoices.show.labels.notes"), style: :bold
-      pdf.text @invoice.notes
+  if @invoice.terms.present?
+    pdf.bounding_box([220,75], width: 271, height: 75) do
+      #pdf.stroke_bounds
+      pdf.text t("views.invoices.show.labels.terms"), style: :bold
+      pdf.text @invoice.terms, size: 8
     end
+  end
 
-    if @invoice.terms.present?
-      pdf.text t("views.invoices.show.labels.terms")
-      pdf.text @invoice.terms
+  if @invoice.notes.present?
+    pdf.bounding_box([499,75], width: 271, height: 75) do
+      #pdf.stroke_bounds
+      pdf.text t("views.invoices.show.labels.notes"), style: :bold
+      pdf.text @invoice.notes, size: 8
     end
   end
 end
