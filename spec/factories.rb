@@ -32,9 +32,14 @@ end
 
 Factory.define :invoice do |f|
   f.sequence(:description) { |n| "Description #{n}" }
+  f.sequence(:from) { |n| "From #{n}" }
+  f.sequence(:from_address) { |n| "From address #{n}" }
+  f.sequence(:invoice_number) { |n| n }
+  f.sequence(:to) { |n| "To #{n}" }
+  f.sequence(:to_address) { |n| "To address #{n}" }  
 
   f.uuid Time.now.strftime("%s")
-  f.state "invoice"
+  f.state InvoiceState::STATES[InvoiceState::STATES.to_a[rand InvoiceState::STATES.size].first]
 end
 
 
@@ -53,4 +58,22 @@ Factory.define :address do |f|
   f.cell_phone_number [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
   f.fax [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
   f.land_line_number [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
+end
+
+
+
+
+Factory.define :receipt do |f|
+  f.sequence(:amount) { |n| n }
+  f.sequence(:description) { |n| "Description #{n}" }
+  f.sequence(:from) { |n| "From #{n}" }
+  f.sequence(:from_address) { |n| "From address #{n}" }
+  f.sequence(:receipt_number) { |n| n }
+  f.sequence(:to) { |n| "To #{n}" }
+  f.sequence(:to_address) { |n| "To address #{n}" }  
+
+  f.currency Currency::CODES[Currency::CODES.to_a[rand Currency::CODES.size].first]
+  f.payment_method Payment::TYPES[Payment::TYPES.to_a[rand Payment::TYPES.size].first]
+  f.received_at Time.now
+  f.uuid Time.now.strftime("%s")
 end

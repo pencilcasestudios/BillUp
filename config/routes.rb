@@ -26,6 +26,7 @@ BillUp::Application.routes.draw do
   constraints :subdomain => /.+/ do
     resources :clients
     resources :invoices
+    resources :receipts
     root :to => 'organisations#show'
   end
 

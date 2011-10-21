@@ -99,18 +99,21 @@ ActiveRecord::Schema.define(:version => 20111021183807) do
   end
 
   create_table "receipts", :force => true do |t|
+    t.datetime "received_at"
+    t.decimal  "amount"
+    t.integer  "receipt_number"
+    t.integer  "client_id"
+    t.integer  "organisation_id"
+    t.integer  "reconciliation_id"
+    t.string   "currency"
     t.string   "from"
     t.string   "from_address"
+    t.string   "payment_method"
     t.string   "to"
     t.string   "to_address"
-    t.decimal  "amount"
-    t.string   "currency"
-    t.datetime "received_at"
+    t.string   "uuid"
+    t.text     "description"
     t.text     "notes"
-    t.string   "payment_method"
-    t.integer  "client_id"
-    t.integer  "reconciliation_id"
-    t.integer  "organisation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

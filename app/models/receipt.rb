@@ -8,7 +8,9 @@ class Receipt < ActiveRecord::Base
   validates :from, presence: true
   validates :from_address, presence: true
   validates :payment_method, presence: true
+  validates :receipt_number, presence: true, numericality: true, uniqueness: { scope: [:organisation_id] }
   validates :received_at, presence: true
   validates :to, presence: true
   validates :to_address, presence: true
+  validates :uuid, presence: true, uniqueness: true
 end

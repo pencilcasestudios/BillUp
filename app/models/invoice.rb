@@ -6,18 +6,18 @@ class Invoice < ActiveRecord::Base
   belongs_to :organisation
   belongs_to :client
 
-  validates :from, :presence => true, :on => :update
-  validates :from_address, :presence => true, :on => :update
-  validates :to, :presence => true, :on => :update
-  validates :to_address, :presence => true, :on => :update
+  validates :description, presence: true
+  validates :from, presence: true
+  validates :from_address, presence: true
+  validates :invoice_number, presence: true, uniqueness: { scope: [:organisation_id] }, numericality: { greater_than: 0 }
+  validates :state, presence: true
+  validates :to, presence: true
+  validates :to_address, presence: true
+  validates :uuid, presence: true, uniqueness: true
 
-  has_many :line_items, :dependent => :destroy
-  validates :description, :presence => true
-  validates :invoice_number, :uniqueness => { scope: [:organisation_id] }
-  validates :state, :presence => true
-  validates :uuid, :presence => true, :uniqueness => true
+  has_many :line_items, dependent: :destroy
 
-  accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => :all_blank
+  accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: :all_blank
 
   attr_accessor :to_address_id
   attr_accessor :from_address_id
@@ -25,7 +25,7 @@ class Invoice < ActiveRecord::Base
   
 
   # TODO - Implement this as a custom validation
-  #before_save :due_date_is_not_before_invoice_date, :message => "due date must be after invoice date."
+  #before_save :due_date_is_not_before_invoice_date, message: "due date must be after invoice date."
   before_create :fill_in_addresses
 
   def line_item_units
@@ -55,13 +55,15 @@ private
   #end
   
   def fill_in_addresses
-    to_address = Address.find_by_id(self.to_address_id)
-    from_address = Address.find_by_id(self.from_address_id)
+    if (to_address_id.present? && to_address_id.present?)
+      to_address = Address.find_by_id(self.to_address_id)
+      from_address = Address.find_by_id(self.from_address_id)
     
-    self.from = from_address.addressable.name
-    self.from_address = from_address.formatted_address
+      self.from = from_address.addressable.name
+      self.from_address = from_address.formatted_address
 
-    self.to = to_address.addressable.name
-    self.to_address = to_address.formatted_address
+      self.to = to_address.addressable.name
+      self.to_address = to_address.formatted_address
+    end
   end
 end

@@ -153,6 +153,15 @@ en:
       names:
         eng: English
 
+    payment:
+      types:
+        airtel_money: "Airtel Money"
+        bank_transfer: "Bank transfer"
+        cash: "Cash"
+        cheque: "Cheque"
+        debit_card: "Debit card"
+        mtn_money: "MTN Money"
+
 
 
 
