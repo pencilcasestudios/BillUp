@@ -36,7 +36,7 @@
 					<div class="controls"><%= f.select :language, Language::NAMES, { select: t("models.language.names.eng") } %></div>
 
 					<%= f.label :time_zone, t("views.users.new.form.label.time_zone") %>
-					<div class="controls"><%= f.time_zone_select :time_zone, nil, include_blank: false, prompt: true, default: "Africa/Lusaka" %></div>
+					<div class="controls"><%= f.time_zone_select :time_zone, nil, default: "Africa/Lusaka" %></div>
 				</fieldset>
 			</div>
 		</div>
