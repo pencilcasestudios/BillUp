@@ -1,41 +1,54 @@
 <%= form_for(@user, html: { class: "form-vertical" } ) do |f| %>
 	<fieldset class="control-group">
+
+	  <% if @user.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= t("views.users._form.errors.title") %></h2>
+
+	      <ul>
+	      <% @user.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
 		<div class="row">
 			<div class="span4">
 				<fieldset class="control-group">
-					<legend><%= t("views.users.new.form.legend.personal_information") %></legend>
-			    <%= f.label :name, t("views.users.new.form.label.name"), class: "control-label" %>
+					<legend><%= t("views.users._form.legend.personal_information") %></legend>
+			    <%= f.label :name, t("views.users._form.label.name"), class: "control-label" %>
 			    <div class="controls"><%= f.text_field :name %></div>
 
-					<%= f.label :email, t("views.users.new.form.label.email"), class: "control-label" %>
+					<%= f.label :email, t("views.users._form.label.email"), class: "control-label" %>
 					<div class="controls"><%= f.text_field :email %></div>
 
-					<%= f.label :cell_phone_number, t("views.users.new.form.label.cell_phone_number"), class: "control-label" %>
+					<%= f.label :cell_phone_number, t("views.users._form.label.cell_phone_number"), class: "control-label" %>
 					<div class="controls"><%= f.text_field :cell_phone_number %></div>
 				</fieldset>
 			</div>
 
 			<div class="span4">
 				<fieldset class="control-group">
-					<legend><%= t("views.users.new.form.legend.account_information") %></legend>
-					<%= f.label :username, t("views.users.new.form.label.username"), class: "control-label" %>
+					<legend><%= t("views.users._form.legend.account_information") %></legend>
+					<%= f.label :username, t("views.users._form.label.username"), class: "control-label" %>
 					<div class="controls"><%= f.text_field :username %></div>
 
-					<%= f.label :password, t("views.users.new.form.label.password"), class: "control-label" %>
+					<%= f.label :password, t("views.users._form.label.password"), class: "control-label" %>
 					<div class="controls"><%= f.password_field :password %></div>
 
-					<%= f.label :password_confirmation, t("views.users.new.form.label.password_confirmation"), class: "control-label" %>
+					<%= f.label :password_confirmation, t("views.users._form.label.password_confirmation"), class: "control-label" %>
 					<div class="controls"><%= f.password_field :password_confirmation %></div>
 				</fieldset>
 			</div>
 
 			<div class="span4">
 				<fieldset class="control-group">
-					<legend><%= t("views.users.new.form.legend.localisation") %></legend>
-					<%= f.label :language, t("views.users.new.form.label.language"), class: "control-label" %>
+					<legend><%= t("views.users._form.legend.localisation") %></legend>
+					<%= f.label :language, t("views.users._form.label.language"), class: "control-label" %>
 					<div class="controls"><%= f.select :language, Language::NAMES, { select: t("models.language.names.eng") } %></div>
 
-					<%= f.label :time_zone, t("views.users.new.form.label.time_zone") %>
+					<%= f.label :time_zone, t("views.users._form.label.time_zone") %>
 					<div class="controls"><%= f.time_zone_select :time_zone, nil, default: "Africa/Lusaka" %></div>
 				</fieldset>
 			</div>
@@ -43,9 +56,9 @@
 
 		<% if new_or_create_action? %>
 			<fieldset class="control-group">
-				<legend><%= t("views.users.new.form.legend.confirmation") %></legend>
-		    <%= f.label :terms_of_use, t("views.users.new.form.label.terms_of_use"), class: "control-label" %>
-		    <div class="controls"><%= f.check_box :terms_of_use %> <%= t("views.users.new.copy.accept_terms_of_use") %> <%= link_to t("views.users.new.copy.terms_of_use"), terms_path %><%= t("views.application.copy.full_stop") %></div>
+				<legend><%= t("views.users._form.legend.confirmation") %></legend>
+		    <%= f.label :terms_of_use, t("views.users._form.label.terms_of_use"), class: "control-label" %>
+		    <div class="controls"><%= f.check_box :terms_of_use %> <%= t("views.users._form.copy.accept_terms_of_use") %> <%= link_to t("views.users._form.copy.terms_of_use"), terms_path %><%= t("views.application.copy.full_stop") %></div>
 			</fieldset>
 		<% end %>
 

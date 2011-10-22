@@ -387,55 +387,30 @@ en:
             submit: Sign in
 
     users:
-      new:
+      _form:
+        label:
+          name: Name
+          email: Email
+          cell_phone_number: Cell phone number
+          username: Username
+          password: Password
+          password_confirmation: Password confirmation
+          language: Language
+          time_zone: Time zone
+          terms_of_use: Terms of use
+        legend:
+          account_information: Account information
+          contact_information: Contant information
+          localisation: Localisation
+          personal_information: Personal information
+          confirmation: Confirmation
         copy:
           accept_terms_of_use: I have read and accept the
           terms_of_use: terms of use
+      new:
         title: Sign up
-        form:
-          label:
-            name: Name
-            email: Email
-            cell_phone_number: Cell phone number
-            username: Username
-            password: Password
-            password_confirmation: Password confirmation
-            language: Language
-            time_zone: Time zone
-            terms_of_use: Terms of use
-          legend:
-            account_information: Account information
-            contact_information: Contant information
-            localisation: Localisation
-            personal_information: Personal information
-            confirmation: Confirmation
-          button:
-            submit: Sign up
-          selector:
-            language:
-              english: English
       edit:
         title: Account settings
-        form:
-          label:
-            name: Name
-            email: Email
-            cell_phone_number: Cell phone number
-            username: Username
-            password: Update password
-            password_confirmation: Password confirmation
-            language: Language
-            time_zone: Time zone
-          legend:
-            account_information: Account information
-            contact_information: Contant information
-            localisation: Location
-            name: Name
-          button:
-            submit: Save
-          selector:
-            language:
-              english: English
 
     welcome:
       index:
