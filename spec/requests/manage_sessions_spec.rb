@@ -101,6 +101,7 @@ describe "Session management" do
       visit sign_in_path
 
       click_button I18n.t('views.sessions.new.form.button.submit')
+      #click_button I18n.t('helpers.submit.create', :model => "Organisation")
 
       current_path.should eq(sessions_path)
       page.should have_content(I18n.t('controllers.sessions_controller.actions.create.error'))
