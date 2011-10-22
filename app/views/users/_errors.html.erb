@@ -1,0 +1,51 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation" class="alert-message block-message error">
+	  <a class="close" href="#">×</a>
+
+    <h2><%= t("views.users._form.errors.title") %></h2>
+
+    <ul>
+			<% if @user.errors[:name].present? %>
+				<% @user.errors[:name].each do |message| %>
+					<li><%= t("views.users._form.errors.fields.name") %> <%= message %></li>
+				<% end %>
+			<% end %>
+
+			<% if @user.errors[:email].present? %>
+				<% @user.errors[:email].each do |message| %>
+					<li><%= t("views.users._form.errors.fields.email") %> <%= message %></li>
+				<% end %>
+			<% end %>
+
+			<% if @user.errors[:cell_phone_number].present? %>
+				<% @user.errors[:cell_phone_number].each do |message| %>
+					<li><%= t("views.users._form.errors.fields.cell_phone_number") %> <%= message %></li>
+				<% end %>
+			<% end %>
+
+			<% if @user.errors[:username].present? %>
+				<% @user.errors[:username].each do |message| %>
+					<li><%= t("views.users._form.errors.fields.username") %> <%= message %></li>
+				<% end %>
+			<% end %>
+
+			<% if @user.errors[:password].present? %>
+				<% @user.errors[:password].each do |message| %>
+					<li><%= t("views.users._form.errors.fields.password") %> <%= message %></li>
+				<% end %>
+			<% end %>
+
+			<% if @user.errors[:password_digest].present? %>
+				<% @user.errors[:password_digest].each do |message| %>
+					<li><%= t("views.users._form.errors.fields.password_digest") %> <%= message %></li>
+				<% end %>
+			<% end %>
+
+			<% if @user.errors[:terms_of_use].present? %>
+				<% @user.errors[:terms_of_use].each do |message| %>
+					<li><%= t("views.users._form.errors.fields.terms_of_use") %> <%= message %></li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

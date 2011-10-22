@@ -388,7 +388,19 @@ en:
 
     users:
       _form:
-        label:
+        errors:
+          fields:
+            cell_phone_number: Cell phone number
+            email: Email
+            language: Language
+            name: Name
+            password: Password
+            password_digest: Password
+            terms_of_use: Terms of use
+            time_zone: Time zone
+            username: Username
+          title: Your account could not be created
+        labels:
           name: Name
           email: Email
           cell_phone_number: Cell phone number
@@ -398,7 +410,7 @@ en:
           language: Language
           time_zone: Time zone
           terms_of_use: Terms of use
-        legend:
+        legends:
           account_information: Account information
           contact_information: Contant information
           localisation: Localisation
