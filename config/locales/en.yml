@@ -235,6 +235,8 @@ en:
             name: e.g. <em>Mushe Milling</em>
             pdf_password_hint: "A phrase to help you remember the PDF password."
             pdf_password: "If you provide a password, PDFs generated for this client will be encrypted with it."
+        errors:
+          title: This client could not be created
         labels:
           invoice_password: Invoice password
           name: Name
@@ -399,7 +401,7 @@ en:
             terms_of_use: Terms of use
             time_zone: Time zone
             username: Username
-          title: Your account could not be created
+          title: This account could not be created
         labels:
           name: Name
           email: Email
