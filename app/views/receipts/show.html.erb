@@ -1,0 +1,77 @@
+<% title t("views.receipts.show.title", number: @receipt.receipt_number) %>
+
+<div id="receipt">
+	<div id="header">
+		<div class="row">
+			<div class="span10 headings">
+				<h1>
+					<%= t("views.receipts.show.copy.receipt") %>
+					<%= @receipt.receipt_number %><br />
+				</h1>
+				<p><small><%= t("views.receipts.show.labels.uuid") %><%= t("views.application.copy.full_colon") %> <%= @receipt.uuid %></small></p>
+			</div>
+			<div class="span2 actions">
+				<%= render "receipts/actions", receipt: @receipt %>
+			</div>
+		</div>
+
+	<div id="addresses">
+		<div class="row">
+			<div class="span4">
+				<h2>
+					<small><%= t("views.receipts.show.labels.from") %></small><br />
+					<%= @receipt.from %>
+				</h2>
+
+				<%=simple_format @receipt.from_address %>
+			</div>
+
+			<div class="span4 offset4">
+				<h2>
+					<small><%= t("views.receipts.show.labels.to") %></small><br />
+					<%= @receipt.to %>
+				</h2>
+
+				<%=simple_format @receipt.to_address %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div id="description" class="span8">
+			<h2><small><%= t("views.receipts.show.labels.description") %></small></h2>
+			<p class="description">
+				<%=raw t("views.receipts.show.copy.acknowledgement", organisation: @receipt.organisation.name) %>
+				<em><%= t("models.currency.codes.#{@receipt.currency}") %><%= number_to_currency(@receipt.amount, unit: "") %></em>
+				<%= t("views.receipts.show.copy.by") %>
+				<%= t("models.payment.types.#{@receipt.payment_method}") %>
+				<%= t("views.receipts.show.copy.from") %>
+				<strong><%= @receipt.client.name %></strong>
+				<%= t("views.receipts.show.copy.made_on") %>
+				<%= @receipt.received_at.strftime("%A, %d %B %Y") %><%= t("views.application.copy.full_stop") %>
+			</p>
+
+			<%=simple_format @receipt.description, class: "description" %>
+	
+			<br />
+
+			<h3 class="total_received">
+				<%= t("views.receipts.show.copy.total_received") %><%= t("views.application.copy.full_colon") %>
+				<%= t("models.currency.codes.#{@receipt.currency}") %><%= number_to_currency(@receipt.amount, unit: "") %>
+			</h3>
+	
+		</div>
+	</div>
+
+	<% if @receipt.notes.present? %>
+		<div id="notes">
+			<div class="row">
+				<span class="span8">
+					<h2><small><%= t("views.receipts.show.labels.notes") %></small></h2>
+					<%=simple_format @receipt.notes, class: "notes" %>
+				</span>
+			</div>
+		</div>
+	<% end %>
+</div>
+

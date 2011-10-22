@@ -78,6 +78,12 @@
 			</div>
 		</fieldset>
 
+		<fieldset class="control-group">
+			<legend><%= t("views.receipts._form.legends.notes") %></legend>
+			<%= f.label :notes, t("views.receipts._form.labels.notes") %>
+	    <div class="controls"><%= f.text_area :notes, class: "span5", rows: 3 %></div>
+		</fieldset>
+
 	  <div class="actions form-actions">
 	    <%= f.submit class: "btn large primary" %>
 	  </div>

@@ -1,3 +1,12 @@
-// Place all the styles related to the receipts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#receipt #description {
+	margin-top: 2em;
+}
+
+#receipt #description .description {
+	font-size: 1.5em;
+	line-height: 1.3em;
+}
+
+#receipt #notes {
+	margin-top: 2em;
+}

@@ -2,49 +2,49 @@
 	padding-bottom: 3em;
 }
 
-#header {
+#invoice #header {
 	border-bottom: 1px solid #eeeeee;	
 }
 
-#header .actions {
+#invoice #header .actions {
 	text-align: right;
 }
 
-#addresses {
+#invoice #addresses {
 	margin-top: 3em;
 }
 
-#dates {
+#invoice #dates {
 	margin-top: 3em;
 }
 
-#line_items {
+#invoice #line_items {
 	margin-top: 3em;
 }
 
-#description {
+#invoice #description {
 	margin-top: 3em;
 }
 
-#description .description {
+#invoice #description .description {
 	font-size: 1.5em;
 	line-height: 1.3em;
 }
 
-#notes {
+#invoice #notes {
 	text-align: right;
 	margin-top: 3em;
 }
 
-#terms {
+#invoice #terms {
 	text-align: right;
 	margin-top: 3em;
 }
 
-.quantity,
-.cost,
-.total,
-.currency_total .units,
-.currency_total .total {
+#invoice .quantity,
+#invoice .cost,
+#invoice .total,
+#invoice .currency_total .units,
+#invoice .currency_total .total {
 	text-align: right;
 }

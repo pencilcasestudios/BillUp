@@ -157,8 +157,8 @@ en:
       types:
         airtel_money: "Airtel Money"
         bank_transfer: "Bank transfer"
-        cash: "Cash"
-        cheque: "Cheque"
+        cash: "cash"
+        cheque: "cheque"
         debit_card: "Debit card"
         mtn_money: "MTN Money"
 
@@ -202,7 +202,7 @@ en:
 
     application:
       links:
-        edit: Edit        
+        edit: Edit
       copy:
         blank_select_option: None
         full_colon: ":"
@@ -342,7 +342,7 @@ en:
         title: "%{state} %{number}"
       table:
         headings:
-          quantity: Qty.        
+          quantity: Qty.
           description: Description
           sub_factors: Over
           unit_price: Unit price
@@ -370,7 +370,7 @@ en:
           p1: "Before you can start sending invoices, please add the contact information of the <em>Client</em> you are invoicing. You&rsquo;ll need to do this for each of your Clients."
         links:
           create_a_client: Create a client
-        title: Set up your clients        
+        title: Set up your clients
       edit:
         title: "Update %{organisation_name}"
       new:
@@ -380,7 +380,7 @@ en:
       show:
         links:
           organisation_settings: Organisation settings
-        title: "%{organisation_name}"        
+        title: "%{organisation_name}"
 
     sessions:
       new:
@@ -393,27 +393,48 @@ en:
             submit: Sign in
 
     receipts:
+      _actions:
+        links:
+          edit: Edit
+          pdf: Download PDF
+          view: View
       _errors:
       _form:
         labels:
-          description: Description
-          from: From
-          to: To            
-          uuid: UUID
-          receipt_number: Receipt number
           amount: Amount
           currency: Currency
-          payment_method: Paid by
-          received_at: Received on
-        legends:
+          description: Description
           from: From
-          to: To            
-          uuid: UUID
-          details: Payment details
+          notes: Notes
+          payment_method: Paid by
           receipt_number: Receipt number
+          received_at: Received on
+          to: To
+          uuid: UUID
+        legends:
+          details: Payment details
+          from: From
+          notes: Notes
+          receipt_number: Receipt number
+          to: To
+          uuid: UUID
       new:
         title: New receipt
-      
+      show:
+        copy:
+          acknowledgement: "<strong>%{organisation}</strong> acknowledges payment of"
+          by: by
+          from: from
+          made_on: made on
+          receipt: Receipt
+          total_received: Total received
+        labels:
+          description: Description
+          from: Attention
+          notes: Notes
+          to: From
+          uuid: UUID
+
     users:
       _errors:
         fields:
