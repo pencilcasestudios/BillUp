@@ -55,6 +55,11 @@ footer {
 	text-align: center;
 }
 
+.field_with_errors label {
+	color: #ff5e5d;
+	font-weight: bold;
+}
+
 .content {
 	min-height: 300px;
 }
