@@ -3,6 +3,10 @@ class ReceiptsController < ApplicationController
   before_filter :current_organisation
   before_filter :membership_required
 
+  def index
+    @receipts = @current_organisation.receipts
+  end
+
   def show
     @receipt = @current_organisation.receipts.find_by_id(params[:id])
   end
