@@ -1,0 +1,13 @@
+<% if receipt.errors.any? %>
+	<div id="error_explanation" class="alert-message block-message error">
+	  <a class="close" href="#">×</a>
+
+	  <h2><%= t("views.receipts._errors.title") %></h2>
+
+    <ul>
+    <% receipt.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

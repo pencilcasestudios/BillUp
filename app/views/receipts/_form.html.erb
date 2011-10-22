@@ -1,0 +1,10 @@
+<%= nested_form_for(@receipt, html: { class: "form-vertical" } ) do |f| %>
+	<fieldset class="control-group">
+
+		<%= render "errors", receipt: @receipt %>
+
+	  <div class="actions form-actions">
+	    <%= f.submit class: "btn large primary" %>
+	  </div>
+	</fieldset>
+<% end %>

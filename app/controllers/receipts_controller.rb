@@ -8,8 +8,6 @@ class ReceiptsController < ApplicationController
     # Ref: http://stackoverflow.com/questions/7211846/rails-nested-has-many-association-finding-all-children
 
     @receipt = Receipt.new
-    @receipt.from = @current_organisation.name
-    @receipt.from_address = @current_organisation.current_address
     @receipt.uuid = `uuidgen`.strip.downcase
     
     if @current_organisation.receipts.blank?

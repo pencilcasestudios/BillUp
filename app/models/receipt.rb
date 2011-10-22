@@ -1,4 +1,8 @@
 class Receipt < ActiveRecord::Base
+  default_scope order("receipt_number DESC")
+
+  has_paper_trail
+
   belongs_to :client
   belongs_to :reconciliation
   belongs_to :organisation

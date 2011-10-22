@@ -1,2 +1,7 @@
-<h1>Receipts#new</h1>
-<p>Find me in app/views/receipts/new.html.erb</p>
+<% title t("views.receipts.new.title") %>
+
+<div class="page-header">
+	<h1><%= yield :title %></h1>
+</div>
+
+<%= render 'form' %>

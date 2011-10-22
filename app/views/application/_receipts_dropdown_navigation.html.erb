@@ -2,9 +2,9 @@
 	<li id="tab_receipts_dropdown" class="dropdown">
 		<a href="#" class="dropdown-toggle" data-dropdown="true"><%= t("views.application._navigation.links.receipts") %></a>
 		<ul class="dropdown-menu">
-			<li id="tab_create_receipt"><%= link_to t("views.application._navigation.links.create_a_receipt"), "new_receipt_path" %></li>
+			<li id="tab_create_receipt"><%= link_to t("views.application._navigation.links.create_a_receipt"), new_receipt_path %></li>
 			<li class="divider"></li>
-			<li id="tab_receipts"><%= link_to t("views.application._navigation.links.receipts"), "new_receipt_path" %></li>
+			<li id="tab_receipts"><%= link_to t("views.application._navigation.links.receipts"), receipts_path %></li>
 		</ul>
 	</li>
 </ul>
