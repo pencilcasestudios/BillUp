@@ -213,20 +213,22 @@ en:
           leaf_left: "%{leaves_left} leaf"
           leaves_left: "%{leaves_left} leaves"
         links:
+          account_settings: Account settings
           clients: Clients
           create_an_invoice: New invoice
           create_an_organisation: New organisation
           create_a_client: New client
+          create_a_receipt: New receipt
           home: Home
           invoices: Invoices
           pricing: Pricing
+          receipts: Receipts
           sign_in: Sign in
           sign_out: Sign out
           sign_up: Sign up
           switch_to: Switch to
           tour: Tour
           units_balance: "%{units} units"
-          account_settings: Account settings
 
     clients:
       _errors:
