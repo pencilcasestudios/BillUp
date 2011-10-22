@@ -422,12 +422,9 @@ en:
         title: New receipt
       show:
         copy:
-          acknowledgement: "<strong>%{organisation}</strong> acknowledges payment of"
-          by: by
-          from: from
-          made_on: made on
+          acknowledgement: "%{organisation} acknowledges payment of %{amount} by %{payment_method} from %{client} made on %{payment_date}."
           receipt: Receipt
-          total_received: Total received
+          total_received: "Total received: %{amount}"
         labels:
           description: Description
           from: Attention
