@@ -1,17 +1,7 @@
 <%= nested_form_for(@invoice, html: { class: "form-vertical" } ) do |f| %>
 	<fieldset class="control-group">
 
-		<% if @invoice.errors.any? %>
-		  <div id="error_explanation">
-		    <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
-
-		    <ul>
-		    <% @invoice.errors.full_messages.each do |msg| %>
-		      <li><%= msg %></li>
-		    <% end %>
-		    </ul>
-		  </div>
-		<% end %>
+		<%= render "errors", invoice: @invoice %>
 
 		<% if new_or_create_action? %>
 		<div class="row">

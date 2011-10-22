@@ -1,11 +1,11 @@
-<% if client.errors.any? %>
+<% if invoice.errors.any? %>
 	<div id="error_explanation" class="alert-message block-message error">
 	  <a class="close" href="#">×</a>
 
-    <h2><%= t("views.clients._form.errors.title") %></h2>
+	  <h2><%= t("views.invoices._errors.title") %></h2>
 
     <ul>
-    <% client.errors.full_messages.each do |msg| %>
+    <% invoice.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>

@@ -264,6 +264,8 @@ en:
           edit: Edit
           pdf: Download PDF
           view: View
+      _errors:
+        title: This invoice could not be saved.
       _form:
         fields:
           invoice: Invoice
@@ -310,7 +312,7 @@ en:
             actions: Actions
             due_at: Due Date
             invoiced_at: Invoice Date
-            invoice_number: Number
+            invoice_number: "#"
             to: Client
             total: Total
       new:

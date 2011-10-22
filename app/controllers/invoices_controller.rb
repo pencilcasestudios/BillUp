@@ -34,7 +34,7 @@ class InvoicesController < ApplicationController
   def create
     @invoice = Invoice.new(params[:invoice])
     @invoice.organisation = @current_organisation
-    @invoice.client = Address.find_by_id(params[:invoice][:to_address_id]).addressable
+    @invoice.client = Address.find_by_id(params[:invoice][:to_address_id]).addressable if params[:invoice][:to_address_id].present?
 
     if @invoice.save
       flash[:success] = t('controllers.invoices_controller.actions.create.success', :state => @invoice.state)

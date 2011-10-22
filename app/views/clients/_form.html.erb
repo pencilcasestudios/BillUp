@@ -1,7 +1,7 @@
 <%= nested_form_for(@client, html: { class: "form-vertical" } ) do |f| %>
 	<fieldset class="control-group">
 
-		<%= render "errors", user: @client %>
+		<%= render "errors", client: @client %>
 
 	   <%= f.hidden_field :organisation_id, :value => @current_organisation.id %>
 
