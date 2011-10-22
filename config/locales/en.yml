@@ -392,6 +392,28 @@ en:
           button:
             submit: Sign in
 
+    receipts:
+      _errors:
+      _form:
+        labels:
+          description: Description
+          from: From
+          to: To            
+          uuid: UUID
+          receipt_number: Receipt number
+          amount: Amount
+          currency: Currency
+          payment_method: Paid by
+          received_at: Received on
+        legends:
+          from: From
+          to: To            
+          uuid: UUID
+          details: Payment details
+          receipt_number: Receipt number
+      new:
+        title: New receipt
+      
     users:
       _errors:
         fields:

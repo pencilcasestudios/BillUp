@@ -8,11 +8,14 @@ class Organisation < ActiveRecord::Base
   validates :preferred_due_in_period, presence: true, numericality: { greater_than: 0 }
   validates :subdomain, presence: true, uniqueness: true, subdomain_format: true
 
-  has_many :addresses, as: :addressable, dependent: :destroy
   has_many :clients
   has_many :invoices
-  has_many :members, through: :memberships, source: :user
   has_many :memberships
+  has_many :receipts
+
+  has_many :addresses, as: :addressable, dependent: :destroy
+
+  has_many :members, through: :memberships, source: :user
 
   accepts_nested_attributes_for :addresses, allow_destroy: true
 

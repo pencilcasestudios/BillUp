@@ -3,6 +3,81 @@
 
 		<%= render "errors", receipt: @receipt %>
 
+		<% if new_or_create_action? %>
+		<div class="row">
+			<div class="span6">
+				<fieldset class="control-group">
+					<legend><%= t("views.receipts._form.legends.from") %></legend>
+					<%= f.label :from_address_id, t("views.receipts._form.labels.from") %>
+					<div class="controls"><%= f.collection_select(:from_address_id, @current_organisation.clients.map(&:addresses).flatten, :id, :summary, { prompt: true }, { class: "span5" }) %></div>
+				</fieldset>
+			</div>
+			<div class="span6">
+				<fieldset class="control-group">
+					<legend><%= t("views.receipts._form.legends.to") %></legend>					
+					<%= f.label :to_address_id, t("views.receipts._form.labels.to") %>
+					<div class="controls"><%= f.collection_select(:to_address_id, @current_organisation.addresses, :id, :summary, {}, { class: "span5" }) %></div>
+				</fieldset>
+			</div>
+		</div>
+		<% else %>
+		<% end %>
+
+		<div class="row">
+			<div class="span4 offset4">
+				<fieldset class="control-group">
+					<legend><%= t("views.receipts._form.legends.uuid") %></legend>
+					<%= f.label :uuid, t("views.receipts._form.labels.uuid") %>
+			    <div class="controls"><%= f.text_field :uuid, class: "span3" %></div>
+				</fieldset>
+			</div>
+			<div class="span4">
+				<fieldset class="control-group">
+					<legend><%= t("views.receipts._form.legends.receipt_number") %></legend>
+					<%= f.label :receipt_number, t("views.receipts._form.labels.receipt_number") %>
+			    <div class="controls"><%= f.text_field :receipt_number, class: "span3" %></div>
+				</fieldset>
+			</div>
+		</div>
+
+
+		<fieldset>
+			<legend><%= t("views.receipts._form.legends.details") %></legend>
+			<div class="row">
+				<div class="span6">
+					<fieldset class="control-group">
+						<%= f.label :description, t("views.receipts._form.labels.description") %>
+				    <div class="controls"><%= f.text_area :description, class: "span5", rows: 10 %></div>
+					</fieldset>
+				</div>
+
+				<div class="span6">
+					<div class="row">
+						<div class="span3">
+							<fieldset class="control-group">
+								<%= f.label :amount, t("views.receipts._form.labels.amount"), class: "control-label" %>
+						    <div class="controls"><%= f.text_field :amount, class: "span2" %></div>
+							</fieldset>
+						</div>
+						<div class="span3">
+							<fieldset class="control-group">
+								<%= f.label :currency, t("views.receipts._form.labels.currency"), class: "control-label" %>
+						    <div class="controls"><%= f.select :currency, Currency::CODES, { prompt: true }, { class: "span2" } %></div>
+							</fieldset>
+						</div>				
+					</div>				
+					<fieldset class="control-group">
+						<%= f.label :payment_method, t("views.receipts._form.labels.payment_method"), class: "control-label" %>
+				    <div class="controls"><%= f.select :payment_method, Payment::TYPES, { prompt: true } %></div>
+					</fieldset>
+					<fieldset class="control-group">
+						<%= f.label :received_at, t("views.receipts._form.labels.received_at") %>
+				    <div class="controls"><%= f.date_select :received_at, {}, class: "span2" %></div>
+					</fieldset>
+				</div>
+			</div>
+		</fieldset>
+
 	  <div class="actions form-actions">
 	    <%= f.submit class: "btn large primary" %>
 	  </div>
