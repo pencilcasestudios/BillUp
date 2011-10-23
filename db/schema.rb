@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20111021183807) do
   create_table "invoices", :force => true do |t|
     t.datetime "due_at"
     t.datetime "invoiced_at"
+    t.datetime "paid_at"
     t.integer  "invoice_number"
     t.integer  "client_id"
     t.integer  "organisation_id"

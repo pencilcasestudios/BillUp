@@ -3,6 +3,7 @@ class CreateInvoices < ActiveRecord::Migration
     create_table :invoices do |t|
       t.datetime :due_at
       t.datetime :invoiced_at
+      t.datetime :paid_at
       t.integer :invoice_number
       t.references :client
       t.references :organisation
