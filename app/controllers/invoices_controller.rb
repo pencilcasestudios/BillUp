@@ -12,8 +12,14 @@ class InvoicesController < ApplicationController
   end
 
   def new
-    # The view finds all addresses associated to all the clients of this organisation:
-    # Ref: http://stackoverflow.com/questions/7211846/rails-nested-has-many-association-finding-all-children
+    @client = @current_organisation.clients.find_by_id(params[:client_id]) if params[:client_id]
+    if @client.present?
+      @client_addresses = @client.addresses
+    else
+      # Finds all addresses associated to all the clients of this organisation:
+      # Ref: http://stackoverflow.com/questions/7211846/rails-nested-has-many-association-finding-all-children
+      @client_addresses = @current_organisation.clients.map(&:addresses).flatten
+    end
 
     @invoice = Invoice.new
     @invoice.due_at = Time.now + @current_organisation.preferred_due_in_period.days
@@ -23,7 +29,7 @@ class InvoicesController < ApplicationController
     @invoice.line_items.build
     @invoice.terms = @current_organisation.preferred_terms
     @invoice.notes = @current_organisation.preferred_notes
-    
+
     if @current_organisation.invoices.blank?
       @invoice.invoice_number = 1
     else

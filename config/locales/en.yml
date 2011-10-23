@@ -247,6 +247,10 @@ en:
         legends:
           client: Client
           security: Security
+      clickables:
+        buttons:
+          edit_this_client: Edit this Client
+        links:
       index:
         title: Clients
         buttons:
@@ -263,12 +267,17 @@ en:
     invoices:
       _actions:
         links:
+          acknowledge: Acknowledge a payment
           edit: Edit
           pdf: Download PDF
+          reconcile: Reconile payments
           view: View
       _errors:
         title: This invoice could not be saved.
       _form:
+        copy:
+          hints:
+            to_address_id: "Select an address for %{client_name}."
         fields:
           invoice: Invoice
           quote: Quote
@@ -305,10 +314,13 @@ en:
           add_a_sub_factor: Add a sub-factor
           remove_this_line_item: Remove
           remove_this_sub_item: Remove
+      clickables:
+        links:
+          all_clients: Show all clients
       index:
         title: Invoices
         buttons:
-          add_an_invoice: Add an Invoice
+          add_an_invoice: Create an Invoice
         copy:
           table_headings:
             actions: Actions

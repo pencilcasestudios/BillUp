@@ -5,8 +5,9 @@
 		<%= @client.name %><br />
 		<small><%= t("views.clients.show.copy.client_of", organisation_name: @client.organisation.name ) %></small>
 	</h1>
-	<p><small><%= link_to t("views.application.links.edit"), edit_client_path(@client) %></small></p>
 </div>
+
+<%= render "actions_bar", client: @client %>
 
 <div class="row">
 	<div class="span9 content">
