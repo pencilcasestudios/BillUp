@@ -1,19 +1,15 @@
 <% title t("views.invoices.show.title", state: @invoice.state, number: @invoice.invoice_number) %>
 
 <div id="invoice">
+	<%= render "invoices/actions", invoice: @invoice %>
+
 	<div id="header">
-		<div class="row">
-			<div class="span10 headings">
-				<h1>
-					<%= t("views.invoices.show.copy.states.#{@invoice.state}") %>
-					<%= @invoice.invoice_number %><br />
-				</h1>
-				<p><small><%= t("views.invoices.show.labels.uuid") %><%= t("views.application.copy.full_colon") %> <%= @invoice.uuid %></small></p>
-			</div>
-			<div class="span2 actions">
-				<%= render "invoices/actions", invoice: @invoice %>
-			</div>
-		</div>
+		<h1>
+			<%= t("views.invoices.show.copy.states.#{@invoice.state}") %>
+			<%= @invoice.invoice_number %><br />
+		</h1>
+		<p><small><%= t("views.invoices.show.labels.uuid") %><%= t("views.application.copy.full_colon") %> <%= @invoice.uuid %></small></p>
+	</div>
 
 	<div id="addresses">
 		<div class="row">

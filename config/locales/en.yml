@@ -249,6 +249,7 @@ en:
           security: Security
       clickables:
         buttons:
+          add_an_invoice: Create an Invoice
           edit_this_client: Edit this Client
         links:
       index:
@@ -261,6 +262,9 @@ en:
           clients: Create clients to keep track of who you are inovicing.<br />Make sure their address information is correct!
       show:
         title: "Client: %{client_name}"
+        sub_titles:
+          addresses: Addresses
+          invoices: Invoices
         copy:
           client_of: "A client of %{organisation_name}"
 

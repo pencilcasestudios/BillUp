@@ -1,6 +1,8 @@
 <% title t("views.clients.edit.title") %>
 
 <div class="page-header">
+	<%= render "clients/actions", client: @client %>
+
 	<h1><%= yield :title %></h1>
 	<p><%=raw t("views.clients.edit.hints.clients") %></p>
 </div>

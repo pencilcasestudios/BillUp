@@ -1,19 +1,21 @@
 <% title t("views.clients.show.title", client_name: @client.name) %>
 
+
 <div class="page-header">
 	<h1>
 		<%= @client.name %><br />
 		<small><%= t("views.clients.show.copy.client_of", organisation_name: @client.organisation.name ) %></small>
 	</h1>
+	<%= render "actions_bar", client: @client %>
 </div>
-
-<%= render "actions_bar", client: @client %>
 
 <div class="row">
 	<div class="span9 content">
+		<h2><%= t("views.clients.show.sub_titles.invoices") %></h2>
 		<%= render "invoices/invoices", invoices: @client.invoices %>
 	</div>
 	<div class="span3 addresses">
+		<h2><%= t("views.clients.show.sub_titles.addresses") %></h2>
 		<%= render @client.addresses %>
 	</div>
 </div>

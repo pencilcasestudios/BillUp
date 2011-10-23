@@ -55,6 +55,11 @@ footer {
 	text-align: center;
 }
 
+.actions,
+.actions-bar {
+	text-align: right;
+}
+
 .field_with_errors label {
 	color: #ff5e5d;
 	font-weight: bold;
