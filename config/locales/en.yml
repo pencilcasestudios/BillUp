@@ -321,6 +321,8 @@ en:
       clickables:
         links:
           all_clients: Show all clients
+      edit:
+        title: "Edit %{state} %{number}"
       index:
         title: Invoices
         buttons:
