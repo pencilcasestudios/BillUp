@@ -259,7 +259,7 @@ en:
       new:
         title: New client
         hints:
-          clients: Create clients to keep track of who you are inovicing.<br />Make sure their address information is correct!
+          clients: Create clients to keep track of who you are inovicing.
       show:
         title: "Client: %{client_name}"
         sub_titles:
