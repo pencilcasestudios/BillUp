@@ -2,11 +2,11 @@
 	<table class="zebra-striped">
 	  <thead>
 			<tr>
-			  <th class="receipt_number"><%= t("views.receipts.index.copy.table_headings.receipt_number") %></th>
-			  <th class="to"><%= t("views.receipts.index.copy.table_headings.from") %></th>
-			  <th class="total"><%= t("views.receipts.index.copy.table_headings.total") %></th>
-			  <th class="received_at"><%= t("views.receipts.index.copy.table_headings.received_at") %></th>
-				<th class="actions"><%= t("views.receipts.index.copy.table_headings.actions") %></th>
+			  <th class="receipt_number"><%= t("views.receipts.table.headings.receipt_number") %></th>
+			  <th class="to"><%= t("views.receipts.table.headings.from") %></th>
+			  <th class="total"><%= t("views.receipts.table.headings.amount") %></th>
+			  <th class="received_at"><%= t("views.receipts.table.headings.received_at") %></th>
+				<th class="actions"><%= t("views.receipts.table.headings.actions") %></th>
 			</tr>
 		</thead>
 	  <tbody>
@@ -14,7 +14,7 @@
 		  <tr class="receipt">
 		    <td class="receipt_number"><%= receipt.receipt_number %></td>
 		    <td class="from"><%= receipt.from %></td>
-		    <td class="total"><%= t("models.currency.codes.#{receipt.currency}") %><%= number_to_currency(receipt.amount, :unit => "") %></td>
+		    <td class="amount"><%= t("models.currency.codes.#{receipt.currency}") %><%= number_to_currency(receipt.amount, :unit => "") %></td>
 		    <td class="received_at"><%= receipt.received_at.strftime("%a, %d %b %Y") %></td>
 		    <td class="actions">
 					<%= render "receipts/actions", receipt: receipt %>

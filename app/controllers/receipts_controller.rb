@@ -37,4 +37,19 @@ class ReceiptsController < ApplicationController
       render action: "new"
     end
   end
+
+  def edit
+    @receipt = @current_organisation.receipts.find_by_id(params[:id])
+  end
+
+  def update
+    @receipt = @current_organisation.receipts.find_by_id(params[:id])
+
+    if @receipt.update_attributes(params[:receipt])
+      flash[:success] = t('controllers.receipts_controller.actions.update.success')
+      redirect_to @receipt
+    else
+      render action: "edit"
+    end
+  end
 end

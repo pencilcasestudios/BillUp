@@ -1,7 +1,19 @@
-<p>
-	<small>
-	<%= link_to_unless_current t('views.receipts._actions.links.view'), receipt_path(receipt) %>
-	| <%= link_to_unless_current t('views.receipts._actions.links.pdf'), receipt_path(receipt, :format => 'pdf') %>
-	| <%= link_to_unless_current t('views.receipts._actions.links.edit'), edit_receipt_path(receipt) %>
-	</small>
-</p>
+<% if !edit_or_update_action? %>
+	<div class="actions">
+		<p>
+			<small>
+			<%= link_to_unless_current t('views.receipts._actions.links.view'), receipt_path(receipt) %>
+			| <%= link_to_unless_current t('views.receipts._actions.links.pdf'), receipt_path(receipt, :format => 'pdf') %>
+			| <%= link_to_unless_current t('views.receipts._actions.links.edit'), edit_receipt_path(receipt) %>
+			</small>
+		</p>
+	</div>
+<% else %>
+	<div class="actions">
+		<p>
+			<small>
+			<%= link_to_unless_current t("views.receipts.clickables.links.cancel"), receipt %>
+		</p>
+	</div>
+<% end %>
+

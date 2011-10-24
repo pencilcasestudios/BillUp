@@ -1,0 +1,8 @@
+<% title t("views.receipts.edit.title", number: @receipt.receipt_number) %>
+
+<div class="page-header">
+	<%= render "receipts/actions", receipt: @receipt %>
+	<h1><%= yield :title %></h1>
+</div>
+
+<%= render 'form' %>

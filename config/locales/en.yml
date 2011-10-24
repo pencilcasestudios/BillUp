@@ -97,6 +97,29 @@ en:
           title:
           success:
 
+    receipts_controller:
+      actions:
+        index:
+          title:
+        show:
+          title:
+        new:
+          error:
+          title:
+        edit:
+          title:
+        create:
+          error:
+          success: The receipt was successfully created.
+          title:
+        update:
+          error:
+          success: The receipt was successfully updated.
+          title:
+        destroy:
+          title:
+          success:
+
     sessions_controller:
       actions:
         create:
@@ -157,8 +180,8 @@ en:
       types:
         airtel_money: "Airtel Money"
         bank_transfer: "Bank transfer"
-        cash: "cash"
-        cheque: "cheque"
+        cash: "Cash"
+        cheque: "Cheque"
         debit_card: "Debit card"
         mtn_money: "MTN Money"
 
@@ -403,16 +426,6 @@ en:
           organisation_settings: Organisation settings
         title: "%{organisation_name}"
 
-    sessions:
-      new:
-        title: Sign in to your account
-        form:
-          label:
-            identifier: "Username, email or cell phone number"
-            password: Password
-          button:
-            submit: Sign in
-
     receipts:
       _actions:
         links:
@@ -425,12 +438,14 @@ en:
           amount: Amount
           currency: Currency
           description: Description
-          from: From
+          from: Payment fom your client
+          from_address: "Your client&rsquo;s address"
           notes: Notes
-          payment_method: Paid by
+          payment_method: Payment method
           receipt_number: Receipt number
           received_at: Received on
-          to: To
+          to: Your organisation
+          to_address: "Your organisation&rsquo;s address"
           uuid: UUID
         legends:
           details: Payment details
@@ -439,19 +454,48 @@ en:
           receipt_number: Receipt number
           to: To
           uuid: UUID
+      clickables:
+        buttons:
+          add_a_receipt: Create a Receipt
+        links:
+          cancel: Cancel
+      copy:
+        no_receipts: No receipts.
+      index:
+        title: Receipts
+      edit:
+        title: "Edit Receipt %{number}"
       new:
         title: New receipt
       show:
         copy:
           acknowledgement: "%{organisation} acknowledges payment of %{amount} by %{payment_method} from %{client} made on %{payment_date}."
           receipt: Receipt
-          total_received: "Total received: %{amount}"
+          total_received: "Total received: %{amount} only."
         labels:
           description: Description
           from: Attention
           notes: Notes
           to: From
           uuid: UUID
+        title: "Receipt %{number}"
+      table:
+        headings:
+          actions: Actions
+          amount: Amount
+          from: Client
+          receipt_number: "#"
+          received_at: Date
+
+    sessions:
+      new:
+        title: Sign in to your account
+        form:
+          label:
+            identifier: "Username, email or cell phone number"
+            password: Password
+          button:
+            submit: Sign in
 
     users:
       _errors:
