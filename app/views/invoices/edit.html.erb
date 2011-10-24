@@ -1,6 +1,8 @@
 <% title t("views.invoices.edit.title", state: @invoice.state, number: @invoice.invoice_number) %>
 
 <div class="page-header">
+	<%= render "invoices/actions", invoice: @invoice %>
+
 	<h1><%= yield :title %></h1>
 </div>
 

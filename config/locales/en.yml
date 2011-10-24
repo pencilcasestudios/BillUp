@@ -69,7 +69,7 @@ en:
           title:
         update:
           error:
-          success:
+          success: The invoice was successfully updated.
           title:
         destroy:
           title:
@@ -291,14 +291,16 @@ en:
           currency: Currency
           description: Description
           due_at: Due date
-          from: From
+          from: Your organisation
+          from_address: "Your organisation&rsquo;s address"
           invoiced_at: Invoice date
           invoice_number: Number
           notes: Notes
           quantity: Quantity
           state: Quote/Invoice
           terms: Terms
-          to: To
+          to: Your client
+          to_address: "Your client&rsquo;s address"
           units: Units
           unit_price: Unit price
           uuid: UUID
@@ -321,6 +323,7 @@ en:
       clickables:
         links:
           all_clients: Show all clients
+          cancel: Cancel
       edit:
         title: "Edit %{state} %{number}"
       index:
