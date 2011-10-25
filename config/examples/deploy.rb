@@ -48,7 +48,6 @@ require "rvm/capistrano"                                            # Load RVM's
 set :rvm_ruby_string, "ruby-1.9.2-p290@billup-rails.3.1.x"          # Select the gemset
 set :rvm_type, :user                                                # RVM install is in the deploying user's home directory
 
-require "bundler/capistrano"
 
 
 
