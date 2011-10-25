@@ -34,7 +34,7 @@
 # git push deployment deployment
 # $ cap deploy:setup
 # $ cap deploy:check
-# $ cap deploy:update - May require verifying the host key. Interestingly this is where issues usually come up.
+# $ cap deploy:update - May require verifying the host key.
 # $ cap deploy:migrate
 # $ cap deploy:start
 
