@@ -1,5 +1,7 @@
 # Deployment reference documentation:
 # https://github.com/capistrano/capistrano/wiki/2.x-From-The-Beginning
+# http://beginrescueend.com/integration/capistrano/
+# http://thoughtsincomputation.com/posts/deploying-in-harmony-capistrano-rvm-bundler-and-git
 
 # Basic steps to setup
 # ON THE SERVER
@@ -19,14 +21,20 @@
 # Create the remotes in the development repository
 # $ git remote add deployment silumesii@billup.net:/var/Repositories/Git/BillUp.git
 
+# Push to the repository on the server
+# $ git push deployment master
+# $ git push deployment deployment
+
+
 # ON THE DEVELOPMENT MACHINE
 # git push deployment deployment
 # $ cap deploy:setup
 # $ cap deploy:check
 # $ cap deploy:update - May require verifying the host key
 
-# Ref: http://beginrescueend.com/integration/capistrano/
-# http://thoughtsincomputation.com/posts/deploying-in-harmony-capistrano-rvm-bundler-and-git
+
+
+
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))              # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                                            # Load RVM's capistrano plugin.
 # Don't forget to create gemset on the server
