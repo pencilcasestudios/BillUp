@@ -50,9 +50,6 @@ set :rvm_type, :user                                                # RVM instal
 
 
 
-require "bundler/capistrano"
-
-
 
 depend :remote, :gem, "bundler", ">=1.0.21"
 depend :remote, :gem, "rake", ">=0.9.2.2"
