@@ -1,5 +1,10 @@
 # Deployment reference documentation:
+# https://github.com/capistrano/capistrano/wiki/2.x-From-The-Beginning
 
+# Basic steps
+# cap deploy:setup
+# cap deploy:check
+# cap deploy:update - May require verifying the host key
 
 # Ref: http://beginrescueend.com/integration/capistrano/
 # http://thoughtsincomputation.com/posts/deploying-in-harmony-capistrano-rvm-bundler-and-git
