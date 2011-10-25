@@ -2,6 +2,10 @@
 # https://github.com/capistrano/capistrano/wiki/2.x-From-The-Beginning
 # http://beginrescueend.com/integration/capistrano/
 # http://thoughtsincomputation.com/posts/deploying-in-harmony-capistrano-rvm-bundler-and-git
+# http://stackoverflow.com/questions/6472785/bundler-error-on-deployment
+
+
+
 
 # Basic steps to setup
 # ON THE SERVER
@@ -30,10 +34,13 @@
 # git push deployment deployment
 # $ cap deploy:setup
 # $ cap deploy:check
-# $ cap deploy:update - May require verifying the host key
+# $ cap deploy:update - May require verifying the host key. Interestingly this is where issues usually come up.
+# $ cap deploy:migrate
+# $ cap deploy:start
 
 
 
+set :bundle_without, [:darwin, :development, :test]
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))              # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                                            # Load RVM's capistrano plugin.
