@@ -4,6 +4,7 @@
 .sass-cache/
 config/config.yml
 config/database.yml
+config/deploy.rb
 db/*.sqlite3*
 log/*.log
 public/assets
