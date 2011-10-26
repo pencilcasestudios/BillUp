@@ -1,7 +1,7 @@
 <% title t("views.invoices.show.title", state: @invoice.state, number: @invoice.invoice_number) %>
 
 <div id="invoice">
-	<%= render "invoices/actions", invoice: @invoice %>
+	<%= render "invoices/buttons_and_links", invoice: @invoice %>
 
 	<div id="header">
 		<h1>
