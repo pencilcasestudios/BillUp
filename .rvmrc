@@ -1,2 +1,2 @@
-# Use this gemset if it exists. If it does not exist, create it
+# Use this gemset if it exists. If it does not exist, create it.
 rvm use ruby-1.9.2-p290@billup-rails.3.1.x --create
