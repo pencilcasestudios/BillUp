@@ -298,7 +298,7 @@ en:
           acknowledge: Acknowledge a payment
           edit: Edit
           pdf: Download PDF
-          reconcile: Reconile payments
+          reconcile: Reconcile payments
           view: View
       _errors:
         title: This invoice could not be saved.
