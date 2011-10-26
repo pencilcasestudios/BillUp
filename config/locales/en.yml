@@ -344,6 +344,9 @@ en:
           add_a_sub_factor: Add a sub-factor
           remove_this_line_item: Remove
           remove_this_sub_item: Remove
+      _no_invoices:
+        copy:
+          no_invoices: No invoices.
       clickables:
         links:
           all_clients: Show all clients
