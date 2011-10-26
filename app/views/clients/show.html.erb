@@ -6,7 +6,7 @@
 		<%= @client.name %><br />
 		<small><%= t("views.clients.show.copy.client_of", organisation_name: @client.organisation.name ) %></small>
 	</h1>
-	<%= render "actions_bar", client: @client %>
+	<%= render "buttons_and_links_bar", client: @client %>
 </div>
 
 <div class="row">
