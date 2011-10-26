@@ -213,7 +213,7 @@ en:
           fax: Fax
           label: Label
           land_line_number: Land line number
-          postal_code: P.O. Box/Private Bag
+          postal_code: P.O. Box/Private Bag/Postal Code
           province: Province
           street: Street
           town: City/Town
