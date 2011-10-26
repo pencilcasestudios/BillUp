@@ -276,6 +276,9 @@ en:
           add_an_invoice: Create an Invoice
           edit_this_client: Edit this Client
         links:
+          cancel: Cancel
+      edit:
+        title: "Edit client: %{client_name}"
       index:
         title: Clients
         buttons:

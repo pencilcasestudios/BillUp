@@ -5,7 +5,8 @@
 			<div class="controls">
 				<%= f.collection_select(:to_address_id, client_addresses, :id, :summary, { prompt: true }, { class: "span5" }) %><% if client.present? %>
 				<p class="help-text">
-					<%=raw t("views.invoices._form.copy.hints.to_address_id", client_name: client.name) %> <small><%= link_to t("views.invoices.clickables.links.all_clients"), new_invoice_path %><%= t("views.application.copy.full_stop") %></small>
+					<%=raw t("views.invoices._form.copy.hints.to_address_id", client_name: client.name) %>
+					<small><%= link_to t("views.invoices.clickables.links.all_clients"), new_invoice_path %><%= t("views.application.copy.full_stop") %></small>
 				</p><% end %>
 			</div>
 		</fieldset>

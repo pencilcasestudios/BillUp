@@ -1,10 +1,10 @@
-<% title t("views.clients.edit.title") %>
+<% title t("views.clients.edit.title", client_name: @client.name) %>
 
 <div class="page-header">
-	<%= render "clients/actions", client: @client %>
+	<%= render "clients/buttons_and_links", client: @client %>
 
 	<h1><%= yield :title %></h1>
-	<p><%=raw t("views.clients.edit.hints.clients") %></p>
+	<!-- <p><%=raw t("views.clients.edit.hints.clients") %></p> -->
 </div>
 
 <%= render 'form' %>
