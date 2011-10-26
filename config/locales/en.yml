@@ -293,13 +293,6 @@ en:
           client_of: "A client of %{organisation_name}"
 
     invoices:
-      _actions:
-        links:
-          acknowledge: Acknowledge a payment
-          edit: Edit
-          pdf: Download PDF
-          reconcile: Reconcile payments
-          view: View
       _errors:
         title: This invoice could not be saved.
       _form:
@@ -349,8 +342,14 @@ en:
           no_invoices: No invoices.
       clickables:
         links:
+          acknowledge: Acknowledge a payment
           all_clients: Show all clients
           cancel: Cancel
+          edit: Edit
+          new: New
+          pdf: Download PDF
+          reconcile: Reconcile payments
+          view: View
       edit:
         title: "Edit %{state} %{number}"
       index:

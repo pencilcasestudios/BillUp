@@ -2,13 +2,14 @@
 	<div class="buttons_and_links">
 		<p>
 			<small>
-			<%= link_to_unless_current t("views.invoices._actions.links.view"), invoice_path(invoice) %>
-			| <%= link_to_unless_current t("views.invoices._actions.links.pdf"), invoice_path(invoice, format: "pdf") %>
-			| <%= link_to_unless_current t("views.invoices._actions.links.edit"), edit_invoice_path(invoice) %>
+			<%= link_to_unless_current t("views.invoices.clickables.links.view"), invoice_path(invoice) %>
+			| <%= link_to_unless_current t("views.invoices.clickables.links.edit"), edit_invoice_path(invoice) %>
+			| <%= link_to t("views.invoices.clickables.links.new"), new_invoice_path(client_id: invoice.client.id) %>
+			| <%= link_to_unless_current t("views.invoices.clickables.links.pdf"), invoice_path(invoice, format: "pdf") %>
 			<% if invoice.paid_at.blank? %>
 			<br />
-			<%= link_to_unless_current t("views.invoices._actions.links.acknowledge"), "#" %>
-			| <%= link_to_unless_current t("views.invoices._actions.links.reconcile"), "#" %>
+			<%= link_to_unless_current t("views.invoices.clickables.links.acknowledge"), "#" %>
+			| <%= link_to_unless_current t("views.invoices.clickables.links.reconcile"), "#" %>
 			<% end %>
 			</small>
 		</p>
