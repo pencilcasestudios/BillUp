@@ -1,6 +1,7 @@
 defaults: &defaults
   http_basic_name: preview
   http_basic_password: future
+  test_user_password: password
   
 development:
   <<: *defaults
