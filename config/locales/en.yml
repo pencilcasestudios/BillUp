@@ -91,7 +91,7 @@ en:
           title:
         update:
           error:
-          success:
+          success: The organisation was successfully updated.
           title:
         destroy:
           title:
