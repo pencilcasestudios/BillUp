@@ -18,7 +18,7 @@
 		<%= f.fields_for :sub_factors do |builder| %>
 			<%= render "sub_factor_fields", :f => builder %>
 		<% end %>
-		<span class="actions"><%= f.link_to_add t("views.invoices._form.links.add_a_sub_factor"), :sub_factors %></span>
+		<span class="buttons-and-links"><%= f.link_to_add t("views.invoices._form.links.add_a_sub_factor"), :sub_factors %></span>
 	</div>
 	<!-- /Line Item Sub-Factors -->
 

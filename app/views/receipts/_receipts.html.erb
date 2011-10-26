@@ -6,7 +6,7 @@
 			  <th class="to"><%= t("views.receipts.table.headings.from") %></th>
 			  <th class="total"><%= t("views.receipts.table.headings.amount") %></th>
 			  <th class="received_at"><%= t("views.receipts.table.headings.received_at") %></th>
-				<th class="actions"><%= t("views.receipts.table.headings.actions") %></th>
+				<th class="buttons_and_links"><%= t("views.receipts.table.headings.actions") %></th>
 			</tr>
 		</thead>
 	  <tbody>
@@ -16,8 +16,8 @@
 		    <td class="from"><%= receipt.from %></td>
 		    <td class="amount"><%= t("models.currency.codes.#{receipt.currency}") %><%= number_to_currency(receipt.amount, :unit => "") %></td>
 		    <td class="received_at"><%= receipt.received_at.strftime("%a, %d %b %Y") %></td>
-		    <td class="actions">
-					<%= render "receipts/actions", receipt: receipt %>
+		    <td class="buttons_and_links">
+					<%= render "receipts/buttons_and_links", receipt: receipt %>
 				</td>
 		  </tr>
 			<% end %>

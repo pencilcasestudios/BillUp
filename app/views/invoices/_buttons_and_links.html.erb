@@ -1,5 +1,5 @@
 <% if !edit_or_update_action? %>
-	<div class="actions">
+	<div class="buttons_and_links">
 		<p>
 			<small>
 			<%= link_to_unless_current t("views.invoices._actions.links.view"), invoice_path(invoice) %>
@@ -14,7 +14,7 @@
 		</p>
 	</div>
 <% else %>
-	<div class="actions">
+	<div class="buttons_and_links">
 		<p>
 			<small>
 			<%= link_to_unless_current t("views.invoices.clickables.links.cancel"), invoice %>
