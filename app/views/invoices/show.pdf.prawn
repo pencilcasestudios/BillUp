@@ -30,16 +30,16 @@ prawn_document(page_size: "A4", page_layout: :landscape, filename: @invoice.file
     pdf.text "\n\n"
 
     pdf.text t("views.invoices.show.labels.invoiced_at"), style: :bold, align: :right
-    pdf.text @invoice.invoiced_at.strftime("%A, %m %B %Y"), align: :right
+    pdf.text @invoice.invoiced_at.strftime("%A, %d %B %Y"), align: :right
     
     pdf.text "\n"
 
     pdf.text t("views.invoices.show.labels.due_at"), style: :bold, align: :right
-    pdf.text @invoice.due_at.strftime("%A, %m %B %Y"), size: 16, align: :right
+    pdf.text @invoice.due_at.strftime("%A, %d %B %Y"), size: 16, align: :right
 
     # TODO - Figure out how I'm going to do reconciliation for invoices
     #if @invoice.paid_at.present?
-    #  pdf.text "#{t("views.invoices.show.labels.paid_at")}#{t("views.application.copy.full_colon")} #{@invoice.paid_at.strftime("%A, %m %B %Y")}"
+    #  pdf.text "#{t("views.invoices.show.labels.paid_at")}#{t("views.application.copy.full_colon")} #{@invoice.paid_at.strftime("%A, %d %B %Y")}"
     #end
   end
   

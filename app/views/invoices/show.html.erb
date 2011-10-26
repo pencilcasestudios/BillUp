@@ -36,8 +36,8 @@
 	<div id="dates">
 		<h2><small><%= t("views.invoices.show.labels.dates") %></small></h2>
 		<p>
-			<strong><%= t("views.invoices.show.labels.invoiced_at") %></strong><%= t("views.application.copy.full_colon") %> <%= @invoice.invoiced_at.strftime("%A, %m %B %Y") %><br />
-			<strong><%= t("views.invoices.show.labels.due_at") %></strong><%= t("views.application.copy.full_colon") %> <%= @invoice.due_at.strftime("%A, %m %B %Y") %><br />
+			<strong><%= t("views.invoices.show.labels.invoiced_at") %></strong><%= t("views.application.copy.full_colon") %> <%= @invoice.invoiced_at.strftime("%A, %d %B %Y") %><br />
+			<strong><%= t("views.invoices.show.labels.due_at") %></strong><%= t("views.application.copy.full_colon") %> <%= @invoice.due_at.strftime("%A, %d %B %Y") %><br />
 			<!-- TODO: PAID AT --><br />
 		</p>
 	</div>
