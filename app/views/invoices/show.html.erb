@@ -1,4 +1,4 @@
-<% title t("views.invoices.show.title", state: @invoice.state, number: @invoice.invoice_number) %>
+<% title t("views.invoices.show.title", state: @invoice.state.titleize, number: @invoice.invoice_number) %>
 
 <div id="invoice">
 	<%= render "invoices/buttons_and_links", invoice: @invoice %>
