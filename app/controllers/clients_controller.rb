@@ -26,7 +26,7 @@ class ClientsController < ApplicationController
 
     if @client.save
       flash[:success] = t('controllers.clients_controller.actions.create.success')
-      redirect_to clients_path
+      redirect_to @client
     else
       render action: "new"
     end
