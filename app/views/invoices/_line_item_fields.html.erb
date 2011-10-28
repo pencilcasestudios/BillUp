@@ -24,15 +24,15 @@
 
 	<div class="span1">
 		<fieldset class="control-group">
-			<%= f.label :unit_price, t("views.invoices._form.labels.unit_price"), class: "control-label" %>
-	    <div class="controls"><%= f.text_field :unit_price, class: "span1" %></div>
+			<%= f.label :currency, t("views.invoices._form.labels.currency"), class: "control-label" %>
+	    <div class="controls"><%= f.select :currency, Currency::CODES, { prompt: true }, { class: "span1" } %></div>
 		</fieldset>
 	</div>
 
 	<div class="span1">
 		<fieldset class="control-group">
-			<%= f.label :currency, t("views.invoices._form.labels.currency"), class: "control-label" %>
-	    <div class="controls"><%= f.select :currency, Currency::CODES, { prompt: true }, { class: "span1" } %></div>
+			<%= f.label :unit_price, t("views.invoices._form.labels.unit_price"), class: "control-label" %>
+	    <div class="controls"><%= f.text_field :unit_price, class: "span1" %></div>
 		</fieldset>
 	</div>
 
