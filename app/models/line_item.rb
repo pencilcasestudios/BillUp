@@ -9,7 +9,7 @@ class LineItem < ActiveRecord::Base
   validates :unit_price, :presence => true, :numericality => true
 
   has_many :sub_factors, :dependent => :destroy
-  accepts_nested_attributes_for :sub_factors, :allow_destroy => true, :reject_if => :all_blank
+  accepts_nested_attributes_for :sub_factors, :allow_destroy => true
 
   def total
     running_multiple = 1.0
