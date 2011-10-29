@@ -7,8 +7,7 @@
 			| <%= link_to t("views.invoices.clickables.links.new"), new_invoice_path(client_id: invoice.client.id) %>
 			| <%= link_to_unless_current t("views.invoices.clickables.links.pdf"), invoice_path(invoice, format: "pdf") %>
 			<% if invoice.paid_at.blank? %>
-			<br />
-			<%= link_to_unless_current t("views.invoices.clickables.links.acknowledge"), "#" %>
+			| <%= link_to_unless_current t("views.invoices.clickables.links.acknowledge"), "#" %>
 			| <%= link_to_unless_current t("views.invoices.clickables.links.reconcile"), "#" %>
 			<% end %>
 			</small>

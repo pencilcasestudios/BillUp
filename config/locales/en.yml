@@ -347,13 +347,13 @@ en:
           no_invoices: No invoices.
       clickables:
         links:
-          acknowledge: Acknowledge a payment
+          acknowledge: Acknowledgement
           all_clients: Show all clients
           cancel: Cancel
           edit: Edit
           new: New
-          pdf: Download PDF
-          reconcile: Reconcile payments
+          pdf: PDF
+          reconcile: Reconciliation
           view: View
       edit:
         title: "Edit %{state} %{number}"
