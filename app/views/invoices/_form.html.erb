@@ -13,18 +13,20 @@
 					</div>
 				</fieldset>
 			</div>
-			<div class="span4">
-				<fieldset class="control-group">
-					<legend><%= t("views.invoices._form.legends.uuid") %></legend>
-					<%= f.label :uuid, t("views.invoices._form.labels.uuid") %>
-			    <div class="controls"><%= f.text_field :uuid, class: "span3" %></div>
-				</fieldset>
-			</div>
+
 			<div class="span4">
 				<fieldset class="control-group">
 					<legend><%= t("views.invoices._form.legends.invoice_number") %></legend>
 					<%= f.label :invoice_number, t("views.invoices._form.labels.invoice_number") %>
 			    <div class="controls"><%= f.text_field :invoice_number, class: "span3" %></div>
+				</fieldset>
+			</div>
+
+			<div class="span4">
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.uuid") %></legend>
+					<%= f.label :uuid, t("views.invoices._form.labels.uuid") %>
+			    <div class="controls"><%= f.text_field :uuid, class: "span3" %></div>
 				</fieldset>
 			</div>
 		</div>

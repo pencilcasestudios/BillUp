@@ -316,21 +316,21 @@ en:
           from: Your organisation
           from_address: "Your organisation&rsquo;s address"
           invoiced_at: Invoice date
-          invoice_number: Number
+          invoice_number: Invoice/Quote number
           notes: Notes
           quantity: Quantity
-          state: Quote/Invoice
+          state: Invoice/Quote
           terms: Terms
           to: Your client
           to_address: "Your client&rsquo;s address"
           units: Units
           unit_price: Unit price
-          uuid: UUID
+          uuid: Unique identifier
         legends:
           dates: Dates
           description: Description
           from: From
-          invoice_number: Invoice number
+          invoice_number: Number
           line_items: Line items
           notes: Notes
           state: State
