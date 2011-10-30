@@ -25,7 +25,7 @@ class ClientsController < ApplicationController
     @client = Client.new(params[:client])
 
     if @client.save
-      flash[:success] = t('controllers.clients_controller.actions.create.success')
+      flash[:success] = t("controllers.clients_controller.actions.create.success")
       redirect_to @client
     else
       render action: "new"
@@ -36,7 +36,8 @@ class ClientsController < ApplicationController
     @client = @current_organisation.clients.find_by_id(params[:id])
 
     if @client.update_attributes(params[:client])
-      redirect_to @client, notice: 'Client was successfully updated.'
+      flash[:notice] = t("controllers.clients_controller.actions.update.success")
+      redirect_to @client
     else
       render action: "edit"
     end

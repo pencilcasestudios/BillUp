@@ -47,7 +47,7 @@ en:
           title:
         update:
           error:
-          success:
+          success: The client was successfully updated.
           title:
         destroy:
           title:
