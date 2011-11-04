@@ -10,20 +10,16 @@
 # Basic steps to setup
 # ON THE SERVER
 
-# Create the gemset:
-# $ rvm gemset create ruby-1.9.2-p290@billup-rails.3.1.x
-
-# Install rake and bundler
-# $ rvm use ruby-1.9.2-p290@billup-rails.3.1.x
+# Install rake and bundler in the application gemset
 # $ gem install bunder rake
 
 # Create the repository:
-# $ mkdir /var/Repositories/Git/BillUp.git
-# $ cd /var/Repositories/Git/BillUp.git
+# $ mkdir /var/Repositories/Git/#{application_name}.git
+# $ cd /var/Repositories/Git/#{application_name}.git
 # $ git init --bare
 
 # Create the remotes in the development repository
-# $ git remote add deployment silumesii@billup.net:/var/Repositories/Git/BillUp.git
+# $ git remote add deployment #{user}@#{server_name}:/var/Repositories/Git/#{application_name}.git
 
 # Push to the repository on the server
 # $ git push deployment master
@@ -40,12 +36,24 @@
 
 
 
+# Application-specific settings
+set :application_name, "BillUp"
+set :gemset_name, "billup-rails.3.1.x"
+set :ruby_version, "ruby-1.9.3-p0"
+set :server_name, "billup.net"
+set :user, "silumesii"
+
+set :rvm_gemset, "#{ruby_version}@#{gemset_name}"
+
+
+
+
 set :bundle_without, [:darwin, :development, :test]
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))              # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                                            # Load RVM's capistrano plugin.
 # Don't forget to create gemset on the server
-set :rvm_ruby_string, "ruby-1.9.2-p290@billup-rails.3.1.x"          # Select the gemset
+set :rvm_ruby_string, :rvm_gemset                                   # Select the gemset
 set :rvm_type, :user                                                # RVM install is in the deploying user's home directory
 
 
@@ -66,8 +74,7 @@ role :db,  application, :primary => true
 
 
 
-set :user, "silumesii"
-set :deploy_to, "/var/Apps/BillUp"
+set :deploy_to, "/var/Apps/#{application_name}"
 set :deploy_via, :remote_cache
 set :copy_cache, true
 set :use_sudo, false
@@ -77,7 +84,7 @@ set :use_sudo, false
 
 set :scm, :git
 # Don't forget to make this repo on the server
-set :repository, "silumesii@billup.net:/var/Repositories/Git/BillUp.git"
+set :repository, "#{user}@#{server_name}:/var/Repositories/Git/#{application_name}.git"
 # Don't forget to make this branch in the repository
 set :branch, "deployment"
 
