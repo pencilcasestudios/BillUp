@@ -43,7 +43,7 @@ set :ruby_version, "ruby-1.9.3-p0"
 set :server_name, "billup.net"
 set :user, "silumesii"
 
-set :rvm_gemset, "#{ruby_version}@#{gemset_name}"
+set :rvm_ruby_gemset, "#{ruby_version}@#{gemset_name}"
 
 
 
@@ -53,7 +53,7 @@ set :bundle_without, [:darwin, :development, :test]
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))              # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                                            # Load RVM's capistrano plugin.
 # Don't forget to create gemset on the server
-set :rvm_ruby_string, :rvm_gemset                                   # Select the gemset
+set :rvm_ruby_string, "#{rvm_ruby_gemset}"                          # Select the gemset
 set :rvm_type, :user                                                # RVM install is in the deploying user's home directory
 
 
