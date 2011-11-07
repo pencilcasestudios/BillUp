@@ -10,7 +10,7 @@
 				</h1>
 				<p><small><%= t("views.receipts.show.labels.uuid") %><%= t("views.application.copy.full_colon") %> <%= @receipt.uuid %></small></p>
 			</div>
-			<%= render "receipts/actions", receipt: @receipt %>
+			<%= render "receipts/buttons_and_links", receipt: @receipt %>
 		</div>
 
 	<div id="addresses">
