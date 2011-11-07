@@ -1,4 +1,5 @@
 <div class="buttons_and_links_bar well">
 	<%= link_to t("views.clients.clickables.buttons.add_an_invoice"), new_invoice_path(client_id: client.id), class:  "btn small" %>
+	<%= link_to t("views.clients.clickables.buttons.add_a_receipt"), new_receipt_path(client_id: client.id), class:  "btn small" %>
 	<%= link_to t("views.clients.clickables.buttons.edit_this_client"), edit_client_path(client), class:  "btn small" %>
 </div>

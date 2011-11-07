@@ -2,9 +2,10 @@
 	<div class="buttons_and_links">
 		<p>
 			<small>
-			<%= link_to_unless_current t('views.receipts._actions.links.view'), receipt_path(receipt) %>
-			| <%= link_to_unless_current t('views.receipts._actions.links.pdf'), receipt_path(receipt, :format => 'pdf') %>
-			| <%= link_to_unless_current t('views.receipts._actions.links.edit'), edit_receipt_path(receipt) %>
+			<%= link_to_unless_current t('views.receipts.clickables.links.view'), receipt_path(receipt) %>
+			| <%= link_to_unless_current t('views.receipts.clickables.links.edit'), edit_receipt_path(receipt) %>
+			| <%= link_to t("views.receipts.clickables.links.new"), new_receipt_path(client_id: receipt.client.id) %>
+			| <%= link_to_unless_current t('views.receipts.clickables.links.pdf'), receipt_path(receipt, :format => 'pdf') %>
 			</small>
 		</p>
 	</div>
@@ -12,7 +13,9 @@
 	<div class="buttons_and_links">
 		<p>
 			<small>
-			<%= link_to_unless_current t("views.receipts.clickables.links.cancel"), receipt %>
+			<%= link_to_unless_current t("views.receipts.clickables.links.view"), receipt %>
+			<%= link_to_unless_current t("views.receipts.clickables.links.client_receipts"), receipt.client %>
+			</small>
 		</p>
 	</div>
 <% end %>

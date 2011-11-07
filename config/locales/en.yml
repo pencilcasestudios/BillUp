@@ -276,6 +276,7 @@ en:
       clickables:
         buttons:
           add_an_invoice: Create an Invoice
+          add_a_receipt: Create a Receipt
           edit_this_client: Edit this Client
         links:
           cancel: Cancel
@@ -435,13 +436,11 @@ en:
         title: "%{organisation_name}"
 
     receipts:
-      _actions:
-        links:
-          edit: Edit
-          pdf: Download PDF
-          view: View
       _errors:
       _form:
+        copy:
+          hints:
+            to_address_id: "Select an address for %{client_name}."
         labels:
           amount: Amount
           currency: Currency
@@ -466,7 +465,11 @@ en:
         buttons:
           add_a_receipt: Create a Receipt
         links:
-          cancel: Cancel
+          all_clients: Show all clients
+          edit: Edit
+          new: New
+          pdf: PDF
+          view: View
       copy:
         no_receipts: No receipts.
       index:

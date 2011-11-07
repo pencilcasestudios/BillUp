@@ -21,9 +21,9 @@
 		</div>
 
 		<% if new_or_create_action? %>
-			<%= render 'form_fields_for_new', { f: f } %>
+			<%= render 'form_fields_for_new', { receipt: @receipt, client_addresses: @client_addresses, client: @client , current_organisation: @current_organisation, f: f } %>
 		<% else %>
-			<%= render 'form_fields_for_edit', { f: f } %>
+			<%= render 'form_fields_for_edit', { receipt: @receipt, f: f } %>
 		<% end %>
 
 		<fieldset>
