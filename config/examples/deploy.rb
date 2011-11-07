@@ -35,7 +35,8 @@
 
 
 
-# Application-specific settings
+# Customise these application-specific settings by updating config.yml used by Settingslogic
+require "app/models/app_config"
 set :application_name, AppConfig.application_name
 set :gemset_name, AppConfig.gemset_name
 set :ruby_version, AppConfig.ruby_version
