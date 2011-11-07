@@ -440,7 +440,7 @@ en:
       _form:
         copy:
           hints:
-            to_address_id: "Select an address for %{client_name}."
+            from_address_id: "Select an address for %{client_name}."
         labels:
           amount: Amount
           currency: Currency

@@ -40,6 +40,14 @@ class ReceiptsController < ApplicationController
       flash[:success] = t("controllers.receipts_controller.actions.create.success")
       redirect_to @receipt
     else
+      # Reset @client_addresses so that validation errors can be presented correctly
+      if @client.present?
+        @client_addresses = @client.addresses
+      else
+        # Finds all addresses associated to all the clients of this organisation:
+        # Ref: http://stackoverflow.com/questions/7211846/rails-nested-has-many-association-finding-all-children
+        @client_addresses = @current_organisation.clients.map(&:addresses).flatten
+      end
       render action: "new"
     end
   end

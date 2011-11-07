@@ -2,12 +2,12 @@
 	<div class="span6">
 		<fieldset class="control-group">
 			<legend><%= t("views.receipts._form.legends.from") %></legend>
-			<%= f.label :to_address_id, t("views.receipts._form.labels.from") %>
+			<%= f.label :from_address_id, t("views.receipts._form.labels.from") %>
 			<div class="controls">
-				<%= f.collection_select(:to_address_id, client_addresses, :id, :summary, { prompt: true }, { class: "span5" }) %>
+				<%= f.collection_select(:from_address_id, client_addresses, :id, :summary, { prompt: true }, { class: "span5" }) %>
 				<% if client.present? %>
 					<p class="help-text">
-						<%=raw t("views.receipts._form.copy.hints.to_address_id", client_name: client.name) %>
+						<%=raw t("views.receipts._form.copy.hints.from_address_id", client_name: client.name) %>
 						<small>
 							<%= link_to t("views.receipts.clickables.links.all_clients"), new_receipt_path %><%= t("views.application.copy.full_stop") %>
 						</small>
@@ -19,9 +19,9 @@
 	<div class="span6">
 		<fieldset class="control-group">
 			<legend><%= t("views.receipts._form.legends.to") %></legend>
-			<%= f.label :from_address_id, t("views.receipts._form.labels.to") %>
+			<%= f.label :to_address_id, t("views.receipts._form.labels.to") %>
 			<div class="controls">
-				<%= f.collection_select(:from_address_id, current_organisation.addresses, :id, :summary, {}, { class: "span5" }) %>
+				<%= f.collection_select(:to_address_id, current_organisation.addresses, :id, :summary, {}, { class: "span5" }) %>
 			</div>
 		</fieldset>
 	</div>
