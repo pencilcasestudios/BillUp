@@ -2,6 +2,14 @@ defaults: &defaults
   http_basic_name: preview
   http_basic_password: future
   test_user_password: password
+
+  # Deployment recipe
+  # Application-specific settings
+  application_name: "BillUp"
+  gemset_name: "billup-rails.3.1.x"
+  ruby_version: "ruby-1.9.3-p0"
+  server_name: "billup.net"
+  user: "silumesii"
   
 development:
   <<: *defaults

@@ -36,11 +36,11 @@
 
 
 # Application-specific settings
-set :application_name, "BillUp"
-set :gemset_name, "billup-rails.3.1.x"
-set :ruby_version, "ruby-1.9.3-p0"
-set :server_name, "billup.net"
-set :user, "silumesii"
+set :application_name, AppConfig.application_name
+set :gemset_name, AppConfig.gemset_name
+set :ruby_version, AppConfig.ruby_version
+set :server_name, AppConfig.server_name
+set :user, AppConfig.user
 
 set :rvm_ruby_gemset, "#{ruby_version}@#{gemset_name}"
 
