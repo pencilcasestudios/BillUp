@@ -10,9 +10,6 @@
 # Basic steps to setup
 # ON THE SERVER
 
-# Install rake and bundler in the application gemset
-# $ gem install bunder rake
-
 # Create the repository:
 # $ mkdir /var/Repositories/Git/#{application_name}.git
 # $ cd /var/Repositories/Git/#{application_name}.git
@@ -24,6 +21,8 @@
 # Push to the repository on the server
 # $ git push deployment master
 # $ git push deployment deployment
+
+
 
 
 # ON THE DEVELOPMENT MACHINE
