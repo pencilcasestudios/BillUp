@@ -1,6 +1,6 @@
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 
-require "app/models/app_config"
+DEPLOYMENT_CONFIG = YAML.load_file("./config/config.yml")["production"]
 
 # Ref: https://github.com/capistrano/capistrano/issues/81#issuecomment-1994285
 require "bundler/capistrano"

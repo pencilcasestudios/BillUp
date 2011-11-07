@@ -36,11 +36,12 @@
 
 
 # Customise these application-specific settings by updating config.yml used by Settingslogic
-set :application_name, AppConfig.application_name
-set :gemset_name, AppConfig.gemset_name
-set :ruby_version, AppConfig.ruby_version
-set :server_name, AppConfig.server_name
-set :user, AppConfig.user
+# DEPLOYMENT_CONFIG is initialised in Capfile
+set :application_name, DEPLOYMENT_CONFIG["application_name"]
+set :gemset_name, DEPLOYMENT_CONFIG["gemset_name"]
+set :ruby_version, DEPLOYMENT_CONFIG["ruby_version"]
+set :server_name, DEPLOYMENT_CONFIG["server_name"]
+set :user, DEPLOYMENT_CONFIG["user"]
 
 set :rvm_ruby_gemset, "#{ruby_version}@#{gemset_name}"
 
