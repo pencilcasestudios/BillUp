@@ -4,18 +4,18 @@
 		<%= render "errors", receipt: @receipt %>
 
 		<div class="row">
-			<div class="span4 offset4">
-				<fieldset class="control-group">
-					<legend><%= t("views.receipts._form.legends.uuid") %></legend>
-					<%= f.label :uuid, t("views.receipts._form.labels.uuid") %>
-			    <div class="controls"><%= f.text_field :uuid, class: "span3" %></div>
-				</fieldset>
-			</div>
 			<div class="span4">
 				<fieldset class="control-group">
 					<legend><%= t("views.receipts._form.legends.receipt_number") %></legend>
 					<%= f.label :receipt_number, t("views.receipts._form.labels.receipt_number") %>
 			    <div class="controls"><%= f.text_field :receipt_number, class: "span3" %></div>
+				</fieldset>
+			</div>
+			<div class="span4">
+				<fieldset class="control-group">
+					<legend><%= t("views.receipts._form.legends.uuid") %></legend>
+					<%= f.label :uuid, t("views.receipts._form.labels.uuid") %>
+			    <div class="controls"><%= f.text_field :uuid, class: "span3" %></div>
 				</fieldset>
 			</div>
 		</div>
