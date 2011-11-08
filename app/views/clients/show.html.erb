@@ -13,6 +13,11 @@
 	<div class="span9 content">
 		<h2><%= t("views.clients.show.sub_titles.invoices") %></h2>
 		<%= render "invoices/invoices", invoices: @client.invoices %>
+
+		<br />
+
+		<h2><%= t("views.clients.show.sub_titles.receipts") %></h2>
+		<%= render "receipts/receipts", invoices: @client.receipts %>
 	</div>
 	<div class="span3 addresses">
 		<h2><%= t("views.clients.show.sub_titles.addresses") %></h2>

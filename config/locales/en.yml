@@ -295,6 +295,7 @@ en:
         sub_titles:
           addresses: Addresses
           invoices: Invoices
+          receipts: Receipts
         copy:
           client_of: "A client of %{organisation_name}"
 
@@ -468,6 +469,7 @@ en:
           all_clients: Show all clients
           edit: Edit
           new: New
+          client: Client
           pdf: PDF
           view: View
       copy:

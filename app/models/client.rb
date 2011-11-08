@@ -7,6 +7,7 @@ class Client < ActiveRecord::Base
 
   has_many :addresses, :as => :addressable, :dependent => :destroy
   has_many :invoices
+  has_many :receipts
 
   accepts_nested_attributes_for :addresses
 end
