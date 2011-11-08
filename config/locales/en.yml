@@ -482,9 +482,16 @@ en:
         title: New receipt
       show:
         copy:
-          acknowledgement: "%{organisation} acknowledges payment of %{amount} by %{payment_method} from %{client} made on %{payment_date}."
+          acknowledgement: "%{organisation} acknowledges payment of %{amount} %{payment_method} from %{client} made on %{payment_date}."
           receipt: Receipt
           total_received: "Total received: %{amount} only."
+          payment_method:
+            airtel_money: "via Airtel Money"
+            bank_transfer: "via bank transfer"
+            cash: "in cash"
+            cheque: "by cheque"
+            debit_card: "by debit card"
+            mtn_money: "via MTN Money"
         labels:
           description: Description
           from: Attention

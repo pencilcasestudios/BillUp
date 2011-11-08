@@ -39,7 +39,7 @@ prawn_document(page_size: "A4", page_layout: :portrait) do |pdf|
     pdf.text t("views.receipts.show.copy.acknowledgement",
 		organisation: @receipt.organisation.name,
 		amount: "#{t("models.currency.codes.#{@receipt.currency}")}#{number_to_currency(@receipt.amount, unit: "")}",
-		payment_method: t("models.payment.types.#{@receipt.payment_method}"),
+		payment_method: t("views.receipts.show.copy.payment_method.#{@receipt.payment_method}"),
 		client: @receipt.client.name,
 		payment_date: @receipt.received_at.strftime("%A, %d %B %Y"),
 		), size: 14
