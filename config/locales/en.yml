@@ -446,7 +446,7 @@ en:
           amount: Amount
           currency: Currency
           description: Description
-          from: Payment fom your client
+          from: Payment from your client
           from_address: "Your client&rsquo;s address"
           notes: Notes
           payment_method: Payment method
