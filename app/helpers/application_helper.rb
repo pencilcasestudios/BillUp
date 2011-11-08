@@ -3,6 +3,14 @@ module ApplicationHelper
     controller.controller_name
   end
 
+  def index_action?
+    (controller.action_name == "index")
+  end
+
+  def show_action?
+    (controller.action_name == "show")
+  end
+
   def new_or_create_action?
     (controller.action_name == "new") || (controller.action_name == "create")
   end

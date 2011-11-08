@@ -1,4 +1,4 @@
-<% if !edit_or_update_action? %>
+<% if index_action? %>
 	<div class="buttons_and_links">
 		<p>
 			<small>
@@ -8,7 +8,7 @@
 			</small>
 		</p>
 	</div>
-<% else %>
+<% elsif (show_action? || edit_or_update_action?) %>
 	<div class="buttons_and_links">
 		<p>
 			<small>
@@ -21,4 +21,3 @@
 		</p>
 	</div>
 <% end %>
-
