@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111021183807) do
+ActiveRecord::Schema.define(:version => 20111108074204) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(:version => 20111021183807) do
 
   create_table "receipts", :force => true do |t|
     t.datetime "received_at"
-    t.decimal  "amount"
+    t.decimal  "amount",            :default => 0.0
     t.integer  "receipt_number"
     t.integer  "client_id"
     t.integer  "organisation_id"
