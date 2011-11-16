@@ -3,6 +3,10 @@
 <head>
   <title><%= render "title" %></title>
 
+	<%= render "viewport" %>
+
+	<%= render "less_than_ie9" %>
+
   <%= stylesheet_link_tag    "application" %>
 
   <%= javascript_include_tag "application" %>
@@ -14,6 +18,7 @@
 	<%= render "analytics" %>
 </head>
 <body id="<%= body_id %>">
+	<a name="top"></a>
 	<%= render "navigation" %>
 
 	<div id="page">
