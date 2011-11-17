@@ -50,6 +50,7 @@ end
 
 
 group :development do
+  gem "letter_opener"
   gem "rspec-rails"
   gem "sqlite3"
 end
