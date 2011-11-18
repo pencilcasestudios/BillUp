@@ -1,9 +1,8 @@
 Factory.define :user do |f|
   f.sequence(:email) { |n| "grace#{n}@example.com" }
   f.sequence(:username) { |n| "grace#{n}" }
+  f.sequence(:cell_phone_number) { PhoneNumber.random }
 
-  # Random 12 digit, zero-padded number with an optional, leading "+"
-  f.cell_phone_number [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
   f.name "Grace Nyambe"
   f.language "eng"
   f.password AppConfig.test_user_password
@@ -14,18 +13,17 @@ end
 
 
 Factory.define :address do |f|
+  f.sequence(:cell_phone_number) { PhoneNumber.random }
   f.sequence(:country) { |n| "Country #{n}" }
   f.sequence(:email) { |n| "email#{n}@example.com" }
+  f.sequence(:fax) { PhoneNumber.random }
   f.sequence(:label) { |n| "Label #{n}" }
+  f.sequence(:land_line_number) { PhoneNumber.random }
   f.sequence(:postal_code) { |n| "Postal Code #{n}" }
   f.sequence(:province) { |n| "Province #{n}" }
   f.sequence(:street) { |n| "Street #{n}" }
   f.sequence(:town) { |n| "Town #{n}" }
   f.sequence(:website) { |n| "http://website#{n}.example.com" }
-
-  f.cell_phone_number [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
-  f.fax [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
-  f.land_line_number [["+",""][rand 2],"#{'%010d' % (rand 1000000000000)}"].join.strip
 end
 
 
