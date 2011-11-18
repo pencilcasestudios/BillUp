@@ -39,7 +39,7 @@ describe Receipt do
     end
 
     it "fails validation with no amount" do
-      receipt = Receipt.new
+      receipt = Receipt.new(amount: nil)
       receipt.should have(2).error_on(:amount)
       receipt.errors[:amount].should == ["can't be blank", "is not a number"]
     end
