@@ -7,5 +7,5 @@
 //= require jquery
 //= require_tree ../../../vendor/assets/javascripts/nested_form
 //= require jquery_ujs
-//= require_tree ../../../vendor/assets/javascripts/bootstrap
+//= require bootstrap
 //= require_tree .
