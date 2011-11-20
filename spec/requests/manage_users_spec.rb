@@ -38,8 +38,9 @@ describe "User management" do
 
         current_path.should eq(sign_in_path)
         page.should have_content(I18n.t("controllers.users_controller.actions.create.success"))
+
         last_email.to.should include(email)      
-        last_email.subject.should eq(I18n.t("mailers.emailer.registration_confirmation.subject"))      
+        last_email.subject.should eq(I18n.t("mailers.emailer.registration_confirmation.subject", application_name: I18n.t("application.name")))      
       end
     end
     
