@@ -12,32 +12,14 @@ describe "Assets" do
     end
   end
 
-  # In vendor/assets/javascripts/
-  describe "vendor/assets/javascripts/" do
-    # Bootstrap javascripts
-    describe "bootstrap/" do
-      it "has Bootrap javascript assets" do
-        get "/assets/bootstrap/bootstrap-alerts.js"
-        response.status.should be(200)
+  # Twitter Bootstrap assets
+  describe "Bootstrap assets" do
+    it "are available" do
+      get "/assets/bootstrap.css"
+      response.status.should be(200)
 
-        get "/assets/bootstrap/bootstrap-dropdown.js"
-        response.status.should be(200)
-
-        get "/assets/bootstrap/bootstrap-modal.js"
-        response.status.should be(200)
-
-        get "/assets/bootstrap/bootstrap-popover.js"
-        response.status.should be(200)
-
-        get "/assets/bootstrap/bootstrap-scrollspy.js"
-        response.status.should be(200)
-
-        get "/assets/bootstrap/bootstrap-tabs.js"
-        response.status.should be(200)
-
-        get "/assets/bootstrap/bootstrap-twipsy.js"
-        response.status.should be(200)
-      end
+      get "/assets/bootstrap.js"
+      response.status.should be(200)
     end
   end
 
