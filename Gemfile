@@ -11,7 +11,6 @@ gem "rails", "3.1.1"
 
 # Used accross environments
 gem "bcrypt-ruby", "~> 3.0.0"
-gem "capistrano"
 gem "jquery-rails"
 gem "nested_form", git: "git://github.com/ryanb/nested_form.git"
 gem "paper_trail", "~> 2"
@@ -50,6 +49,7 @@ end
 
 
 group :development do
+  gem "capistrano"
   gem "letter_opener"
   gem "rspec-rails"
   gem "sqlite3"
