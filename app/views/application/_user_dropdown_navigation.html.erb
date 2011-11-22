@@ -1,5 +1,5 @@
 <li id="tab_sign_out" class="dropdown">
-	<a href="#" class="dropdown-toggle" data-dropdown="true"><%= truncate(current_user.name, :length => 20) %></a>
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= truncate(current_user.name, :length => 20) %></a>
 	<ul class="dropdown-menu">
 		<li><%= link_to t("views.application._navigation.links.account_settings"), account_settings_path %></li>
 		<li class="divider"></li>
