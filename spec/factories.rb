@@ -16,7 +16,7 @@ Factory.define :address do |f|
   f.sequence(:cell_phone_number) { PhoneNumber.random }
   f.sequence(:country) { |n| "Country #{n}" }
   f.sequence(:email) { |n| "email#{n}@example.com" }
-  f.sequence(:fax) { PhoneNumber.random }
+  f.sequence(:fax_number) { PhoneNumber.random }
   f.sequence(:label) { |n| "Label #{n}" }
   f.sequence(:land_line_number) { PhoneNumber.random }
   f.sequence(:postal_code) { |n| "Postal Code #{n}" }
@@ -33,6 +33,8 @@ end
 Factory.define :organisation do |f|
   f.sequence(:name) { |n| "Organisation #{n}" }
   f.sequence(:subdomain) { |n| "subdomain#{n}" }
+
+  f.addresses { |a| [a.association(:address)] }
 end
 
 
@@ -41,7 +43,9 @@ end
 Factory.define :client do |f|
   f.sequence(:name) { |n| "Client #{n}" }
   f.sequence(:organisation_id) { |n| "#{n}" }
-  # TODO - build the owning organisation
+
+  f.association :organisation
+  f.addresses { |a| [a.association(:address)] }
 end
 
 
@@ -57,6 +61,9 @@ Factory.define :invoice do |f|
 
   f.uuid Time.now.strftime("%s")
   f.state InvoiceState::STATES[InvoiceState::STATES.to_a[rand InvoiceState::STATES.size].first]
+
+  f.association :organisation
+  f.association :client
 end
 
 
