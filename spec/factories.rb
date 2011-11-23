@@ -53,17 +53,15 @@ end
 
 Factory.define :invoice do |f|
   f.sequence(:description) { |n| "Description #{n}" }
-  f.sequence(:from) { |n| "From #{n}" }
-  f.sequence(:from_address) { |n| "From address #{n}" }
   f.sequence(:invoice_number) { |n| n }
-  f.sequence(:to) { |n| "To #{n}" }
-  f.sequence(:to_address) { |n| "To address #{n}" }  
+
+  f.association :client
+  f.association :organisation
+  f.from_address_id { |c| c.client.id }
+  f.to_address_id { |o| o.organisation.id }
 
   f.uuid Time.now.strftime("%s")
   f.state InvoiceState::STATES[InvoiceState::STATES.to_a[rand InvoiceState::STATES.size].first]
-
-  f.association :organisation
-  f.association :client
 end
 
 
@@ -72,11 +70,12 @@ end
 Factory.define :receipt do |f|
   f.sequence(:amount) { |n| n }
   f.sequence(:description) { |n| "Description #{n}" }
-  f.sequence(:from) { |n| "From #{n}" }
-  f.sequence(:from_address) { |n| "From address #{n}" }
   f.sequence(:receipt_number) { |n| n }
-  f.sequence(:to) { |n| "To #{n}" }
-  f.sequence(:to_address) { |n| "To address #{n}" }  
+
+  f.association :client
+  f.association :organisation
+  f.from_address_id { |o| o.organisation.id }
+  f.to_address_id { |c| c.client.id }
 
   f.currency Currency::CODES[Currency::CODES.to_a[rand Currency::CODES.size].first]
   f.payment_method Payment::TYPES[Payment::TYPES.to_a[rand Payment::TYPES.size].first]
