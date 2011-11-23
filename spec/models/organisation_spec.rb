@@ -35,8 +35,7 @@ describe Organisation do
 
   describe "uniqueness" do
     it "fails validation with a duplicate subdomain" do
-      sequence = Time.now.strftime("%s")
-      organisation = Factory(:organisation, :name => "Raiders of the Lost Arc #{sequence}", :subdomain => "raidersofthelostarc#{sequence}")
+      organisation = Factory(:organisation)
       duplicate = Organisation.new(subdomain: organisation.subdomain)
       duplicate.should have(1).error_on(:subdomain)
       duplicate.errors[:subdomain].should == ["has already been taken"]
