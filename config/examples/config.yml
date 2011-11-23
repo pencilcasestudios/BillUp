@@ -9,15 +9,15 @@ defaults: &defaults
   ruby_version: "ruby-1.9.3-p0"
   server_name: "billup.net"
   user: "silumesii"
-  
+
   # Email settings
   email_address: "smtp.gmail.com"
-  email_domain: "billup.net"
+  email_domain: "gmail.com"
   email_password: "password" # Update this in production
   email_port: 587
   email_user_name: "hello@billup.net"
-  
-  
+
+
 development:
   <<: *defaults
 
