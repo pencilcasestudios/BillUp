@@ -160,7 +160,7 @@ en:
     emailer:
       registration_confirmation:
         subject: "Welcome to %{application_name}"
-        body: "Dear %{user_name}\n\nThank you for signing up to use %{application_name}. Your account is ready for you to use!\nFeel free to sign in and get some work done by visiting:\n%{sign_in_path}\n\nHope you like using %{application_name} as much as I'm enjoying making it.\n\nBest regards,\n\nSilumesii\n\n---\n%{application_name} is proudly Zambian and made by Pencil Case Studios.\n%{root_path}\nhttp://pencilcasestudios.com"
+        body: "Dear %{user_name},\n\nThank you for signing up to use %{application_name}. Your account is ready for you to use!\nFeel free to sign in and get some work done by visiting:\n%{sign_in_path}\n\nHope you like using %{application_name} as much as I'm enjoying making it.\n\nBest regards,\n\nSilumesii\n\n---\n%{application_name} is proudly Zambian and made by Pencil Case Studios.\n%{root_path}\nhttp://pencilcasestudios.com"
 
 
 
