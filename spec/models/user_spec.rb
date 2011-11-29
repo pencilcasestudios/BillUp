@@ -46,8 +46,8 @@ describe User do
 
     it "fails validation with no username" do
       user = User.new
-      user.should have(1).error_on(:username)
-      user.errors[:username].should == ["can't be blank"]
+      user.should have(2).error_on(:username)
+      user.errors[:username].should == ["can't be blank", "is not formatted properly"]
     end
   end
 
@@ -79,6 +79,24 @@ describe User do
       user = User.new(email: "email-without-at-symbol")
       user.should have(1).error_on(:email)
       user.errors[:email].should == ["is not formatted properly"]
+    end
+
+    it "fails validation with if the username is less than 3 characters" do
+      user = User.new(username: "em")
+      user.should have(1).error_on(:username)
+      user.errors[:username].should == ["is not formatted properly"]
+    end
+
+    it "fails validation with if the username is more than 30 characters" do
+      user = User.new(username: "aodptk39g-a35kdi93n-04kgm21gk-12")
+      user.should have(1).error_on(:username)
+      user.errors[:username].should == ["is not formatted properly"]
+    end
+
+    it "fails validation with if the username is not formatted properly" do
+      user = User.new(username: "User Name 3379")
+      user.should have(1).error_on(:username)
+      user.errors[:username].should == ["is not formatted properly"]
     end
   end
 end
