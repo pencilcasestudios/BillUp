@@ -1,4 +1,4 @@
-guard 'spork', :cucumber => false, :test_unit => false, :rspec_env => { 'RAILS_ENV' => 'test' }, :wait => 120, :rspec_port => 3211 do
+guard 'spork', :cucumber => false, :test_unit => false, :rspec_env => { 'RAILS_ENV' => 'test' }, :wait => 360, :rspec_port => 3211 do
   watch('config/application.rb')
   watch('config/environment.rb')
   watch(%r{^config/environments/.+\.rb$})
