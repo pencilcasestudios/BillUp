@@ -22,7 +22,7 @@ gem "settingslogic"
 # in production environments by default.
 group :assets do
   gem "coffee-rails", "~> 3.1.0"
-  gem "pcs_bootstrap", "~> 0.0.1.beta"
+  gem "jombo", "~> 0.0.1.beta7"
   gem "sass-rails", "~> 3.1.0"
   gem "uglifier"
 end
