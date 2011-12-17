@@ -11,6 +11,8 @@ gem "rails", "3.1.3"
 
 # Used accross environments
 gem "bcrypt-ruby", "~> 3.0.0"
+gem "delayed_job"
+gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "jquery-rails"
 gem "nested_form", git: "git://github.com/ryanb/nested_form.git"
 gem "paper_trail", "~> 2"
@@ -60,6 +62,7 @@ end
 
 
 group :production do
-  gem "mysql2"
   #gem "unicorn"
+  gem "exception_notification"
+  gem "mysql2"
 end
