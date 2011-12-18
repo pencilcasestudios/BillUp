@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
+    if @user.save_with_captcha
       Emailer.delay.registration_confirmation(@user)
       flash[:success] = t("controllers.users_controller.actions.create.success")
       redirect_to sign_in_path

@@ -201,6 +201,16 @@ en:
 
 
 
+# simple_captcha
+  simple_captcha:
+    label: Enter the text from the image
+    message:
+      default: "The secret code did not match the image"
+      user: "The secret image and code were different"
+
+
+
+
 # Views
   views:
     addresses:
@@ -542,15 +552,16 @@ en:
         title: This account could not be created
       _form:
         labels:
-          name: Name
-          email: Email
+          captcha: Enter the code from the image
           cell_phone_number: Cell phone number
-          username: Username
+          email: Email
+          language: Language
+          name: Name
           password: Password
           password_confirmation: Password confirmation
-          language: Language
-          time_zone: Time zone
           terms_of_use: Terms of use
+          time_zone: Time zone
+          username: Username
         legends:
           account_information: Account information
           contact_information: Contant information
