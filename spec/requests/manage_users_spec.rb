@@ -14,6 +14,7 @@ describe "User management" do
     # users#new
     describe "requesting sign up" do
       it "allows the user to sign up" do
+        expected_delayed_jobs = Delayed::Job.count + 1
         visit sign_up_path
 
         fill_in I18n.t("views.users._form.labels.name"), with: "Silumesii Maboshe"
@@ -39,8 +40,9 @@ describe "User management" do
         current_path.should eq(sign_in_path)
         page.should have_content(I18n.t("controllers.users_controller.actions.create.success"))
 
-        last_email.to.should include(email)      
-        last_email.subject.should eq(I18n.t("mailers.emailer.registration_confirmation.subject", application_name: I18n.t("application.name")))      
+        #last_email.to.should include(email)      
+        #last_email.subject.should eq(I18n.t("mailers.emailer.registration_confirmation.subject", application_name: I18n.t("application.name")))      
+        expected_delayed_jobs.should eq(Delayed::Job.count)
       end
     end
     

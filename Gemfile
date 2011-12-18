@@ -11,7 +11,7 @@ gem "rails", "3.1.3"
 
 # Used accross environments
 gem "bcrypt-ruby", "~> 3.0.0"
-gem "delayed_job"
+gem "delayed_job_active_record", "~> 0.2.1"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "jquery-rails"
 gem "nested_form", git: "git://github.com/ryanb/nested_form.git"

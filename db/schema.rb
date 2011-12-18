@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111217100329) do
+ActiveRecord::Schema.define(:version => 20111218160640) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20111217100329) do
     t.datetime "locked_at"
     t.datetime "failed_at"
     t.string   "locked_by"
+    t.string   "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
