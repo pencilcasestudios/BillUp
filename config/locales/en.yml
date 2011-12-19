@@ -552,7 +552,7 @@ en:
         title: This account could not be created
       _form:
         labels:
-          captcha: Enter the code from the image
+          captcha: Security check
           cell_phone_number: Cell phone number
           email: Email
           language: Language
