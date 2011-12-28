@@ -45,7 +45,8 @@ group :test do
 end
 
 group :test, :darwin do
-  gem "rb-fsevent"
+  gem "rb-fsevent"#, "~> 0.9.0.pre4"
+  gem "rb-readline"
 end
 
 

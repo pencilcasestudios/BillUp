@@ -33,6 +33,9 @@ describe "User management" do
         select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
         select "(GMT+02:00) Africa/Lusaka", from: I18n.t("views.users._form.labels.time_zone")
 
+        captcha = User.connection.execute("select * from simple_captcha_data").last
+        fill_in "user_captcha", with: captcha["value"]
+
         check I18n.t("views.users._form.labels.terms_of_use")
 
         click_button I18n.t("helpers.submit.user.create")
