@@ -2,6 +2,9 @@ Git workflow
 ============
 
 Tag the repository after deployment:
+git checkout deployment
+git push deployment deployment
+cap deploy
 git tag "`date +deployed_%Y-%m-%d_%H%M%S`"
 
 
