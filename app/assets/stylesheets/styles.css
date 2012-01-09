@@ -12,7 +12,9 @@ body {
 }
 
 footer {
+	margin-top: 3em;
 	text-align: center;
+	padding-bottom: 3em;
 }
 
 .translation_missing {
