@@ -11,7 +11,7 @@
 					<%= render "leaves_count" %>
 				<% end %>
 
-				<ul class="nav secondary-nav">
+				<ul class="nav pull-right">
 					<li><%= link_to t("views.application._navigation.links.home"), root_url(:host => request.domain) %></li>
 					<%= render "units_dropdown_navigation" %>
 					<%= render "user_dropdown_navigation" %>
@@ -24,7 +24,7 @@
 					<li id="tab_sign_up"><%= link_to t("views.application._navigation.links.sign_up"), sign_up_url(:host => request.domain) %></li>
 	      </ul><!-- /.nav -->
 
-				<ul class="nav secondary-nav">
+				<ul class="nav pull-right">
 	        <li id="tab_sign_in"><%= link_to t("views.application._navigation.links.sign_in"), sign_in_path %></li>
 				</ul>
 			<% end %>
