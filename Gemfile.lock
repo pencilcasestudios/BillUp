@@ -101,7 +101,7 @@ GEM
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    jombo (0.0.1.beta12)
+    jombo (0.0.1.beta13)
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
