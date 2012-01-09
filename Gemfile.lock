@@ -62,6 +62,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    daemons (1.1.5)
     delayed_job (3.0.0)
       activesupport (~> 3.0)
     delayed_job_active_record (0.2.2)
@@ -211,6 +212,7 @@ DEPENDENCIES
   capistrano
   capybara
   coffee-rails (~> 3.1.0)
+  daemons
   delayed_job_active_record (~> 0.2.1)
   exception_notification
   factory_girl_rails
