@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe "Assets" do
   # In vendor/assets/stylesheets/
