@@ -1,6 +1,7 @@
 <% if invoices.present? %>
+	<%= render "tablesorter", table: "table_of_invoices" %>
 	<div id="invoices_table">
-		<table class="condensed-table striped-table">
+		<table id="table_of_invoices" class="condensed-table striped-table">
 		  <thead>
 				<tr>
 				  <th class="invoice_number"><%= t("views.invoices.index.copy.table_headings.invoice_number") %></th>
@@ -23,8 +24,8 @@
 						<% end %>
 						<%= totals.join(", ") %>
 					</td>
-			    <td class="invoiced_at"><%= invoice.invoiced_at.strftime("%a, %d %b %Y") %></td>
-			    <td class="due_at"><%= invoice.due_at.strftime("%a, %d %b %Y") %></td>
+			    <td class="invoiced_at" title="<%= invoice.invoiced_at.strftime("%A, %d %B %Y") %>"><%= invoice.invoiced_at.strftime("%d %b %Y") %></td>
+			    <td class="due_at" title="<%= invoice.due_at.strftime("%A, %d %B %Y") %>"><%= invoice.due_at.strftime("%d %b %Y") %></td>
 			    <td class="buttons_and_links">
 						<%= render "invoices/buttons_and_links", invoice: invoice %>
 					</td>
