@@ -19,7 +19,9 @@
 	<div class="buttons_and_links">
 		<p>
 			<small>
-			<%= link_to_unless_current t("views.invoices.clickables.links.cancel"), invoice %>
+				<%= link_to_unless_current t("views.invoices.clickables.links.all_invoices_for_client", client_name: invoice.client.name), invoice.client %>
+				| <%= link_to_unless_current t("views.invoices.clickables.links.cancel"), invoice %>
+			</small>
 		</p>
 	</div>
 <% end %>

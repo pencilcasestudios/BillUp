@@ -371,6 +371,7 @@ en:
         links:
           acknowledge: Acknowledgement
           all_clients: Show all clients
+          all_invoices_for_client: "All invoices for %{client_name}"
           cancel: Cancel
           edit: Edit
           new: New
