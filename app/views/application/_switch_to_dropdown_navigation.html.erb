@@ -1,6 +1,6 @@
 <ul class="nav">
 	<li id="tab_organisations_dropdown" class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("views.application._navigation.links.switch_to") %></a>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("views.application._navigation.links.switch_to") %> <b class="caret"></b></a>
 		<ul class="dropdown-menu">
 			<li id="tab_create_organisation"><%= link_to t("views.application._navigation.links.create_an_organisation"), new_organisation_url(:host => request.domain) %></li>
 			<li class="divider"></li>
