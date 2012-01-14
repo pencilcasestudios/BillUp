@@ -1,21 +1,10 @@
 require "spec_helper"
 
 describe "Assets" do
-  # In vendor/assets/stylesheets/
-  describe "vendor/assets/stylesheets/" do
-    # Bootstrap stylesheets
-    describe "bootstrap/" do
-      it "has Bootstrap stylesheet assets" do
-        get "/assets/bootstrap/bootstrap.css"
-        response.status.should be(200)
-      end
-    end
-  end
-
   # pcs_tablesorter assets
-  describe "Bootstrap assets" do
+  describe "pcs_tablesorter assets" do
     it "are available" do
-      get "/assets/tablesorter.css"
+      get "/assets/tablesorter.js"
       response.status.should be(200)
     end
   end
