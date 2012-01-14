@@ -26,6 +26,7 @@ gem "settingslogic"
 group :assets do
   gem "coffee-rails", "~> 3.1.0"
   gem "jombo", "~> 0.0.1.beta7"
+  gem "pcs_tablesorter", "~> 0.0.1.beta"
   gem "sass-rails", "~> 3.1.0"
   gem "uglifier"
 end
