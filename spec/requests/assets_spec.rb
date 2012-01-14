@@ -12,6 +12,14 @@ describe "Assets" do
     end
   end
 
+  # pcs_tablesorter assets
+  describe "Bootstrap assets" do
+    it "are available" do
+      get "/assets/tablesorter.css"
+      response.status.should be(200)
+    end
+  end
+
   # Twitter Bootstrap assets
   describe "Bootstrap assets" do
     it "are available" do
