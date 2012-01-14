@@ -13,6 +13,7 @@ gem "rails", "3.1.3"
 gem "bcrypt-ruby", "~> 3.0.0"
 gem "daemons"
 gem "delayed_job_active_record", "~> 0.2.1"
+gem "exception_notification"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "jquery-rails"
 gem "nested_form", git: "git://github.com/ryanb/nested_form.git"
@@ -66,6 +67,5 @@ end
 
 group :production do
   #gem "unicorn"
-  gem "exception_notification"
   gem "mysql2"
 end
