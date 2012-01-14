@@ -16,4 +16,7 @@ class WelcomeController < ApplicationController
 
   def tour
   end
+
+  def exception_test
+  end
 end
