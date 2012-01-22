@@ -1,7 +1,7 @@
 <% if invoices.present? %>
 	<%= render "tablesorter", table: "table_of_invoices" %>
 	<div id="invoices_table">
-		<table id="table_of_invoices" class="condensed-table striped-table">
+		<table id="table_of_invoices" class="table table-condensed table table-striped">
 		  <thead>
 				<tr>
 				  <th class="invoice_number"><%= t("views.invoices.index.copy.table_headings.invoice_number") %></th>
