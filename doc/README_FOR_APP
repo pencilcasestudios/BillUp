@@ -4,6 +4,7 @@ Git workflow
 Tag the deploy and tag the app:
 git checkout deployment
 git merge work
+git push
 git push deployment deployment
 cap deploy
 git tag "`date +deployed_%Y-%m-%d_%H%M%S`"
