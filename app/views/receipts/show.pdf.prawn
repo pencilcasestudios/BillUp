@@ -1,5 +1,5 @@
-#prawn_document(page_size: "A4", page_layout: :portrait, filename: @receipt.file_name, force_download: true) do |pdf|
-prawn_document(page_size: "A4", page_layout: :portrait) do |pdf|
+#prawn_document(page_size: "A4", page_layout: :portrait) do |pdf|
+prawn_document(page_size: "A4", page_layout: :portrait, filename: @receipt.file_name, force_download: true) do |pdf|
   #if @receipt.client.pdf_password.present?
   # pdf.encrypt_document user_password: @receipt.client.pdf_password, owner_password: :random
   #end
