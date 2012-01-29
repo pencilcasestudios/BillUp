@@ -37,7 +37,6 @@
 	
 	<div class="row">
 		<div id="description" class="span8">
-			<h2><small><%= t("views.receipts.show.labels.description") %></small></h2>
 			<p class="description">
 				<%=raw t("views.receipts.show.copy.acknowledgement",
 				organisation: @receipt.organisation.name,
@@ -49,6 +48,7 @@
 				%>
 			</p>
 
+			<h2><small><%= t("views.receipts.show.labels.description") %></small></h2>
 			<%=simple_format @receipt.description, class: "description" %>
 	
 			<br />

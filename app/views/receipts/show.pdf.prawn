@@ -35,7 +35,6 @@ prawn_document(page_size: "A4", page_layout: :portrait) do |pdf|
   pdf.bounding_box([102,530], width: 306, height: 350) do
     #pdf.stroke_bounds
 
-    pdf.text t("views.receipts.show.labels.description"), size: 18, style: :bold
     pdf.text t("views.receipts.show.copy.acknowledgement",
 		organisation: @receipt.organisation.name,
 		amount: "#{t("models.currency.codes.#{@receipt.currency}")}#{number_to_currency(@receipt.amount, unit: "")}",
@@ -45,6 +44,7 @@ prawn_document(page_size: "A4", page_layout: :portrait) do |pdf|
 		), size: 14
 
     pdf.move_down(14)
+    pdf.text t("views.receipts.show.labels.description"), size: 18, style: :bold
     pdf.text @receipt.description, size: 14
 
     pdf.move_down(28)
