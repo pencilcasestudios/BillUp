@@ -1,7 +1,7 @@
 Git workflow
 ============
 
-Tag the repository after deployment:
+Tag the deploy and tag the app:
 git checkout deployment
 git push deployment deployment
 cap deploy
