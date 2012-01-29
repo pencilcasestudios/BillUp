@@ -26,6 +26,10 @@ class Receipt < ActiveRecord::Base
 
   before_create :fill_in_addresses
 
+  def file_name
+    "#{I18n.t("views.receipts.copy.receipt")} #{self.receipt_number} #{I18n.t("views.receipts.show.labels.from")} #{self.client.name}.pdf"
+  end
+
 private
 
   def fill_in_addresses
