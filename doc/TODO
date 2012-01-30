@@ -1,4 +1,7 @@
+DONE - Cash deposit as a payment option
 DONE - From an Invoice, link to the client page
+TODO - Buttons and links for receipts
+TODO - Form error styling
 TODO - Invoice filename
 TODO - Receipt filename
 TODO - Test for valid CSS
