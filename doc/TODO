@@ -1,4 +1,5 @@
-TODO - Test that PDFs download and do not render inline
-TODO - Test for valid CSS
+DONE - From an Invoice, link to the client page
 TODO - Invoice filename
 TODO - Receipt filename
+TODO - Test for valid CSS
+TODO - Test that PDFs download and do not render inline

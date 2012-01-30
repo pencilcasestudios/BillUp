@@ -1,27 +1,56 @@
-<% if !edit_or_update_action? %>
-	<div class="buttons_and_links">
-		<p>
-			<small>
-			<%= link_to_unless_current t("views.invoices.clickables.links.view"), invoice_path(invoice) %>
-			| <%= link_to_unless_current t("views.invoices.clickables.links.edit"), edit_invoice_path(invoice) %>
-			| <%= link_to t("views.invoices.clickables.links.new"), new_invoice_path(client_id: invoice.client.id) %>
-			| <%= link_to_unless_current t("views.invoices.clickables.links.pdf"), invoice_path(invoice, format: "pdf") %>
-			<% if invoice.paid_at.blank? %>
-			<!--
-			| <%= link_to_unless_current t("views.invoices.clickables.links.acknowledge"), "#" %>
-			| <%= link_to_unless_current t("views.invoices.clickables.links.reconcile"), "#" %>
-			-->
-			<% end %>
-			</small>
-		</p>
-	</div>
+<div class="buttons_and_links">
+<% if index_action? %>
+	<p>
+		<small>
+		<%= link_to_unless_current t("views.invoices.clickables.links.view"), invoice_path(invoice) %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.edit"), edit_invoice_path(invoice) %>
+		| <%= link_to t("views.invoices.clickables.links.new"), new_invoice_path(client_id: invoice.client.id) %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.pdf"), invoice_path(invoice, format: "pdf") %>
+		<% if invoice.paid_at.blank? %>
+		<!--
+		| <%= link_to_unless_current t("views.invoices.clickables.links.acknowledge"), "#" %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.reconcile"), "#" %>
+		-->
+		<% end %>
+		</small>
+	</p>
+<% elsif show_action? %>
+	<p>
+		<small>
+			<%= link_to_unless_current t("views.invoices.clickables.links.client", client_name: invoice.client.name), invoice.client %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.view"), invoice_path(invoice) %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.edit"), edit_invoice_path(invoice) %>
+		| <%= link_to t("views.invoices.clickables.links.new"), new_invoice_path(client_id: invoice.client.id) %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.pdf"), invoice_path(invoice, format: "pdf") %>
+		<% if invoice.paid_at.blank? %>
+		<!--
+		| <%= link_to_unless_current t("views.invoices.clickables.links.acknowledge"), "#" %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.reconcile"), "#" %>
+		-->
+		<% end %>
+		</small>
+	</p>
+<% elsif edit_or_update_action? %>
+	<p>
+		<small>
+		<%= link_to_unless_current t("views.invoices.clickables.links.view"), invoice_path(invoice) %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.edit"), edit_invoice_path(invoice) %>
+		| <%= link_to t("views.invoices.clickables.links.new"), new_invoice_path(client_id: invoice.client.id) %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.pdf"), invoice_path(invoice, format: "pdf") %>
+		<% if invoice.paid_at.blank? %>
+		<!--
+		| <%= link_to_unless_current t("views.invoices.clickables.links.acknowledge"), "#" %>
+		| <%= link_to_unless_current t("views.invoices.clickables.links.reconcile"), "#" %>
+		-->
+		<% end %>
+		</small>
+	</p>
 <% else %>
-	<div class="buttons_and_links">
-		<p>
-			<small>
-				<%= link_to_unless_current t("views.invoices.clickables.links.all_invoices_for_client", client_name: invoice.client.name), invoice.client %>
-				| <%= link_to_unless_current t("views.invoices.clickables.links.cancel"), invoice %>
-			</small>
-		</p>
-	</div>
+	<p>
+		<small>
+			<%= link_to_unless_current t("views.invoices.clickables.links.client", client_name: invoice.client.name), invoice.client %>
+			| <%= link_to_unless_current t("views.invoices.clickables.links.cancel"), invoice %>
+		</small>
+	</p>
 <% end %>
+</div><!-- /.buttons_and_links -->
