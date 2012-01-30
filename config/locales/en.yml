@@ -511,6 +511,7 @@ en:
           payment_method:
             airtel_money: "via Airtel Money"
             bank_transfer: "via bank transfer"
+            cash: "by cash deposit"
             cash: "in cash"
             cheque: "by cheque"
             debit_card: "by debit card"
