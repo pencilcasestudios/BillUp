@@ -1,35 +1,33 @@
-<nav>
-	<div class="navbar navbar-fixed" data-scrollspy="scrollspy">
-		<div class="navbar-inner">
-			<div class="fluid-container">
-				<% if user_signed_in? %>
-					<% if @current_organisation.present? %>
-						<%= render "switch_to_dropdown_navigation" %>
-						<%= link_to truncate(@current_organisation.name, :length => 30), root_path, class:  "brand" %>
-						<%= render "clients_dropdown_navigation" %>
-						<%= render "invoices_dropdown_navigation" %>
-						<%= render "receipts_dropdown_navigation" %>
-						<%= render "leaves_count" %>
-					<% end %>
-
-					<ul class="nav pull-right">
-						<li><%= link_to t("views.application._navigation.links.home"), root_url(:host => request.domain) %></li>
-						<%= render "units_dropdown_navigation" %>
-						<%= render "user_dropdown_navigation" %>
-					</ul>
-				<% else %>
-					<%= link_to t("application.name"), root_url(:host => request.domain), class:  "brand" %>
-					<ul class="nav">
-						<li id="tab_tour"><%= link_to t("views.application._navigation.links.tour"), tour_url(:host => request.domain) %></li>
-						<li id="tab_pricing"><%= link_to t("views.application._navigation.links.pricing"), pricing_url(:host => request.domain) %></li>
-						<li id="tab_sign_up"><%= link_to t("views.application._navigation.links.sign_up"), sign_up_url(:host => request.domain) %></li>
-		      </ul><!-- /.nav -->
-
-					<ul class="nav pull-right">
-		        <li id="tab_sign_in"><%= link_to t("views.application._navigation.links.sign_in"), sign_in_path %></li>
-					</ul>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<% if user_signed_in? %>
+				<% if @current_organisation.present? %>
+					<%= render "switch_to_dropdown_navigation" %>
+					<%= link_to truncate(@current_organisation.name, :length => 30), root_path, class:  "brand" %>
+					<%= render "clients_dropdown_navigation" %>
+					<%= render "invoices_dropdown_navigation" %>
+					<%= render "receipts_dropdown_navigation" %>
+					<%= render "leaves_count" %>
 				<% end %>
-			</div><!-- /fluid-conteiner -->
-	  </div><!-- /.navbar-inner -->
-	</div><!-- /.navbar navbar-fixed -->
-</nav>
+
+				<ul class="nav pull-right">
+					<li><%= link_to t("views.application._navigation.links.home"), root_url(:host => request.domain) %></li>
+					<%= render "units_dropdown_navigation" %>
+					<%= render "user_dropdown_navigation" %>
+				</ul>
+			<% else %>
+				<%= link_to t("application.name"), root_url(:host => request.domain), class:  "brand" %>
+				<ul class="nav">
+					<li id="tab_tour"><%= link_to t("views.application._navigation.links.tour"), tour_url(:host => request.domain) %></li>
+					<li id="tab_pricing"><%= link_to t("views.application._navigation.links.pricing"), pricing_url(:host => request.domain) %></li>
+					<li id="tab_sign_up"><%= link_to t("views.application._navigation.links.sign_up"), sign_up_url(:host => request.domain) %></li>
+	      </ul><!-- /.nav -->
+
+				<ul class="nav pull-right">
+	        <li id="tab_sign_in"><%= link_to t("views.application._navigation.links.sign_in"), sign_in_path %></li>
+				</ul>
+			<% end %>
+		</div><!-- /.container -->
+	</div><!-- /.navbar-inner -->
+</div><!-- /.navbar .navbar-fixed-top -->
