@@ -1,5 +1,6 @@
 DONE - Cash deposit as a payment option
 DONE - From an Invoice, link to the client page
+DONE - Update primary buttons
 TODO - Buttons and links for receipts
 TODO - Form error styling
 TODO - Guard/Spork/RSpec/rb-fsevent issues
@@ -12,4 +13,3 @@ TODO - Schedule sending of invoices
 TODO - Table sorting on receipts
 TODO - Test for valid CSS
 TODO - Test that PDFs download and do not render inline
-TODO - Update buttons
