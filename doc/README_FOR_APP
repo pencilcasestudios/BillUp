@@ -2,6 +2,7 @@ Git workflow
 ============
 
 Tag the deploy and tag the app:
+
 git checkout deployment
 git merge work
 git push
