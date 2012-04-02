@@ -61,7 +61,7 @@ describe Address do
 
   describe "uniqueness" do
     #it "fails validation with a duplicate label" do
-    #  address = Factory(:address)
+    #  address = FactoryGirl.create(:address)
     #  duplicate = Address.new(label: address.label)
     #  duplicate.should have(1).error_on(:label)
     #  duplicate.errors[:label].should == ["has already been taken"]

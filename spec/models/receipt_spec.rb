@@ -79,14 +79,14 @@ describe Receipt do
 
   describe "uniqueness" do
     it "fails validation with a duplicate uuid" do
-      receipt = Factory(:receipt)
+      receipt = FactoryGirl.create(:receipt)
       duplicate = Receipt.new(uuid: receipt.uuid)
       duplicate.should have(1).error_on(:uuid)
       duplicate.errors[:uuid].should == ["has already been taken"]
     end
 
     it "fails validation with a duplicate receipt_number" do # Within the receipt_numbers for THIS organisation
-      receipt = Factory(:receipt)
+      receipt = FactoryGirl.create(:receipt)
       duplicate = Receipt.new(receipt_number: receipt.receipt_number, organisation_id: receipt.organisation_id)
       duplicate.should have(1).error_on(:receipt_number)
       duplicate.errors[:receipt_number].should == ["has already been taken"]

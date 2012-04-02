@@ -35,7 +35,7 @@ describe Organisation do
 
   describe "uniqueness" do
     it "fails validation with a duplicate subdomain" do
-      organisation = Factory(:organisation)
+      organisation = FactoryGirl.create(:organisation)
       duplicate = Organisation.new(subdomain: organisation.subdomain)
       duplicate.should have(1).error_on(:subdomain)
       duplicate.errors[:subdomain].should == ["has already been taken"]

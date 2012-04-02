@@ -55,14 +55,14 @@ describe Invoice do
 
   describe "uniqueness" do
     it "fails validation with a duplicate invoice_number" do # Within the invoice_numbers for THIS organisation
-      invoice = Factory(:invoice)
+      invoice = FactoryGirl.create(:invoice)
       duplicate = Invoice.new(invoice_number: invoice.invoice_number, organisation_id: invoice.organisation_id)
       duplicate.should have(1).error_on(:invoice_number)
       duplicate.errors[:invoice_number].should == ["has already been taken"]
     end
 
     it "fails validation with a duplicate uuid" do
-      invoice = Factory(:invoice)
+      invoice = FactoryGirl.create(:invoice)
       duplicate = Invoice.new(uuid: invoice.uuid)
       duplicate.should have(1).error_on(:uuid)
       duplicate.errors[:uuid].should == ["has already been taken"]
