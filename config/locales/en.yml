@@ -185,6 +185,11 @@ en:
         tanzania: Tanzania
         zambia: Zambia
 
+    invoices:
+      states:
+        invoice: Invoice
+        quote: Quote
+
     language:
       names:
         eng: English

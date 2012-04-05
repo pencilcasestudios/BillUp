@@ -25,12 +25,26 @@ class Invoice < ActiveRecord::Base
   attr_accessor :from_address_id
   attr_accessor :to_address_id
 
-
-
   # TODO - Implement this as a custom validation
   #before_save :due_date_is_not_before_invoice_date, message: "due date must be after invoice date."
   before_create :fill_in_addresses
 
+
+
+
+  STATES = {
+    I18n.t("models.invoices.states.invoice") => "invoice",
+    I18n.t("models.invoices.states.quote")   => "quote",
+  }
+
+
+
+
+
+  def self.random_state
+    STATES[STATES.to_a[rand STATES.size].first]
+  end
+  
   def line_item_units
     line_items.group_by { |u| u.currency }
   end

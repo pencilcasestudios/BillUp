@@ -31,7 +31,7 @@ FactoryGirl.define do
     to_address_id { |o| o.organisation.id }
 
     sequence(:uuid) { SecureRandom.uuid }
-    sequence(:state) { InvoiceState::STATES[InvoiceState::STATES.to_a[rand InvoiceState::STATES.size].first] }
+    sequence(:state) {  Invoice.random_state }
   end
 
   factory :organisation do
