@@ -51,8 +51,8 @@ FactoryGirl.define do
     from_address_id { |o| o.organisation.id }
     to_address_id { |c| c.client.id }
 
-    sequence(:currency) { Currency::CODES[Currency::CODES.to_a[rand Currency::CODES.size].first] }
-    sequence(:payment_method) { Payment::TYPES[Payment::TYPES.to_a[rand Payment::TYPES.size].first] }
+    sequence(:currency) { Currency.random_currency_code }
+    sequence(:payment_method) { Payment.random_payment_method }
     sequence(:received_at) { Time.now }
     sequence(:uuid) { SecureRandom.uuid }
   end

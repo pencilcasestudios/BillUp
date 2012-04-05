@@ -195,7 +195,7 @@ en:
         eng: English
 
     payment:
-      types:
+      methods:
         airtel_money: "Airtel Money"
         bank_transfer: "Bank transfer"
         cash: "Cash"
