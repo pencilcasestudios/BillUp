@@ -56,7 +56,6 @@ group :test do
   gem "guard-bundler"
   gem "guard-rspec"
   gem "guard-spork"
-  gem "guard-spork" #, git: "git://github.com/guard/guard-spork.git"
   gem "launchy" # Ref: http://techiferous.com/2010/04/using-capybara-in-rails-3/ for save_and_open_page to work
   gem "rack_session_access"
   gem "spork"
