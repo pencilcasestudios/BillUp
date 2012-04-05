@@ -22,7 +22,7 @@ class ReceiptsController < ApplicationController
     end
 
     @receipt = Receipt.new
-    @receipt.uuid = `uuidgen`.strip.downcase
+    @receipt.uuid = SecureRandom.uuid
     
     if @current_organisation.receipts.blank?
       @receipt.receipt_number = 1

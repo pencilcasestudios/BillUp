@@ -25,7 +25,7 @@ class InvoicesController < ApplicationController
     @invoice.due_at = Time.now + @current_organisation.preferred_due_in_period.days
     @invoice.from = @current_organisation.name
     @invoice.from_address = @current_organisation.current_address
-    @invoice.uuid = `uuidgen`.strip.downcase
+    @invoice.uuid = SecureRandom.uuid
     @invoice.line_items.build
     @invoice.terms = @current_organisation.preferred_terms
     @invoice.notes = @current_organisation.preferred_notes
