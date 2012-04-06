@@ -8,7 +8,7 @@ bundle exec rake
 # Guard for testing
 gem cleanup
 bundle update
-rm -rf public/images/logo
 rake db:drop
 rake db:setup
+rake db:test:prepare
 bundle exec guard
