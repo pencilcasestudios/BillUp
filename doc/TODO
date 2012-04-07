@@ -1,7 +1,7 @@
-DONE - Cash deposit as a payment option
 DONE - From an Invoice, link to the client page
 DONE - Update primary buttons
 TODO - Buttons and links for receipts
+TODO - Email
 TODO - Form error styling
 TODO - Guard/Spork/RSpec/rb-fsevent issues
 TODO - Invoice filename

@@ -11,4 +11,4 @@ bundle update
 rake db:drop
 rake db:setup
 rake db:test:prepare
-bundle exec guard
+bundle exec guard --no-vendor
