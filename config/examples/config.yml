@@ -24,6 +24,8 @@ defaults: &defaults
   email_port: 587
   email_user_name: hello@billup.net
 
+  # ActionMailer settings
+  application_server_name: "billup.clientcase.net"
 
 development:
   <<: *defaults
@@ -33,3 +35,6 @@ test:
 
 production:
   <<: *defaults
+
+  # ActionMailer settings
+  application_server_name: "billup.net"
