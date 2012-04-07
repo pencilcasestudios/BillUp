@@ -3,19 +3,26 @@ defaults: &defaults
   http_basic_password: future # Update this in production
   test_user_password: password
 
-  # Deployment recipe settings
-  application_name: "BillUp"
-  gemset_name: "billup-rails.3.1.x"
-  ruby_version: "ruby-1.9.3-p0"
-  server_name: "billup.net"
-  user: "silumesii"
+  # Multi-stage recipe settings
+  application_name: BillUp
+  deployment_path_production: production
+  deployment_path_staging: staging
+  gemset_name: billup-rails.3.2.x
+  repository_deployment_branch: master
+  repository_server_name: billup.net
+  ruby_version: ruby-1.9.3-p125
+  server_name_production: billup.net
+  server_name_staging: billup.clientcase.net
+  stage_name_production: production
+  stage_name_staging: staging
+  user: silumesii
 
   # Email settings
-  email_address: "smtp.gmail.com"
-  email_domain: "gmail.com"
-  email_password: "password" # Update this in production
+  email_address: smtp.gmail.com
+  email_domain: gmail.com
+  email_password: password # Update this in production
   email_port: 587
-  email_user_name: "hello@billup.net"
+  email_user_name: hello@billup.net
 
 
 development:
