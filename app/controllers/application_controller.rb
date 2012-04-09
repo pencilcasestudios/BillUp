@@ -30,7 +30,7 @@ private
       # Do nothing
     else
       # The current user is not allowed to access this Organisation
-      flash[:error] = t('controllers.application_controller.flash.membership_required')
+      flash[:error] = t("controllers.application_controller.flash.membership_required")
       redirect_to root_url(:host => request.domain)
     end
   end
@@ -38,7 +38,7 @@ private
   def sign_in_required
     unless current_user
       store_location
-      flash[:notice] = t('controllers.application_controller.flash.sign_in_required')
+      flash[:notice] = t("controllers.application_controller.flash.sign_in_required")
       redirect_to sign_in_path
       return false
     end
@@ -76,6 +76,6 @@ private
   end
 
   def resource_not_found
-    raise ActionController::RoutingError.new('Not Found')
+    raise ActionController::RoutingError.new("Not Found")
   end
 end

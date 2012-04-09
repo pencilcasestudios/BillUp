@@ -1,4 +1,3 @@
-require "spec_helper"
 require "authentication_helper"
 
 describe "User management" do

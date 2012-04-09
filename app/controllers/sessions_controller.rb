@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_authorization_check
 
   before_filter :sign_out_required, :except => [:destroy]
+  before_filter :sign_in_required, :only => [:destroy]
 
   def index
     redirect_to sign_in_path
@@ -24,10 +25,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if current_user
-      session[:user_id] = nil
-      flash[:success] =  t("controllers.sessions_controller.actions.destroy.success")
-    end
+    session[:user_id] = nil
+    flash[:success] =  t("controllers.sessions_controller.actions.destroy.success")
     redirect_to sign_in_path
   end
 end
