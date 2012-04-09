@@ -5,6 +5,9 @@ rake db:drop
 rake db:setup
 bundle exec rake
 
+
+
+
 # Guard for testing
 gem cleanup
 bundle update

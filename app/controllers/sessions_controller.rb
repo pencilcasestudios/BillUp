@@ -1,16 +1,13 @@
 class SessionsController < ApplicationController
+  skip_authorization_check
+
+  before_filter :sign_out_required, :except => [:destroy]
+
   def index
-    if current_user
-      redirect_to root_path
-    else
-      redirect_to sign_in_path
-    end
+    redirect_to sign_in_path
   end
   
   def new
-    if current_user
-      redirect_to root_path
-    end
   end
 
   def create
@@ -18,10 +15,10 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:identifier]) || User.find_by_username(params[:identifier]) || User.find_by_cell_phone_number(params[:identifier])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = t('controllers.sessions_controller.actions.create.success')
+      flash[:success] = t("controllers.sessions_controller.actions.create.success")
       redirect_back_or_default root_path #root_url(:host => request.domain)
     else
-      flash.now[:error] = t('controllers.sessions_controller.actions.create.error')
+      flash.now[:error] = t("controllers.sessions_controller.actions.create.error")
       render "new"
     end
   end
@@ -29,9 +26,8 @@ class SessionsController < ApplicationController
   def destroy
     if current_user
       session[:user_id] = nil
-      flash[:success] =  t('controllers.sessions_controller.actions.destroy.success')
+      flash[:success] =  t("controllers.sessions_controller.actions.destroy.success")
     end
     redirect_to sign_in_path
   end
-
 end

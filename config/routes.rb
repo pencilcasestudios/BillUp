@@ -1,10 +1,4 @@
 BillUp::Application.routes.draw do
-  get "welcome/index"
-  get "welcome/terms"
-
-
-
-
   match "account_settings", :to => "users#edit", :as => "account_settings"
   match "exception_test", :to => "welcome#exception_test", :as => "exception_test"
   match "pricing", :to => "welcome#pricing", :as => "pricing"
@@ -28,11 +22,11 @@ BillUp::Application.routes.draw do
     resources :clients
     resources :invoices
     resources :receipts
-    root :to => 'organisations#show'
+    root :to => "organisations#show"
   end
 
 
 
 
-  root :to => 'welcome#index'
+  root :to => "welcome#index"
 end

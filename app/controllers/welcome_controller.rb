@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  skip_authorization_check
+
   def index
     if user_signed_in?
       render :signed_in_home

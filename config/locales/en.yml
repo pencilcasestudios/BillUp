@@ -25,6 +25,7 @@ en:
   controllers:
     application_controller:
       flash:
+        access_denied: Access denied
         membership_required: "Access denied."
         sign_in_required: "Please sign in first and then we'll send you right along."
       current_organisation:

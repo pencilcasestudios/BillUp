@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :sign_in_required, except: [:new, :create]
+  before_filter :sign_in_required, :except => [:new, :create]
+  before_filter :sign_out_required, :only => [:new, :create]
+
+  load_and_authorize_resource
 
   def index
     redirect_to root_url(host: request.domain)

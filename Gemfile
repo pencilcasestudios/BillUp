@@ -30,6 +30,9 @@ gem "settingslogic"
 gem "sqlite3"
 gem "state_machine"
 
+
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -44,7 +47,7 @@ end
 
 
 group :test, :development do
-  gem "rspec-rails" #, :git => "git://github.com/rspec/rspec-rails.git"
+  gem "rspec-rails"
 end
 
 group :test, :darwin do
