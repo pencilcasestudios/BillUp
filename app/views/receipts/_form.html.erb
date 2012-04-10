@@ -53,7 +53,7 @@
 					</div>				
 					<fieldset class="control-group">
 						<%= f.label :payment_method, t("views.receipts._form.labels.payment_method"), class: "control-label" %>
-				    <div class="controls"><%= f.select :payment_method, Payment::TYPES, { prompt: true } %></div>
+				    <div class="controls"><%= f.select :payment_method, Payment::METHODS, { prompt: true } %></div>
 					</fieldset>
 					<fieldset class="control-group">
 						<%= f.label :received_at, t("views.receipts._form.labels.received_at") %>

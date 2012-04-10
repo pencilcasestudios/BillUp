@@ -3,6 +3,8 @@ class InvoicesController < ApplicationController
   before_filter :current_organisation
   before_filter :membership_required
 
+  load_and_authorize_resource
+
   def index
     @invoices = @current_organisation.invoices
   end

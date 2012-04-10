@@ -18,5 +18,41 @@ class Ability
     can :destroy, Organisation do |organisation|
       organisation.members.include?(user)
     end
+
+    # Client
+    can :read, Client do |client|
+      client.organisation.members.include?(user)
+    end
+    can :create, Client
+    can :update, Client do |client|
+      client.organisation.members.include?(user)
+    end
+    can :destroy, Client do |client|
+      client.organisation.members.include?(user)
+    end
+
+    # Invoice
+    can :read, Invoice do |invoice|
+      invoice.organisation.members.include?(user)
+    end
+    can :create, Invoice
+    can :update, Invoice do |invoice|
+      invoice.organisation.members.include?(user)
+    end
+    can :destroy, Invoice do |invoice|
+      invoice.organisation.members.include?(user)
+    end
+
+    # Receipt
+    can :read, Receipt do |receipt|
+      receipt.organisation.members.include?(user)
+    end
+    can :create, Receipt
+    can :update, Receipt do |receipt|
+      receipt.organisation.members.include?(user)
+    end
+    can :destroy, Receipt do |receipt|
+      receipt.organisation.members.include?(user)
+    end
   end
 end

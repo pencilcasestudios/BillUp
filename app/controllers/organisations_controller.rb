@@ -2,6 +2,7 @@ class OrganisationsController < ApplicationController
   before_filter :sign_in_required
   before_filter :current_organisation, :except => [:new, :create]
   before_filter :membership_required, :except => [:new, :create]
+
   load_and_authorize_resource
 
   def show

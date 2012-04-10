@@ -3,22 +3,23 @@ class ClientsController < ApplicationController
   before_filter :current_organisation
   before_filter :membership_required
 
+  load_and_authorize_resource
+
   def index
     @clients = @current_organisation.clients
   end
 
   def show
-    @client = @current_organisation.clients.find_by_id(params[:id])
+    @client = Client.find(params[:id])
   end
 
   def new
-    @client = Client.new
     @client.addresses.build
   end
 
   # GET /clients/1/edit
   def edit
-    @client = @current_organisation.clients.find_by_id(params[:id])
+    @client = Client.find(params[:id])
   end
 
   def create
@@ -33,7 +34,7 @@ class ClientsController < ApplicationController
   end
 
   def update
-    @client = @current_organisation.clients.find_by_id(params[:id])
+    @client = Client.find(params[:id])
 
     if @client.update_attributes(params[:client])
       flash[:notice] = t("controllers.clients_controller.actions.update.success")
