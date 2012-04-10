@@ -95,7 +95,7 @@ GEM
       guard (>= 0.2.2)
     guard-rspec (0.7.0)
       guard (>= 0.10.0)
-    guard-spork (0.6.0)
+    guard-spork (0.6.1)
       guard (>= 0.10.0)
       spork (>= 0.8.4)
     highline (1.6.11)

@@ -3,7 +3,7 @@ DONE - Update primary buttons
 TODO - Buttons and links for receipts
 TODO - Email
 TODO - Form error styling
-cTODO - Invoice filename
+TODO - Invoice filename
 TODO - Paid/unpaid invoices
 TODO - Receipt filename
 TODO - Receipt templates (Why is the copyright showing in the #page?)
@@ -13,3 +13,4 @@ TODO - Table sorting on receipts
 TODO - Test for valid CSS
 TODO - Test that PDFs download and do not render inline
 TODO - Tests? - The session tests have something I don't understand messing things up
+TODO - https

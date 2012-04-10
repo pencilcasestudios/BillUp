@@ -7,13 +7,18 @@ class UsersController < ApplicationController
   def index
     redirect_to root_url(host: request.domain)
   end
+  
+  def show
+    redirect_to account_settings_path
+  end
 
   def new
     if current_user
       flash[:notice] = t("controllers.users_controller.actions.new.error")
       redirect_to root_url(host: request.domain)
     else
-      @user = User.new
+      #@user = User.new
+      # Do nothing
     end
   end
 
@@ -29,11 +34,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    if @user.blank?
+      @user = current_user
+    end
   end
 
   def update
-    @user = current_user
+    if @user.blank?
+      @user = current_user
+    end
     if @user.update_attributes(params[:user])
       redirect_to(account_settings_path, notice: t("controllers.users_controller.actions.update.success"))
     else

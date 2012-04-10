@@ -70,6 +70,16 @@ describe "User management" do
       end
     end
 
+    # users#show
+    describe "requesting /users/:user_id" do
+      it "redirects to /account_settings" do
+        visit user_path(@current_user)
+        
+        current_path.should eq(account_settings_path)
+        page.should have_content(I18n.t("views.users.edit.title"))  # As a result of the redirect to account_settings_path
+      end
+    end
+
     # users#new
     describe "requesting sign up" do
       it "redirects to the root_path" do
@@ -119,7 +129,7 @@ describe "User management" do
         visit account_settings_path
         page.should have_content(I18n.t("views.users.edit.title"))  # As a result of the redirect to account_settings_path
 
-        updated_field = [["+",""][rand 2],"#{"%010d" % (rand 1000000000000)}"].join.strip
+        updated_field = PhoneNumber.random
         fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: updated_field
 
         click_button I18n.t("helpers.submit.user.update")
@@ -128,6 +138,17 @@ describe "User management" do
         
         page.should have_content(I18n.t("controllers.users_controller.actions.update.success"))
         find_field(I18n.t("views.users._form.labels.cell_phone_number")).value.should eq(updated_field)
+      end
+    end
+
+    describe "trying to access another user's account settings" do
+      it "fails" do
+        @other_user = FactoryGirl.create(:user)
+        
+        visit user_path(@other_user)
+        
+        current_path.should eq(root_path)
+        page.should have_content(I18n.t("controllers.application_controller.flash.access_denied"))
       end
     end
   end
