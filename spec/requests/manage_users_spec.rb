@@ -6,6 +6,8 @@ describe "User management" do
     describe "requesting /users" do
       it "redirects to the sign up page" do
         visit users_path
+
+        current_path.should eq(sign_in_path)
         page.should have_content(I18n.t("views.sessions.new.title"))  # As a result of the redirect to sign_up_path
       end
     end
