@@ -137,7 +137,7 @@ namespace :deploy do
   task :symlink_extras do
     run "ln -nfs #{shared_path}/config/config.yml #{release_path}/config/config.yml"
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{shared_path}/config/twitter.yml #{release_path}/config/twitter.yml"
+    #run "ln -nfs #{shared_path}/config/twitter.yml #{release_path}/config/twitter.yml"
   end
 end
 
