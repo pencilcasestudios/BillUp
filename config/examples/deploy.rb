@@ -129,7 +129,7 @@ namespace :deploy do
     run "mkdir #{shared_path}/config"
     put File.read("config/examples/config.yml"), "#{shared_path}/config/config.yml"
     put File.read("config/examples/database.yml"), "#{shared_path}/config/database.yml"
-    put File.read("config/examples/twitter.yml"), "#{shared_path}/config/twitter.yml"
+    #put File.read("config/examples/twitter.yml"), "#{shared_path}/config/twitter.yml"
     puts "Now edit the config files in #{shared_path}."
   end
 
