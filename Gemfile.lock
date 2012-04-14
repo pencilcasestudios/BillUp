@@ -40,7 +40,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
     cancan (1.6.7)
-    capistrano (2.11.2)
+    capistrano (2.12.0)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -55,7 +55,7 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    carrierwave (0.6.1)
+    carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
     carrierwave_backgrounder (0.0.6)
@@ -111,6 +111,8 @@ GEM
       addressable (~> 2.2.6)
     letter_opener (0.0.2)
       launchy
+    libwebsocket (0.1.3)
+      addressable
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -196,9 +198,10 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    selenium-webdriver (2.20.0)
+    selenium-webdriver (2.21.0)
       childprocess (>= 0.2.5)
       ffi (~> 1.0)
+      libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
     settingslogic (2.0.8)
