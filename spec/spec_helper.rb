@@ -5,9 +5,9 @@ require "rack_session_access/capybara"
 Spork.prefork do
   ENV["RAILS_ENV"] ||= "test"
   require File.expand_path("../../config/environment", __FILE__)
-  require "rspec/rails"
-  require "rspec/autorun"
   require "capybara/rspec"
+  require "rspec/autorun"
+  require "rspec/rails"
 
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
