@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe User do
   describe "presence" do
     it "fails validation with no cell_phone_number" do

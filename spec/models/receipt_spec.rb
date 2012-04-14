@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Receipt do
   describe "presence" do
     it "fails validation with no from" do

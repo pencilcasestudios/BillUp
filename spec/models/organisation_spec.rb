@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Organisation do
   describe "presence" do
     it "fails validation when leaves_left is nil" do
