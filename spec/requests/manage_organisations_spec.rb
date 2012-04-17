@@ -1,4 +1,5 @@
 require "support/authentication_helper"
+require "support/organisation_helper"
 
 describe "Organisation management" do
   # Guest session
@@ -68,19 +69,11 @@ describe "Organisation management" do
 
     describe "with organisations" do
       before(:each) do
-        @organisations = []
-        @organisations[0] = FactoryGirl.create(:organisation)
-        @organisations[0].members << @current_user
-        @organisations[1] = FactoryGirl.create(:organisation)
-        @organisations[1].members << @current_user
-        @organisations[2] = FactoryGirl.create(:organisation)
-        @organisations[2].members << @current_user
-        @organisations[3] = FactoryGirl.create(:organisation)
-        @organisations[3].members << @current_user
+        setup_organisations
       end
 
       describe "requesting /organisations" do
-        it "redirects to the sign in page" do
+        it "redirects to the home page for the current user" do
 
           visit organisations_path
 
@@ -97,15 +90,51 @@ describe "Organisation management" do
       end
       
       it "allows access to an organisation" do
-        organisation = @organisations[rand @organisations.size]
+        get_a_random_organisation_for_the_current_user
+      end
+      
+      describe "updating an organisation's" do
+        before(:each) do
+          get_a_random_organisation_for_the_current_user
 
-        visit organisations_path
-        click_link organisation.name
+          page.should have_content(I18n.t("views.organisations.show.links.organisation_settings"))
         
-        current_path.should eq(root_path)
-        #request.subdomain.should eq(organisation.subdomain)
-        page.should have_content(I18n.t("views.organisations.show.title", :organisation_name => organisation.name))
-        page.should have_content(I18n.t("views.organisations._organisation_has_no_clients.copy.p1").truncate(80).gsub("...", ""))        
+          click_link I18n.t("views.organisations.show.links.organisation_settings")
+        
+          current_path.should eq(edit_organisation_path(@organisation))
+        
+          page.should have_content(I18n.t("views.organisations.edit.title", organisation_name: @organisation.name))
+        end
+
+        it "name succeeds" do
+          new_field = "A new name for #{@organisation.name}"
+          fill_in I18n.t("views.organisations._form.labels.name"), with: new_field
+
+          click_button I18n.t("helpers.submit.update", model: "Organisation")
+
+          page.should have_content(I18n.t("controllers.organisations_controller.actions.update.success"))
+          page.should have_content(I18n.t("views.organisations.show.title", organisation_name: new_field))
+        end
+
+        #it "URL succeeds" do
+        #  new_field = "newsubdomain"
+        #  fill_in I18n.t("views.organisations._form.labels.subdomain"), with: new_field
+        #
+        #  click_button I18n.t("helpers.submit.update", model: "Organisation")
+        #
+        #  page.should have_content(I18n.t("controllers.organisations_controller.actions.update.success"))
+        #  page.should have_content(I18n.t("views.organisations.show.title", organisation_name: new_name))
+        #end
+        #
+        #it "URL fails if it is already taken" do
+        #  new_name = "A new name for #{@organisation.name}"
+        #  fill_in I18n.t("views.organisations._form.labels.name"), with: new_name
+        #
+        #  click_button I18n.t("helpers.submit.update", model: "Organisation")
+        #
+        #  page.should have_content(I18n.t("controllers.organisations_controller.actions.update.success"))
+        #  page.should have_content(I18n.t("views.organisations.show.title", organisation_name: new_name))
+        #end
       end
     end
 

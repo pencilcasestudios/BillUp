@@ -22,7 +22,7 @@ class OrganisationsController < ApplicationController
     @organisation = Organisation.new(params[:organisation])
     @organisation.memberships.build(user: current_user)
     if @organisation.save
-      flash[:success] = t('controllers.organisations_controller.actions.create.success')
+      flash[:success] = t("controllers.organisations_controller.actions.create.success")
       redirect_to root_url(:host => request.domain)
     else
       render action: "new"
@@ -37,7 +37,7 @@ class OrganisationsController < ApplicationController
     @organisation = @current_organisation
 
     if @organisation.update_attributes(params[:organisation])
-      flash[:success] = t('controllers.organisations_controller.actions.update.success')
+      flash[:success] = t("controllers.organisations_controller.actions.update.success")
       redirect_to root_path
     else
       render action: "edit"

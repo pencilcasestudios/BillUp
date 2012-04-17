@@ -1,32 +1,36 @@
 <%= nested_form_for(@organisation) do |f| %>
 
 	<% if @organisation.errors.any? %>
-	  <div id="error_explanation">
-	    <h2><%= pluralize(@organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
+	 <div id="error_explanation">
+	  <h2><%= pluralize(@organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
 
-	    <ul>
-	    <% @organisation.errors.full_messages.each do |msg| %>
-	      <li><%= msg %></li>
-	    <% end %>
-	    </ul>
-	  </div>
+	  <ul>
+	  <% @organisation.errors.full_messages.each do |msg| %>
+	   <li><%= msg %></li>
+	  <% end %>
+	  </ul>
+	 </div>
 	<% end %>
-
+	
 	<fieldset class="control-group">
 		<fieldset class="control-group">
 			<legend><%= t("views.organisations._form.legends.organisation") %></legend>
 			<div class="row">
 				<div class="span7">
 					<fieldset class="control-group">
-				    <%= f.label :name, t("views.organisations._form.labels.name"), class: "control-label" %>
-				    <div class="controls"><%= f.text_field :name, class: "span5" %></div>
+						<%= f.label :name, t("views.organisations._form.labels.name"), class: "control-label" %>
+						<div class="controls"><%= f.text_field :name, class: "span5" %></div>
 					</fieldset>
 				</div>
 				<div class="span5">
 					<fieldset class="control-group">
-				    <%= f.label :subdomain, t("views.organisations._form.labels.subdomain"), class: "control-label" %>
-				    <div class="controls">
-							<%=  t("views.application.copy.http") %><%= f.text_field :subdomain %><%= ".#{request.domain}" %>
+						<%= f.label :subdomain, t("views.organisations._form.labels.subdomain"), class: "control-label" %>
+						<div class="controls">
+							<% if new_or_create_action? %>
+								<%= t("views.application.copy.http") %><%= f.text_field :subdomain %><%= ".#{request.domain}" %>
+							<% else %>
+								<%= t("views.application.copy.http") %><%= f.text_field :subdomain, readonly: true %><%= ".#{request.domain}" %>
+							<% end %>
 						</div>
 					</fieldset>
 				</div>
@@ -39,16 +43,16 @@
 			<div class="row">
 				<div class="span4">
 					<fieldset class="control-group">
-				    <%= f.label :preferred_due_in_period, t("views.organisations._form.labels.preferred_due_in_period"), class: "control-label" %>
-				    <div class="controls">
+				  <%= f.label :preferred_due_in_period, t("views.organisations._form.labels.preferred_due_in_period"), class: "control-label" %>
+				  <div class="controls">
 							<%= f.text_field :preferred_due_in_period, class: "span1" %> <%= t("views.organisations._form.copy.days") %>
 						</div>
 					</fieldset>
 				</div>
 				<div class="span4">
 					<fieldset class="control-group">
-				    <%= f.label :preferred_terms, t("views.organisations._form.labels.preferred_terms"), class: "control-label" %>
-				    <div class="controls">
+				  <%= f.label :preferred_terms, t("views.organisations._form.labels.preferred_terms"), class: "control-label" %>
+				  <div class="controls">
 							<%= f.text_area :preferred_terms, class: "span3", rows: 5 %>
 							<p class="help-block"><%=raw t("views.organisations._form.copy.hints.preferred_terms") %></p>
 						</div>
@@ -56,8 +60,8 @@
 				</div>
 				<div class="span4">
 					<fieldset class="control-group">
-				    <%= f.label :preferred_notes, t("views.organisations._form.labels.preferred_notes"), class: "control-label" %>
-				    <div class="controls">
+				  <%= f.label :preferred_notes, t("views.organisations._form.labels.preferred_notes"), class: "control-label" %>
+				  <div class="controls">
 							<%= f.text_area :preferred_notes, class: "span3", rows: 5 %>
 							<p class="help-block"><%=raw t("views.organisations._form.copy.hints.preferred_notes") %></p>
 						</div>
@@ -76,8 +80,8 @@
 		</fieldset>
 		<!-- Address -->
 
-	  <div class="actions form-actions">
-	    <%= f.submit class: "btn btn-large btn-primary" %>
-	  </div>
+	 <div class="actions form-actions">
+	  <%= f.submit class: "btn btn-large btn-primary" %>
+	 </div>
 	</fieldset>
 <% end %>
