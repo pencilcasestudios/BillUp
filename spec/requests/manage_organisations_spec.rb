@@ -135,6 +135,33 @@ describe "Organisation management" do
         #  page.should have_content(I18n.t("controllers.organisations_controller.actions.update.success"))
         #  page.should have_content(I18n.t("views.organisations.show.title", organisation_name: new_name))
         #end
+
+        it "preferred_due_in_period succeeds" do
+          new_field = "40"
+          fill_in I18n.t("views.organisations._form.labels.preferred_due_in_period"), with: new_field
+
+          click_button I18n.t("helpers.submit.update", model: "Organisation")
+
+          page.should have_content(I18n.t("controllers.organisations_controller.actions.update.success"))
+        end
+
+        it "preferred_terms succeeds" do
+          new_field = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          fill_in I18n.t("views.organisations._form.labels.preferred_terms"), with: new_field
+
+          click_button I18n.t("helpers.submit.update", model: "Organisation")
+
+          page.should have_content(I18n.t("controllers.organisations_controller.actions.update.success"))
+        end
+
+        it "preferred_notes succeeds" do
+          new_field = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          fill_in I18n.t("views.organisations._form.labels.preferred_notes"), with: new_field
+
+          click_button I18n.t("helpers.submit.update", model: "Organisation")
+
+          page.should have_content(I18n.t("controllers.organisations_controller.actions.update.success"))
+        end
       end
     end
 
