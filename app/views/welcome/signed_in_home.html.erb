@@ -10,9 +10,9 @@
 <div class="row">
 	<div class="span9">
 		<% if current_user.organisations.blank? %>
-		<%= render "user_has_no_organisations" %>
+			<%= render "user_has_no_organisations" %>
 		<% else %>
-		<%= render "user_has_organisations" %>
+			<%= render "user_has_organisations" %>
 		<% end %>
 	</div>
 	<div class="span3 sidebar">
