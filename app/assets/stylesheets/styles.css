@@ -57,6 +57,11 @@ footer {
 	text-align: center;
 }
 
+.page-header .hint {
+	margin-top: 1em;
+	color: #666666;
+}
+
 .buttons_and_links,
 .buttons_and_links_bar {
 	text-align: right;
