@@ -37,7 +37,8 @@ describe "User management" do
         captcha = User.connection.execute("select * from simple_captcha_data").last
         fill_in "user_captcha", with: captcha["value"]
 
-        check I18n.t("views.users._form.labels.terms_of_use")
+        #check I18n.t("views.users._form.labels.terms_of_use")
+        check I18n.t("views.users._form.copy.accept_terms_of_use") # Works because it is nested in <label>...</label>
 
         click_button I18n.t("helpers.submit.user.create")
 
