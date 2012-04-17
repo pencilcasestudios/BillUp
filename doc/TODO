@@ -16,3 +16,10 @@ TODO - Tests? - The session tests have something I don't understand messing thin
 TODO - https
 TODO - Matching up invoice and receipt numbers with URLs (scope through organisation?)
 TODO - Staging environment domain name?
+TODO - Invoice number reservation?
+TODO - Getting the right URLs showing up in the email message
+TODO - Email confirmation
+TODO - Cellphone number confirmation
+TODO - Move units from users to organisations
+TODO - Collapse user menus in to one drop-down
+TODO - Many-to-many association between users and organisations in tests?

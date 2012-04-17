@@ -1,9 +1,13 @@
 class OrganisationsController < ApplicationController
   before_filter :sign_in_required
-  before_filter :current_organisation, :except => [:new, :create]
-  before_filter :membership_required, :except => [:new, :create]
+  before_filter :current_organisation, :except => [:new, :create, :index]
+  before_filter :membership_required, :except => [:new, :create, :index]
 
   load_and_authorize_resource
+  
+  def index
+    redirect_to root_url(:host => request.domain)
+  end
 
   def show
     @organisation = @current_organisation

@@ -1,4 +1,4 @@
-require "authentication_helper"
+require "support/authentication_helper"
 
 describe "User management" do
   describe "when not signed in" do

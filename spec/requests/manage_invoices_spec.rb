@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'authentication_helper'
+require "support/authentication_helper"
 
 describe "Invoice management" do
   describe "with no subdomain" do

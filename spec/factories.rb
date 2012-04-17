@@ -41,6 +41,11 @@ FactoryGirl.define do
     addresses { |a| [a.association(:address)] }
   end
 
+  #factory :membership do
+  #  organisation { |a| [a.association(:organisation)] }
+  #  user { |a| [a.association(:user)] }
+  #end
+
   factory :receipt do
     sequence(:amount) { |n| n }
     sequence(:description) { |n| "Description #{n}" }
