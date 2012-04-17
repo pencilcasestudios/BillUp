@@ -10,4 +10,8 @@ class Client < ActiveRecord::Base
   has_many :receipts
 
   accepts_nested_attributes_for :addresses, allow_destroy: true
+  
+  def random_address
+    self.addresses[rand self.addresses.size]
+  end
 end

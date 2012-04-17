@@ -23,7 +23,7 @@ describe "User management" do
         email = "silumesii@example.com"
         fill_in I18n.t("views.users._form.labels.email"), with: email
 
-        cell_phone_number = PhoneNumber.random
+        cell_phone_number = PhoneNumber.random_phone_number
         fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
 
         password = "password"
@@ -132,7 +132,7 @@ describe "User management" do
         visit account_settings_path
         page.should have_content(I18n.t("views.users.edit.title"))  # As a result of the redirect to account_settings_path
 
-        updated_field = PhoneNumber.random
+        updated_field = PhoneNumber.random_phone_number
         fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: updated_field
 
         click_button I18n.t("helpers.submit.user.update")

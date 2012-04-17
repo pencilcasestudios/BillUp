@@ -24,3 +24,8 @@ TODO - Move units from users to organisations
 TODO - Collapse user menus in to one drop-down
 TODO - Many-to-many association between users and organisations in tests?
 TODO - Organisation subdomain update?
+TODO - An organisation must have one or more addresses (enforce?)
+TODO - A client must have one or more addresses (enforce?)
+TODO - Validate the length of a username?
+TODO - Random time zone?
+TODO - Random user name?

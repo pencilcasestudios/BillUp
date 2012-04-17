@@ -25,6 +25,10 @@ class Organisation < ActiveRecord::Base
     "Current Address"
   end
   
+  def random_address
+    self.addresses[rand self.addresses.size]
+  end
+
 private
 
   def downcase_subdomain
