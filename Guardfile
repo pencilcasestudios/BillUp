@@ -41,4 +41,7 @@ guard 'rspec', :version => 2, :cli => "--drb --drb-port 3211" do
 
 	# Locales
 	watch(%r{^config/locales/.+\.yml})  								{ "spec/requests" }
+
+	# Factories
+  watch('spec/factories.rb')                        	{ "spec/models" }
 end
