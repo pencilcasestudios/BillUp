@@ -6,7 +6,7 @@
 			<div class="controls">
 				<%= f.collection_select(:from_address_id, client_addresses, :id, :summary, { prompt: true }, { class: "span5" }) %>
 				<% if client.present? %>
-					<p class="help-text">
+					<p class="help-block">
 						<%=raw t("views.receipts._form.copy.hints.from_address_id", client_name: client.name) %>
 						<small>
 							<%= link_to t("views.receipts.clickables.links.all_clients"), new_receipt_path %><%= t("views.application.copy.full_stop") %>
