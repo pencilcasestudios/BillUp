@@ -458,7 +458,7 @@ en:
       new:
         title: Create an Organisation
         hints:
-          organisation: "An organisation can be an individual (yourself!), a business, a non-profit organisation or so on.<br />It is the name of the <em>thing</em> you use to invoice clients"
+          organisation: "An <em>organisation</em> can be an individual person, a business, a non-profit organisation, a school, a community group or something like that.<br />It is the name of the <em>thing</em> you use to invoice clients."
       show:
         links:
           organisation_settings: Organisation settings
