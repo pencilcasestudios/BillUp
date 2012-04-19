@@ -25,8 +25,13 @@ class Organisation < ActiveRecord::Base
     "Current Address"
   end
   
+  # Methods to help in testing
   def random_address
     self.addresses[rand self.addresses.size]
+  end
+
+  def random_client
+    self.clients[rand self.clients.size]
   end
 
 private

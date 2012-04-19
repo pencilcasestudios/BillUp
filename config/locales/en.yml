@@ -124,7 +124,7 @@ en:
     sessions_controller:
       actions:
         create:
-          error: Sign in failed. Please check your details try again.
+          error: Sign in failed. Please check your details and try again.
           success: Welcome!
         destroy:
           success: See you later! You have successfully signed out.
@@ -180,7 +180,7 @@ en:
         zmk: ZMK
 
     country:
-      names:
+      countries:
         canada: Canada
         netherlands: Netherlands
         tanzania: Tanzania
@@ -192,7 +192,7 @@ en:
         quote: Quote
 
     language:
-      names:
+      languages:
         eng: English
 
     payment:
@@ -460,7 +460,13 @@ en:
         hints:
           organisation: "An <em>organisation</em> can be an individual person, a business, a non-profit organisation, a school, a community group or something like that.<br />It is the name of the <em>thing</em> you use to invoice clients."
       show:
+        headings:
+          nav_list:
+            client: Client
+            organisation: Organisation
         links:
+          clients: Clients
+          new_client: New client
           organisation_settings: Organisation settings
         title: "%{organisation_name}"
 

@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   factory :client do
-    name { |n| "Client #{n}" }
+    sequence(:name) { |n| "Client #{n}" }
     addresses { |a| [a.association(:address)] }
   end
 
@@ -27,7 +27,7 @@ FactoryGirl.define do
   end
 
   factory :organisation do
-    name { |n| "Organisation #{n}" }
+    sequence(:name) { |n| "Organisation #{n}" }
     sequence(:subdomain) { |n| "subdomain#{n}" }
     addresses { |a| [a.association(:address)] }
   end

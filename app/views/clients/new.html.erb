@@ -2,7 +2,8 @@
 
 <div class="page-header">
 	<h1><%= yield :title %></h1>
-	<p><%=raw t("views.clients.new.hints.clients") %></p>
+
+	<p class="hint"><%=raw t("views.clients.new.hints.clients") %></p>
 </div>
 
-<%= render 'form' %>
+<%= render "form" %>

@@ -31,7 +31,7 @@ describe "User management" do
         fill_in I18n.t("views.users._form.labels.password"), with: password
         fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
 
-        select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+        select Language.random_language, from: I18n.t("views.users._form.labels.language")
         select "(GMT+02:00) Africa/Lusaka", from: I18n.t("views.users._form.labels.time_zone")
 
         captcha = User.connection.execute("select * from simple_captcha_data").last

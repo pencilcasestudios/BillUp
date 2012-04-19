@@ -1,10 +1,10 @@
 class Language < ActiveRecord::Base
-  NAMES = {
+  LANGUAGES = {
     # Translation                                                         # Database key. Ref: http://www.loc.gov/standards/iso639-2/php/code_list.php
-    I18n.t("models.language.names.eng")                =>                 "English",
+    I18n.t("models.language.languages.eng")                =>             "English",
   }
 
   def self.random_language
-    NAMES[NAMES.to_a[rand NAMES.size].first]
+    LANGUAGES[LANGUAGES.to_a[rand LANGUAGES.size].first]
   end
 end

@@ -30,7 +30,7 @@ describe "Organisation management" do
       sign_in_with_username
     end
 
-    it "allows the User to create an" do
+    it "allows the User to create an organisation" do
       organisations_at_start = @current_user.organisations.size
 
       visit new_organisation_path
@@ -44,7 +44,7 @@ describe "Organisation management" do
       fill_in I18n.t("views.addresses._form.labels.label"), with: "Fake"
       fill_in I18n.t("views.addresses._form.labels.street"), with: "123 Fake Street"
       fill_in I18n.t("views.addresses._form.labels.town"), with: "Fake Town"
-      select I18n.t("models.country.names.zambia"), from: I18n.t("views.addresses._form.labels.country")
+      select Country.random_country, from: I18n.t("views.addresses._form.labels.country")
 
       click_button I18n.t("helpers.submit.create", :model => "Organisation")
 
@@ -77,6 +77,14 @@ describe "Organisation management" do
 
           visit organisations_path
 
+          current_path.should eq(root_path) # As a result of the redirect
+          page.should have_content(I18n.t("views.welcome.signed_in_home.title"))
+          page.should have_content(I18n.t("views.welcome.signed_in_home._user_has_organisations.title"))
+        end
+        
+        it "lists the organisations the current user has access to" do
+          visit organisations_path
+
           current_path.should eq(root_path)
           page.should have_content(I18n.t("views.welcome.signed_in_home.title"))
           page.should have_content(I18n.t("views.welcome.signed_in_home._user_has_organisations.title"))
@@ -85,6 +93,7 @@ describe "Organisation management" do
             page.should have_content(organisation.name)
           end
           
+          @organisations.size.should_not eq(0)
           @current_user.organisations.size.should eq(@organisations.size)
         end
       end

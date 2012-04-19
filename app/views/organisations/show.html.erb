@@ -13,8 +13,14 @@
 		<% end %>
 	</div>
 	<div class="span3 sidebar">
-		<p>
-			<%= link_to t("views.organisations.show.links.organisation_settings"), edit_organisation_path(@organisation) %>
-		</p>
+		<div class="well">
+			<ul class="nav nav-list">
+				<li class="nav-header"><%= t("views.organisations.show.headings.nav_list.organisation") %></li>
+				<li><%= link_to t("views.organisations.show.links.organisation_settings"), edit_organisation_path(@organisation) %></li>
+				<li class="nav-header"><%= t("views.organisations.show.headings.nav_list.client") %></li>
+				<li><%= link_to t("views.organisations.show.links.clients"), clients_path %></li>
+				<li><%= link_to t("views.organisations.show.links.new_client"), new_client_path %></li>
+			</ul>
+		</div><!-- /.well -->
 	</div>
 </div>
