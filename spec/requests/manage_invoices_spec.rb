@@ -1,21 +1,29 @@
 require "support/authentication_helper"
 
 describe "Invoice management" do
-  describe "with no subdomain" do
-    # Invoices exist in relation to Organisations
-    describe "requesting /invoices" do
-      it "should not be successful" do
-        get "/invoices"
+  describe "when not signed in" do
+    # inovices#index
+    describe "requesting /inovices" do
+      it "fails" do
+        get invoices_path
+
         response.status.should_not be(200)
       end
     end
   end
 
-  describe "with a subdomain" do    
-    describe "and not signed in" do
+  describe "when signed in" do
+    before(:each) do
+      sign_in_with_username
     end
 
-    describe "and signed in" do
+    describe "without organisations" do
+    end
+
+    describe "without clients" do
+    end
+
+    describe "with clients" do
     end
   end
 end

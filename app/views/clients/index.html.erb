@@ -11,12 +11,20 @@
 	</div>
 </div>
 
-<table class="table table-condensed table table-striped">
-<% @clients.each do |client| %>
-  <tr>
-    <td><p><%= link_to client.name, client %></p></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<div class="row">
+	<div class="span9">
+		<% if @clients.blank? %>
+			<%= render "organisations/organisation_has_no_clients" %>
+		<% else %>
+			<%= render "clients" %>
+		<% end %>
+	</div>
+	<div class="span3 sidebar">
+		<div class="well">
+			<ul class="nav nav-list">
+				<li class="nav-header"><%= t("views.clients.show.headings.nav_list.client") %></li>
+				<li><%= link_to t("views.clients.show.links.new_client"), new_client_path %></li>
+			</ul>
+		</div><!-- /.well -->
+	</div>
+</div>

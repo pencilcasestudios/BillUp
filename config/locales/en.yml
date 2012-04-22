@@ -318,6 +318,11 @@ en:
         hints:
           clients: Create clients to keep track of who you are inovicing.
       show:
+        headings:
+          nav_list:
+            client: Client
+        links:
+          new_client: New client
         title: "Client: %{client_name}"
         sub_titles:
           addresses: Addresses

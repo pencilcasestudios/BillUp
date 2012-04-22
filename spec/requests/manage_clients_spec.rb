@@ -5,7 +5,7 @@ require "support/client_helper"
 describe "Client management" do
   describe "when not signed in" do
     # clients#index
-    describe "requesting /clients without a subdomain" do
+    describe "requesting /clients" do
       it "fails" do
         get clients_path
 
@@ -60,12 +60,12 @@ describe "Client management" do
 
       it "allows access to the list of clients for an organisation" do
         get_a_random_organisation_for_the_current_user
-        
+
         within(".sidebar") do
           page.should have_content(I18n.t("views.organisations.show.links.clients"))
           click_link I18n.t("views.organisations.show.links.clients")
         end
-        
+
         current_path.should eq(clients_path)
         page.should have_content(I18n.t("views.clients.index.title"))
         @organisation.clients.blank?.should_not eq(true)
@@ -76,21 +76,21 @@ describe "Client management" do
 
       it "allows a client page to be displayed" do
         get_a_random_organisation_for_the_current_user
-        
+
         within(".sidebar") do
           page.should have_content(I18n.t("views.organisations.show.links.clients"))
           click_link I18n.t("views.organisations.show.links.clients")
         end
-        
+
         current_path.should eq(clients_path)
         page.should have_content(I18n.t("views.clients.index.title"))
         @organisation.clients.blank?.should_not eq(true)
         @organisation.clients.each do |client|
           page.should have_content(client.name)
         end
-        
+
         client = @organisation.random_client
-        
+
         click_link client.name
 
         current_path.should eq(client_path(client))
@@ -99,31 +99,31 @@ describe "Client management" do
 
       it "allows a client to be updated" do
         get_a_random_organisation_for_the_current_user
-        
+
         within(".sidebar") do
           page.should have_content(I18n.t("views.organisations.show.links.clients"))
           click_link I18n.t("views.organisations.show.links.clients")
         end
-        
+
         current_path.should eq(clients_path)
         page.should have_content(I18n.t("views.clients.index.title"))
         @organisation.clients.blank?.should_not eq(true)
         @organisation.clients.each do |client|
           page.should have_content(client.name)
         end
-        
+
         client = @organisation.random_client
-        
+
         click_link client.name
 
         current_path.should eq(client_path(client))
         page.should have_content(I18n.t("views.clients.show.title", client_name: client.name))
-        
+
         click_link I18n.t("views.clients.clickables.buttons.edit_this_client")
-        
+
         current_path.should eq(edit_client_path(client))
         page.should have_content(I18n.t("views.clients.index.title"))
-        
+
         new_field = "Brand New Name for #{client.name}"
         fill_in I18n.t("views.clients._form.labels.name"), with: new_field
 

@@ -15,15 +15,11 @@
 			</div>
 
 			<div class="span4">
-				<% if new_or_create_action? %>				
-					<fieldset class="control-group">
-						<legend><%= t("views.invoices._form.legends.invoice_number") %></legend>
-						<%= f.label :invoice_number, t("views.invoices._form.labels.invoice_number") %>
-				    <div class="controls"><%= f.text_field :invoice_number, class: "span3", readonly: true %></div>
-					</fieldset>
-				<% else %>
-					An invoice/quote number will be generated when you save.
-				<% end %>
+				<fieldset class="control-group">
+					<legend><%= t("views.invoices._form.legends.invoice_number") %></legend>
+					<%= f.label :invoice_number, t("views.invoices._form.labels.invoice_number") %>
+			    <div class="controls"><%= f.text_field :invoice_number, class: "span3", readonly: true %></div>
+				</fieldset>
 			</div>
 
 			<div class="span4">

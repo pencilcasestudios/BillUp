@@ -1,0 +1,9 @@
+<table class="table table-condensed table table-striped">
+<% @clients.each do |client| %>
+  <tr>
+    <td><p><%= link_to client.name, client %></p></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
