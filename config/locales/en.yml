@@ -603,6 +603,9 @@ en:
         title: Tour
       signed_in_home:
         _sidebar:
+          headings:
+            nav_list:
+              organisation: Organisation
           links:
             create_an_organisation: Create an organisation
             purchase_units: Purchase units
