@@ -1,0 +1,14 @@
+<% title t("views.invoices.paid.title") %>
+
+<div class="page-header">
+	<div class="row">
+		<div class="span9">
+			<h1><%= yield :title %></h1>
+		</div>
+		<div class="span3 add">
+			<%= link_to t("views.invoices.paid.buttons.add_an_invoice"), new_invoice_path, class:  "btn" %>
+		</div>
+	</div>
+</div>
+
+<%= render "invoices", invoices: @invoices %>

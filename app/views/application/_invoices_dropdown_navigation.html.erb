@@ -4,7 +4,9 @@
 		<ul class="dropdown-menu">
 			<li id="tab_create_invoice"><%= link_to t("views.application._navigation.links.create_an_invoice"), new_invoice_path %></li>
 			<li class="divider"></li>
-			<li id="tab_invoices"><%= link_to t("views.application._navigation.links.invoices"), invoices_path %></li>
+			<li id="tab_all_invoices"><%= link_to t("views.application._navigation.links.all_invoices"), invoices_path %></li>
+			<li id="tab_paid_invoices"><%= link_to t("views.application._navigation.links.paid_invoices"), paid_invoices_path %></li>
+			<li id="tab_unpaid_invoices"><%= link_to t("views.application._navigation.links.unpaid_invoices"), unpaid_invoices_path %></li>
 		</ul>
 	</li>
 </ul>

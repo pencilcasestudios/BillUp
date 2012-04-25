@@ -1,6 +1,7 @@
 class Invoice < ActiveRecord::Base
   default_scope order("invoice_number DESC")
   
+  scope :paid, where(paid_at: !nil)
   scope :unpaid, where(paid_at: nil)
   
   has_paper_trail

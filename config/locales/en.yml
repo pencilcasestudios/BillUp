@@ -267,6 +267,7 @@ en:
           leaves_left: "%{leaves_left} leaves"
         links:
           account_settings: Account settings
+          all_invoices: All invoices
           clients: Clients
           create_an_invoice: New invoice
           create_an_organisation: New organisation
@@ -274,6 +275,7 @@ en:
           create_a_receipt: New receipt
           home: Home
           invoices: Invoices
+          paid_invoices: Paid invoices
           pricing: Pricing
           receipts: Receipts
           sign_in: Sign in
@@ -282,6 +284,7 @@ en:
           switch_to: Switch to
           tour: Tour
           units_balance: "%{units} units"
+          unpaid_invoices: Unpaid invoices
 
     clients:
       _errors:
@@ -390,10 +393,18 @@ en:
           pdf: PDF
           reconcile: Reconciliation
           view: View
+      paid:
+        title: Paid invoices
+        buttons:
+          add_an_invoice: Create an Invoice
+      unpaid:
+        title: Unpaid invoices
+        buttons:
+          add_an_invoice: Create an Invoice
       edit:
         title: "Edit %{state} %{number}"
       index:
-        title: Invoices
+        title: All invoices
         buttons:
           add_an_invoice: Create an Invoice
         copy:

@@ -39,6 +39,12 @@ class Ability
     can :update, Invoice do |invoice|
       invoice.organisation.members.include?(user)
     end
+    can :paid, Invoice do |invoice|
+      invoice.organisation.members.include?(user)
+    end
+    can :unpaid, Invoice do |invoice|
+      invoice.organisation.members.include?(user)
+    end
     can :destroy, Invoice do |invoice|
       invoice.organisation.members.include?(user)
     end

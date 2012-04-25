@@ -1,5 +1,5 @@
 <div class="buttons_and_links">
-<% if index_action? %>
+<% if index_action? || controller.action_name == "paid" || controller.action_name == "unpaid" %>
 	<p>
 		<small>
 		<%= link_to_unless_current t("views.invoices.clickables.links.view"), invoice_path(invoice) %>
