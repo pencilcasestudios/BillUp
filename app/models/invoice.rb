@@ -75,6 +75,10 @@ class Invoice < ActiveRecord::Base
   def unpaid?
     self.paid_at.blank?
   end
+  
+  def past_due?
+    self.unpaid? && (Time.now > self.due_at)
+  end
 
 private
 

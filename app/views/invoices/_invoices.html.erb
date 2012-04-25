@@ -4,12 +4,12 @@
 		<table id="table_of_invoices" class="table table-condensed table table-striped">
 		  <thead>
 				<tr>
-				  <th class="invoice_number"><%= t("views.invoices.index.copy.table_headings.invoice_number") %></th>
-				  <th class="to"><%= t("views.invoices.index.copy.table_headings.to") %></th>
-				  <th class="total"><%= t("views.invoices.index.copy.table_headings.total") %></th>
-				  <th class="invoiced_at"><%= t("views.invoices.index.copy.table_headings.invoiced_at") %></th>
-				  <th class="due_at"><%= t("views.invoices.index.copy.table_headings.due_at") %></th>
-					<th class="buttons_and_links"><%= t("views.invoices.index.copy.table_headings.actions") %></th>
+				  <th class="invoice_number"><%= t("views.invoices._invoices.copy.table_headings.invoice_number") %></th>
+				  <th class="to"><%= t("views.invoices._invoices.copy.table_headings.to") %></th>
+				  <th class="total"><%= t("views.invoices._invoices.copy.table_headings.total") %></th>
+				  <th class="invoiced_at"><%= t("views.invoices._invoices.copy.table_headings.invoiced_at") %></th>
+				  <th class="due_at"><%= t("views.invoices._invoices.copy.table_headings.due_at") %></th>
+					<th class="buttons_and_links"><%= t("views.invoices._invoices.copy.table_headings.actions") %></th>
 				</tr>
 			</thead>
 		  <tbody>
@@ -26,8 +26,22 @@
 						<% end %>
 						<%= totals.join(", ") %>
 					</td>
-			    <td class="invoiced_at" title="<%= invoice.invoiced_at.strftime("%A, %d %B %Y") %>"><%= invoice.invoiced_at.strftime("%Y-%m-%d") %></td>
-			    <td class="due_at" title="<%= invoice.due_at.strftime("%A, %d %B %Y") %>"><%= invoice.due_at.strftime("%Y-%m-%d") %></td>
+			    <td class="invoiced_at" title="<%= invoice.invoiced_at.strftime("%A, %d %B %Y") %>">
+						<%= invoice.invoiced_at.strftime("%Y-%m-%d") %>
+					</td>
+			    <td class="due_at" title="<%= "#{t("views.invoices._invoices.copy.due")}#{t("views.application.copy.full_colon")} #{invoice.due_at.strftime("%A, %d %B %Y")}" %>">
+						<%= invoice.due_at.strftime("%Y-%m-%d") %>
+						<% if invoice.paid? %>
+							<span class="label label-info" title="<%= "#{t("views.invoices._invoices.copy.paid")}#{t("views.application.copy.full_colon")} #{invoice.paid_at.strftime("%A, %d %B %Y")}" %>">
+								<%= t("views.invoices._invoices.copy.paid") %>
+							</span>
+						<% end %>
+						<% if invoice.past_due? %>
+							<span class="label label-important">
+								<%= t("views.invoices._invoices.copy.past_due") %>
+							</span>
+						<% end %>
+					</td>
 			    <td class="buttons_and_links">
 						<%= render "invoices/buttons_and_links", invoice: invoice %>
 					</td>

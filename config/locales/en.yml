@@ -379,6 +379,18 @@ en:
           add_a_sub_factor: Add a sub-factor
           remove_this_line_item: Remove
           remove_this_sub_item: Remove
+      _invoices:
+        copy:
+          paid: Paid
+          due: Due
+          past_due: Past due
+          table_headings:
+            actions: Actions
+            due_at: Due Date
+            invoiced_at: Invoice Date
+            invoice_number: "#"
+            to: Client
+            total: Total
       _no_invoices:
         copy:
           no_invoices: No invoices.
@@ -407,14 +419,6 @@ en:
         title: All invoices
         buttons:
           add_an_invoice: Create an Invoice
-        copy:
-          table_headings:
-            actions: Actions
-            due_at: Due Date
-            invoiced_at: Invoice Date
-            invoice_number: "#"
-            to: Client
-            total: Total
       new:
         title: New invoice
         form:
