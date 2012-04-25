@@ -1,0 +1,10 @@
+<% if invoice.paid? %>
+	<span class="label label-info" title="<%= "#{t("views.invoices._invoices.copy.paid")}#{t("views.application.copy.full_colon")} #{invoice.paid_at.strftime("%A, %d %B %Y")}" %>">
+		<%= t("views.invoices._invoices.copy.paid") %>
+	</span>
+<% end %>
+<% if invoice.past_due? %>
+	<span class="label label-important">
+		<%= t("views.invoices._invoices.copy.past_due") %>
+	</span>
+<% end %>
