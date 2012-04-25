@@ -15,7 +15,9 @@
 		  <tbody>
 				<% invoices.each do |invoice| %>
 			  <tr class="invoice">
-			    <td class="invoice_number"><%= link_to_unless_current invoice.invoice_number, invoice %></td>
+			    <td class="invoice_number">
+						<%= link_to_unless_current invoice.invoice_number, invoice, { rel: "tooltip", title: "#{invoice.client.name}#{t("views.application.copy.full_colon")} #{invoice.description}" } %>
+					</td>
 			    <td class="to"><%= link_to_unless_current invoice.to, invoice.client %></td>
 			    <td class="total">
 						<% totals = [] %>

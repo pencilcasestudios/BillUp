@@ -6,7 +6,7 @@ class InvoicesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @invoices = @current_organisation.invoices
+    @invoices = @current_organisation.invoices.unpaid
   end
 
   def show

@@ -1,6 +1,8 @@
 class Invoice < ActiveRecord::Base
   default_scope order("invoice_number DESC")
-
+  
+  scope :unpaid, where(paid_at: nil)
+  
   has_paper_trail
 
   belongs_to :organisation
@@ -63,6 +65,14 @@ class Invoice < ActiveRecord::Base
 
   def file_name
     "#{I18n.t("views.invoices.show.copy.states.#{self.state}")} #{self.invoice_number} #{I18n.t("views.invoices.show.labels.to")} #{self.client.name}.pdf"
+  end
+  
+  def paid?
+    self.paid_at.present?
+  end
+
+  def unpaid?
+    self.paid_at.blank?
   end
 
 private
