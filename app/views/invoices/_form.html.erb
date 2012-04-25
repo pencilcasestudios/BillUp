@@ -49,16 +49,22 @@
 				<fieldset class="control-group">
 					<legend><%= t("views.invoices._form.legends.dates") %></legend>
 					<div class="row">
-						<div class="span3">
+						<div class="span2">
 							<fieldset>
 								<%= f.label :invoiced_at, t("views.invoices._form.labels.invoiced_at") %>
 							  <div class="controls"><%= f.date_select :invoiced_at, {}, class: "span2" %></div>
 							</fieldset>
 						</div>
-						<div class="span3">
+						<div class="span2">
 							<fieldset>
 								<%= f.label :due_at, t("views.invoices._form.labels.due_at") %>
 							  <div class="controls"><%= f.date_select :due_at, {}, class: "span2" %></div>
+							</fieldset>
+						</div>
+						<div class="span2">
+							<fieldset>
+								<%= f.label :paid_at, t("views.invoices._form.labels.paid_at") %>
+							  <div class="controls"><%= f.date_select :paid_at, { prompt: true }, class: "span2" %></div>
 							</fieldset>
 						</div>
 					</div><!-- /.row -->

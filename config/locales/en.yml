@@ -355,6 +355,7 @@ en:
           invoiced_at: Invoice date
           invoice_number: Invoice/Quote number
           notes: Notes
+          paid_at: Date paid in full
           quantity: Quantity
           state: Invoice/Quote
           terms: Terms
