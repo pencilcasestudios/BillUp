@@ -10,3 +10,9 @@
 #receipt #notes {
 	margin-top: 2em;
 }
+
+#receipts_table .amount,
+#receipts_table .buttons_and_links,
+#receipts_table .receipt_number {
+	text-align: right;	
+}

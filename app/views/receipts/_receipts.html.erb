@@ -1,28 +1,33 @@
 <% if receipts.present? %>
-	<table class="table table-condensed table table-striped">
-	  <thead>
-			<tr>
-			  <th class="receipt_number"><%= t("views.receipts.table.headings.receipt_number") %></th>
-			  <th class="to"><%= t("views.receipts.table.headings.from") %></th>
-			  <th class="total"><%= t("views.receipts.table.headings.amount") %></th>
-			  <th class="received_at"><%= t("views.receipts.table.headings.received_at") %></th>
-				<th class="buttons_and_links"><%= t("views.receipts.table.headings.actions") %></th>
-			</tr>
-		</thead>
-	  <tbody>
-			<% receipts.each do |receipt| %>
-		  <tr class="receipt">
-		    <td class="receipt_number"><%= receipt.receipt_number %></td>
-		    <td class="from"><%= receipt.from %></td>
-		    <td class="amount"><%= t("models.currency.codes.#{receipt.currency}") %><%= number_to_currency(receipt.amount, :unit => "") %></td>
-		    <td class="received_at"><%= receipt.received_at.strftime("%a, %d %b %Y") %></td>
-		    <td class="buttons_and_links">
-					<%= render "receipts/buttons_and_links", receipt: receipt %>
-				</td>
-		  </tr>
-			<% end %>
-		</tbody>
-	</table>
+<%= render "tablesorter", { table: "table_of_receipts", column_number: 1 } %>
+	<div id="receipts_table">
+		<table id="table_of_receipts" class="table table-condensed table table-striped">
+		  <thead>
+				<tr>
+				  <th class="receipt_number"><%= t("views.receipts.table.headings.receipt_number") %></th>
+				  <th class="to"><%= t("views.receipts.table.headings.from") %></th>
+				  <th class="amount"><%= t("views.receipts.table.headings.amount") %></th>
+				  <th class="received_at"><%= t("views.receipts.table.headings.received_at") %></th>
+					<th class="buttons_and_links"><%= t("views.receipts.table.headings.actions") %></th>
+				</tr>
+			</thead>
+		  <tbody>
+				<% receipts.each do |receipt| %>
+			  <tr class="receipt">
+			    <td class="receipt_number"><%= receipt.receipt_number %></td>
+			    <td class="from"><%= receipt.from %></td>
+			    <td class="amount"><%= t("models.currency.codes.#{receipt.currency}") %><%= number_to_currency(receipt.amount, :unit => "") %></td>
+			    <td class="received_at" title="<%= receipt.received_at.strftime("%A, %d %B %Y") %>">
+						<%= receipt.received_at.strftime("%Y-%m-%d") %>
+					</td>
+			    <td class="buttons_and_links">
+						<%= render "receipts/buttons_and_links", receipt: receipt %>
+					</td>
+			  </tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div><!-- /#receipts_table -->
 <% else %>
 	<%= render "receipts/no_receipts"%>
 <% end %>

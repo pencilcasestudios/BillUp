@@ -2,7 +2,7 @@
 	$(function() {
 		$("table#<%= table %>")
 		.tablesorter({
-			sortList: [[3,1]]
+			sortList: [[<%= column_number %>,1]]
 		});
 	});
 </script>
