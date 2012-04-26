@@ -14,8 +14,10 @@
 		  <tbody>
 				<% receipts.each do |receipt| %>
 			  <tr class="receipt">
-			    <td class="receipt_number"><%= receipt.receipt_number %></td>
-			    <td class="from"><%= receipt.from %></td>
+			    <td class="receipt_number">
+						<%= link_to_unless_current receipt.receipt_number, receipt, { rel: "tooltip", title: "#{receipt.client.name}#{t("views.application.copy.full_colon")} #{receipt.description}" } %>
+					</td>
+			    <td class="from"><%= link_to_unless_current receipt.from, receipt.client %></td>
 			    <td class="amount"><%= t("models.currency.codes.#{receipt.currency}") %><%= number_to_currency(receipt.amount, :unit => "") %></td>
 			    <td class="received_at" title="<%= receipt.received_at.strftime("%A, %d %B %Y") %>">
 						<%= receipt.received_at.strftime("%Y-%m-%d") %>
