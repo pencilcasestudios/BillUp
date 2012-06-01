@@ -23,3 +23,21 @@ bundle exec guard --no-vendor
 gem cleanup
 bundle update
 bundle exec guard --no-vendor
+
+
+
+
+# Capistrano for non-initial deployment
+# STAGING DEPLOYMENT
+git checkout master
+git merge work
+git push production
+cap deploy
+
+# Capistrano for non-initial deployment
+# PRODUCTION DEPLOYMENT
+git checkout master
+git merge work
+git push production
+cap production deploy
+git tag "`date +published_%Y-%m-%d_%H%M%S`"
