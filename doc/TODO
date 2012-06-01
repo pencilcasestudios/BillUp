@@ -1,38 +1,39 @@
 DONE - From an Invoice, link to the client page
 DONE - Update primary buttons
+TODO - A client must have one or more addresses (enforce?)
+TODO - An organisation must have one or more addresses (enforce?)
+TODO - Better Internationalisation e.g. list of countries and currencies is hardcoded/incomplete
 TODO - Buttons and links for receipts
+TODO - Cellphone number confirmation
+TODO - Collapse user menus in to one drop-down
 TODO - Email
+TODO - Email confirmation
 TODO - Form error styling
+TODO - Getting the right URLs showing up in the email message
+TODO - Goto: Invoice
+TODO - Goto: Receipt
+TODO - Guides on "empty" pages e.g. Clients page with no clients
+TODO - https
 TODO - Invoice filename
+TODO - Invoice number reservation?
+TODO - Many-to-many association between users and organisations in tests?
+TODO - Matching up invoice and receipt numbers with URLs (scope through organisation?)
+TODO - Move units from users to organisations
+TODO - Organisation subdomain update?
 TODO - Paid/unpaid invoices
+TODO - Random time zone?
+TODO - Random user name?
+TODO - Receipt error partial translation
 TODO - Receipt filename
+TODO - Receipt payment date can't be in the future
 TODO - Receipt templates (Why is the copyright showing in the #page?)
 TODO - Responsive navigation
 TODO - Schedule sending of invoices
+TODO - Staging environment domain name?
+TODO - Styling error partial
 TODO - Table sorting on receipts
 TODO - Test for valid CSS
 TODO - Test that PDFs download and do not render inline
 TODO - Tests? - The session tests have something I don't understand messing things up
-TODO - https
-TODO - Matching up invoice and receipt numbers with URLs (scope through organisation?)
-TODO - Staging environment domain name?
-TODO - Invoice number reservation?
-TODO - Getting the right URLs showing up in the email message
-TODO - Email confirmation
-TODO - Cellphone number confirmation
-TODO - Move units from users to organisations
-TODO - Collapse user menus in to one drop-down
-TODO - Many-to-many association between users and organisations in tests?
-TODO - Organisation subdomain update?
-TODO - An organisation must have one or more addresses (enforce?)
-TODO - A client must have one or more addresses (enforce?)
-TODO - Validate the length of a username?
-TODO - Random time zone?
-TODO - Random user name?
-TODO - Guides on "empty" pages e.g. Clients page with no clients
 TODO - Tooltips?
-TODO - Styling error partial
-TODO - Receipt error partial translation
-TODO - Goto: Invoice
-TODO - Goto: Receipt
-TODO - Receipt payment date can't be in the future
+TODO - Validate the length of a username?

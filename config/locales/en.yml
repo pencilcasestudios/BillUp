@@ -177,12 +177,14 @@ en:
         mtn_airtime_units: MTN Airtime Units
         usd: USD
         zamtel_airtime_units: Zamtel Airtime Units
+        zar: ZAR
         zmk: ZMK
 
     country:
       countries:
         canada: Canada
         netherlands: Netherlands
+        south_africa: South Africa
         tanzania: Tanzania
         zambia: Zambia
 
