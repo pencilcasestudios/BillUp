@@ -205,6 +205,7 @@ en:
         cash_deposit: "Cash deposit"
         cheque: "Cheque"
         debit_card: "Debit card"
+        money_transfer: "Money transfer"
         mtn_money: "MTN Money"
 
 
