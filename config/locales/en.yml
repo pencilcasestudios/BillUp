@@ -551,6 +551,7 @@ en:
             cash_deposit: "by cash deposit"
             cheque: "by cheque"
             debit_card: "by debit card"
+            money_transfer: "via money transfer"
             mtn_money: "via MTN Money"
         labels:
           description: Description
