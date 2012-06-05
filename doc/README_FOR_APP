@@ -31,6 +31,7 @@ bundle exec guard --no-vendor
 # STAGING DEPLOYMENT
 git checkout master
 git merge work
+git push
 git push production
 cap deploy
 
@@ -38,6 +39,7 @@ cap deploy
 # PRODUCTION DEPLOYMENT
 git checkout master
 git merge work
+git push
 git push production
 cap production deploy
 git tag "`date +published_%Y-%m-%d_%H%M%S`"
