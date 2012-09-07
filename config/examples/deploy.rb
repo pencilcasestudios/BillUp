@@ -67,9 +67,6 @@ require "capistrano/ext/multistage"
 # https://github.com/collectiveidea/delayed_job/wiki/Rails-3-and-Capistrano
 require "delayed/recipes"
 
-# Load RVM's capistrano plugin.
-require "rvm/capistrano"
-
 
 
 
@@ -91,6 +88,9 @@ set :user, DEPLOYMENT_CONFIG["user"]
 set :bundle_without, [:darwin, :development, :test]
 set :rvm_ruby_gemset, "#{ruby_version}@#{gemset_name}"              # Don't forget to create gemset on the server
 set :rvm_ruby_string, "#{rvm_ruby_gemset}"                          # Select the gemset
+
+# Load RVM's capistrano plugin.
+require "rvm/capistrano"
 
 
 
