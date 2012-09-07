@@ -22,7 +22,6 @@ bundle exec guard --no-vendor
 # Gem update
 gem cleanup
 bundle update
-bundle exec guard --no-vendor
 
 
 

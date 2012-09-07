@@ -3,7 +3,7 @@ source "http://rubygems.org"
 
 
 
-gem "rails", "3.2.5"
+gem "rails"
 
 
 
@@ -51,7 +51,8 @@ group :test, :development do
 end
 
 group :test, :darwin do
-  gem "rb-fsevent-legacy" # PowerPC
+  #gem "rb-fsevent-legacy" # PowerPC
+  gem "rb-fsevent" # PowerPC
   gem "rb-readline"
 end
 
