@@ -18,7 +18,7 @@ gem "carrierwave_backgrounder"
 gem "daemons"
 gem "delayed_job_active_record" #, git: "git://github.com/collectiveidea/delayed_job_active_record.git"
 gem "exception_notification"
-gem "galetahub-simple_captcha", require: "simple_captcha", git: "git://github.com/galetahub/simple-captcha.git"
+gem "galetahub-simple_captcha", require: "simple_captcha"#, git: "git://github.com/galetahub/simple-captcha.git"
 gem "jquery-rails"
 gem "mini_magick"
 gem "nested_form" #, git: "git://github.com/ryanb/nested_form.git"
@@ -27,7 +27,6 @@ gem "prawn_rails"
 gem "rake"
 gem "rvm"
 gem "settingslogic"
-gem "sqlite3"
 gem "state_machine"
 
 
@@ -46,14 +45,11 @@ end
 
 
 
-group :test, :development do
-  gem "rspec-rails"
-end
-
-group :test, :darwin do
-  #gem "rb-fsevent-legacy" # PowerPC
-  gem "rb-fsevent" # PowerPC
-  gem "rb-readline"
+group :development do
+  gem "capistrano"
+  gem "capistrano-ext"
+  gem "letter_opener"
+  gem "rvm-capistrano"
 end
 
 group :test do
@@ -67,20 +63,16 @@ group :test do
   gem "spork-rails"
 end
 
-
-
-
-group :development do
-  gem "capistrano"
-  gem "capistrano-ext"
-  gem "letter_opener"
-  gem "rvm-capistrano"
+group :test, :development do
+  gem "rb-fsevent"
+  gem "rb-inotify"
+  gem "rspec-rails"
+  gem "sqlite3"
 end
 
 
 
 
 group :production do
-  #gem "unicorn"
   gem "mysql2"
 end
