@@ -3,7 +3,7 @@
 
 <div class="page-header">
 	<h1>
-		<%= @client.name %><br />
+		<span class="client_name"><%= @client.name %></span><br />
 		<small><%= t("views.clients.show.copy.client_of", organisation_name: @client.organisation.name ) %></small>
 	</h1>
 	<%= render "buttons_and_links_bar", client: @client %>

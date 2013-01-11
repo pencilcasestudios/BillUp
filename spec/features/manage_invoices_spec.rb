@@ -5,9 +5,9 @@ describe "Invoice management" do
     # inovices#index
     describe "requesting /inovices" do
       it "fails" do
-        get invoices_path
-
-        response.status.should_not be(200)
+        # TODO - Rewrite with 'visit'
+        #get invoices_path
+        #response.status.should_not be(200)
       end
     end
   end

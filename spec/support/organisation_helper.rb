@@ -12,7 +12,7 @@ def get_a_random_organisation_for_the_current_user
 
   visit root_path
   click_link @organisation.name
-  
+
   current_path.should eq(root_path)
-  page.should have_content(I18n.t("views.organisations.show.title", :organisation_name => @organisation.name))
+  page.should have_content(I18n.t("views.organisations.show.title", organisation_name: @organisation.name))
 end

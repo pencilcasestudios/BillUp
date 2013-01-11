@@ -601,7 +601,7 @@ en:
           language: Language
           name: Name
           password: Password
-          password_confirmation: Password confirmation
+          password_confirmation: Confirm password
           terms_of_use: Terms of use
           time_zone: Time zone
           username: Username
