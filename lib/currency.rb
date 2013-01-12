@@ -6,8 +6,9 @@ class Currency < ActiveRecord::Base
     I18n.t("models.currency.codes.usd") => "usd",
     I18n.t("models.currency.codes.zar") => "zar",
     I18n.t("models.currency.codes.zmk") => "zmk",
+    I18n.t("models.currency.codes.zmw") => "zmw",
   }
-  
+
   def self.random_currency_code
     CODES[CODES.to_a[rand CODES.size].first]
   end
