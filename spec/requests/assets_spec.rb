@@ -2,6 +2,14 @@ require "spec_helper"
 
 describe "Assets" do
   # pcs_tablesorter assets
+  describe "nested_form assets" do
+    it "are available" do
+      get "/assets/jquery_nested_form.js"
+      response.status.should be(200)
+    end
+  end
+
+  # pcs_tablesorter assets
   describe "pcs_tablesorter assets" do
     it "are available" do
       get "/assets/tablesorter.js"
