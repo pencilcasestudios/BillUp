@@ -39,3 +39,5 @@ TODO - Tooltips?
 TODO - Validate the length of a username?
 
 TODO - "Funds on Account" as a method of payment
+
+TODO - Invoice form tests (in particular test that nested form works)
