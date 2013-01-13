@@ -28,6 +28,7 @@ en:
         access_denied: Access denied
         membership_required: "Access denied."
         sign_in_required: "Please sign in first and then we'll send you right along."
+        sign_out_required: "You can not do that while you are signed in."
       current_organisation:
         text:
           account_does_not_exist: That account does not exist.
