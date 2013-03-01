@@ -23,7 +23,7 @@ private
   def user_signed_in?
     current_user.present?
   end
-  
+
   def membership_required
     if @current_organisation.members.exists?(id: current_user.id)
       # The current user can access this Organisation
@@ -70,7 +70,7 @@ private
   def set_user_time_zone
     Time.zone = current_user.time_zone if user_signed_in?
   end
-  
+
   def current_organisation
     @current_organisation ||= Organisation.find_by_subdomain(request.subdomain) || resource_not_found
   end
