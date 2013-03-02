@@ -1,5 +1,6 @@
 class Country < ActiveRecord::Base
   COUNTRIES = {
+    I18n.t("models.country.countries.australia")    =>               "Australia",
     I18n.t("models.country.countries.canada")       =>               "Canada",
     I18n.t("models.country.countries.netherlands")  =>               "Netherlands",
     I18n.t("models.country.countries.south_africa") =>               "South Africa",
