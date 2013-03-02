@@ -5,6 +5,7 @@ class Country < ActiveRecord::Base
     I18n.t("models.country.countries.netherlands")  =>               "Netherlands",
     I18n.t("models.country.countries.south_africa") =>               "South Africa",
     I18n.t("models.country.countries.tanzania")     =>               "Tanzania",
+    I18n.t("models.country.countries.usa")          =>               "USA",
     I18n.t("models.country.countries.zambia")       =>               "Zambia",
   }
 
