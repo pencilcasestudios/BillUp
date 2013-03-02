@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 
 
@@ -65,7 +65,7 @@ end
 
 group :test, :development do
   #gem "rb-fsevent" # Mac
-  gem "rb-inotify"
+  gem "rb-inotify", "~> 0.8.8"
   gem "rspec-rails"
   gem "sqlite3"
 end
