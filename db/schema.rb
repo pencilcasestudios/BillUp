@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.string   "street"
     t.string   "town"
     t.string   "website"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "clients", :force => true do |t|
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.string   "name"
     t.string   "pdf_password"
     t.string   "pdf_password_hint"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   add_index "clients", ["organisation_id"], :name => "index_clients_on_organisation_id"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.text     "notes"
     t.text     "terms"
     t.text     "to_address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "invoices", ["client_id"], :name => "index_invoices_on_client_id"
@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.integer  "invoice_id"
     t.string   "currency"
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
   end
 
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
   create_table "memberships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "organisation_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "memberships", ["organisation_id"], :name => "index_memberships_on_organisation_id"
@@ -110,13 +110,13 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.string   "subdomain"
     t.text     "preferred_notes"
     t.text     "preferred_terms"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
   create_table "receipts", :force => true do |t|
     t.datetime "received_at"
-    t.decimal  "amount",            :default => 0.0
+    t.decimal  "amount",            :precision => 12, :scale => 2, :default => 0.0
     t.integer  "receipt_number"
     t.integer  "client_id"
     t.integer  "organisation_id"
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.string   "uuid"
     t.text     "description"
     t.text     "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
   end
 
   add_index "receipts", ["client_id"], :name => "index_receipts_on_client_id"
@@ -141,8 +141,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
   create_table "simple_captcha_data", :force => true do |t|
     t.string   "key",        :limit => 40
     t.string   "value",      :limit => 6
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   add_index "simple_captcha_data", ["key"], :name => "idx_key"
@@ -151,8 +151,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.decimal  "amount",       :precision => 12, :scale => 2, :default => 1.0
     t.integer  "line_item_id"
     t.string   "units"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
   end
 
   add_index "sub_factors", ["line_item_id"], :name => "index_sub_factors_on_line_item_id"
@@ -166,8 +166,8 @@ ActiveRecord::Schema.define(:version => 20111218194430) do
     t.string   "password_digest"
     t.string   "time_zone"
     t.string   "username"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
   end
 
   create_table "versions", :force => true do |t|
