@@ -560,6 +560,7 @@ en:
             funds_in_account: "via funds in account"
             money_transfer: "via money transfer"
             mtn_money: "via MTN Money"
+            paypal: "by PayPal"
         labels:
           description: Description
           from: Attention
