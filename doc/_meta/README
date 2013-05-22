@@ -3,6 +3,7 @@ gem cleanup
 bundle update
 rake db:drop
 rake db:setup
+notify-send "BillUp app database setup complete"
 rake db:test:prepare
 bundle exec guard
 
