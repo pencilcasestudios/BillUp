@@ -1,5 +1,6 @@
 class Currency < ActiveRecord::Base
   CODES = {
+    I18n.t("models.currency.codes.aud") => "aud",
     I18n.t("models.currency.codes.cad") => "cad",
     I18n.t("models.currency.codes.eur") => "eur",
     I18n.t("models.currency.codes.gbp") => "gbp",

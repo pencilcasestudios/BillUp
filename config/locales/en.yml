@@ -172,6 +172,7 @@ en:
     currency:
       codes:
         airtel_airtime_units: Airtel Airtime Units
+        aud: AUD
         cad: CAD
         eur: EUR
         gbp: GBP
