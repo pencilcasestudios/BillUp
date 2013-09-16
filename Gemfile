@@ -1,16 +1,16 @@
-source "https://rubygems.org"
+source "http://rubygems.org"
 
 
 
 
-gem "rails"
+gem "rails", "~> 3.2.14"
 
 
 
 
 # Used accross environments
 #gem "rails-backbone"
-gem "bcrypt-ruby" # To use ActiveModel has_secure_password
+gem "bcrypt-ruby", "~> 3.0.1" # To use ActiveModel has_secure_password
 gem "bundler"
 gem "cancan"
 gem "carrierwave" #, git: "git://github.com/jnicklas/carrierwave.git"
