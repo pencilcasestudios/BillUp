@@ -1,21 +1,96 @@
+Setting up the application to run the first time
+================================================
+Local machine setup
+-------------------
+cp config/examples/database.yml config # Setup the database
+cp config/examples/config.yml config # Setup the configuration files
+cp config/examples/deploy.rb config # Setup the capistrano deployment recipe
+cp config/examples/deploy/*.rb config/deploy # Setup deployment stage configuration
+
+Set up the hosts (/etc/hosts)
+127.0.0.1	billup.dev		www.billup.dev
+
+Setup deployment references:
+git remote add virtual billup.virtual:/var/Repositories/Git/BillUp.git	# Virtual
+git remote add production billup.net:/var/Repositories/Git/BillUp.git		# Staging and Production
+
+Virtual machine setup
+---------------------
+ssh deploy@billup.virtual	# Test SSH access
+
+Set up the hosts (/etc/hosts):
+127.0.0.1 billup.virtual 	www.billup.virtual
+
+Create the Git repository:
+ssh deploy@billup.virtual
+cd /var/Repositories/Git/
+mkdir BillUp.git
+cd BillUp.git
+git init --bare
+cd ..
+chown -R deploy:deployers BillUp.git/
+
+Configure nginx:
+ssh vladimir@billup.virtual
+cd /opt/nginx/conf/sites-available/
+# Set up the nginx configuration
+cd /opt/nginx/conf/sites-enabled/
+sudo ln -s /opt/nginx/conf/sites-available/billup.virtual.conf billup.virtual
+
+Generate an SSL certificate and key:
+cd /opt/nginx/ssl
+sudo mkdir BillUp
+cd BillUp
+sudo openssl genrsa -des3 -out billup.virtual.key 1024
+sudo openssl req -new -key billup.virtual.key -out billup.virtual.csr
+sudo cp billup.virtual.key billup.virtual.key.org
+sudo openssl rsa -in billup.virtual.key.org -out billup.virtual.key
+sudo openssl x509 -req -days 365 -in billup.virtual.csr -signkey billup.virtual.key -out billup.virtual.crt
+
+Test the nginx configuration
+sudo /opt/nginx/sbin/nginx -t
+
+
+
+
+Testing
+=======
 # Guard for testing
-gem cleanup
 bundle update
+gem cleanup
 rake db:drop
 rake db:setup
-notify-send "BillUp app database setup complete"
 rake db:test:prepare
-bundle exec guard
+guard
 
 
 
 
-# Gem update
-gem cleanup
+Gem management
+==============
+MAINTAIN GEM BUNDLE
 bundle update
+gem cleanup
+
+DELETE ALL INSTALLED GEMS
+gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 
 
 
+
+Application Deployment
+======================
+# Capistrano steps for initial deployment
+# VIRTUAL MACHINE DEPLOYMENT
+git checkout master
+git merge work
+git push
+git push virtual				# May need to 'git push virtual master'
+cap deploy:setup        # Update configuration files and create the database after this
+cap deploy:check
+cap deploy:update       # May require verifying the host key.
+cap deploy:migrate
+cap deploy:start
 
 # Capistrano for non-initial deployment
 # STAGING DEPLOYMENT
