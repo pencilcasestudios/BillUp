@@ -10,12 +10,12 @@ defaults: &defaults
   gemset_name: billup-rails.3.2.x
   repository_deployment_branch: master
   repository_server_name: billup.net
-  ruby_version: ruby-1.9.3-p429
+  ruby_version: ruby-2.0.0-p247
   server_name_production: billup.net
   server_name_staging: billup.clientcase.net
   stage_name_production: production
   stage_name_staging: staging
-  user: silumesii
+  user: deploy
 
   # Email settings
   email_address: smtp.gmail.com
