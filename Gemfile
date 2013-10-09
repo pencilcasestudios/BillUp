@@ -66,7 +66,7 @@ end
 group :test, :development do
   #gem "rb-fsevent" # Mac
   gem "rb-inotify", "~> 0.9"
-  gem "rspec-rails"
+  gem "rspec-rails", "~> 2.14.0"
   gem "sqlite3"
 end
 
