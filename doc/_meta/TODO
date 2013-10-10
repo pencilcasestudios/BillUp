@@ -1,5 +1,6 @@
 DONE - From an Invoice, link to the client page
 DONE - Update primary buttons
+TODO - "Funds on Account" as a method of payment
 TODO - A client must have one or more addresses (enforce?)
 TODO - An organisation must have one or more addresses (enforce?)
 TODO - Better Internationalisation e.g. list of countries and currencies is hardcoded/incomplete
@@ -15,6 +16,7 @@ TODO - Goto: Receipt
 TODO - Guides on "empty" pages e.g. Clients page with no clients
 TODO - https
 TODO - Invoice filename
+TODO - Invoice form tests (in particular test that nested form works)
 TODO - Invoice number reservation?
 TODO - Many-to-many association between users and organisations in tests?
 TODO - Matching up invoice and receipt numbers with URLs (scope through organisation?)
@@ -37,7 +39,3 @@ TODO - Test that PDFs download and do not render inline
 TODO - Tests? - The session tests have something I don't understand messing things up
 TODO - Tooltips?
 TODO - Validate the length of a username?
-
-TODO - "Funds on Account" as a method of payment
-
-TODO - Invoice form tests (in particular test that nested form works)

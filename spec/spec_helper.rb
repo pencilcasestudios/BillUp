@@ -9,7 +9,7 @@ Spork.prefork do
   require "rspec/autorun"
   require "rspec/rails"
 
-  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+  Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
   RSpec.configure do |config|
     config.mock_with :rspec
@@ -17,6 +17,7 @@ Spork.prefork do
     config.infer_base_class_for_anonymous_controllers = false
     config.include(EmailerMacros)
     config.before(:each) { reset_email }
+    config.order = "random"
   end
 
   Capybara.configure do |config|
