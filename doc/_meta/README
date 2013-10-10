@@ -2,6 +2,7 @@ Setting up the application to run the first time
 ================================================
 Local machine setup
 -------------------
+cd ~/Projects/Rails/BillUp
 cp config/examples/database.yml config # Setup the database
 cp config/examples/config.yml config # Setup the configuration files
 cp config/examples/deploy.rb config # Setup the capistrano deployment recipe
@@ -11,17 +12,28 @@ Set up the hosts (/etc/hosts)
 127.0.0.1	billup.dev		www.billup.dev
 
 Setup deployment references:
-git remote add virtual billup.virtual:/var/Repositories/Git/BillUp.git	# Virtual
-git remote add production billup.net:/var/Repositories/Git/BillUp.git		# Staging and Production
+git remote add virtual billup.virtual:/var/Repositories/Git/BillUp.git
+git remote add production billup.net:/var/Repositories/Git/BillUp.git
+
+Link to externalised assets
+cd ~/Projects/Rails/BillUp/app/assets/images
+ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Website/Images/Backgrounds/ backgrounds
 
 Virtual machine setup
 ---------------------
-# Test SSH access
+Test SSH access:
 ssh deploy@billup.virtual
 ssh vladimir@billup.virtual
 
 Set up the hosts (/etc/hosts):
 127.0.0.1 billup.virtual 	www.billup.virtual
+
+Check that SSH "loops back" on the virtual machine (host key verification):
+# On the local development machine
+ssh deploy@rails.vm
+
+# On the virtual machine
+ssh billup.virtual
 
 Create the Git repository:
 ssh deploy@billup.virtual
@@ -31,6 +43,11 @@ cd BillUp.git
 git init --bare
 cd ..
 chown -R deploy:deployers BillUp.git/
+
+Push to the Git repository:
+# From the development machine:
+cd ~/Projects/Rails/BillUp
+git push virtual master
 
 Configure nginx:
 ssh vladimir@billup.virtual
@@ -45,12 +62,53 @@ sudo mkdir BillUp
 cd BillUp
 sudo openssl genrsa -des3 -out billup.virtual.key 1024
 sudo openssl req -new -key billup.virtual.key -out billup.virtual.csr
-sudo cp billup.virtual.key billup.virtual.key.org
-sudo openssl rsa -in billup.virtual.key.org -out billup.virtual.key
+sudo cp billup.virtual.key billup.virtual.key.original
+sudo openssl rsa -in billup.virtual.key.original -out billup.virtual.key
 sudo openssl x509 -req -days 365 -in billup.virtual.csr -signkey billup.virtual.key -out billup.virtual.crt
 
-Test the nginx configuration
+Test the nginx configuration:
 sudo /opt/nginx/sbin/nginx -t
+
+If all is well, load the new nginx configuration:
+sudo /etc/init.d/nginx reload
+
+Setup the MySQL database user:
+ssh vladimir@rails.vm
+mysql -u root -p
+create user 'billup'@'localhost' identified by 'VirtualBillUpPassword';
+grant all on BillUp_virtual.* to 'billup'@'localhost';
+
+Setup the MySQL database:
+mysql -u billup -p
+create database BillUp_virtual;
+
+Setup the Monit scripts:
+# From the development machine
+cd ~/Projects/Rails/BillUp/config/examples
+scp delayed_job.billup.virtual.monitrc vladimir@rails.vm:~
+ssh vladimir@rails.vm
+
+# From the virtual machine
+sudo mv delayed_job.billup.virtual.monitrc /etc/monit/conf.d/
+sudo /etc/init.d/monit syntax
+
+Setup the YAML configuration files:
+# From the development machine
+cd ~/Projects/Rails/BillUp/config/examples
+scp config.virtual.yml deploy@rails.vm:~/config.yml
+scp database.virtual.yml deploy@rails.vm:~/database.yml
+ssh deploy@rails.vm
+
+# From the virtual machine
+mkdir -p ~/Projects/Configurations/BillUp/virtual
+mv database.yml ~/Projects/Configurations/BillUp/virtual/
+mv config.yml ~/Projects/Configurations/BillUp/virtual/
+
+# After running cap deploy:setup
+cd ~/Projects/Configurations/BillUp/virtual
+cp *.yml /var/Apps/BillUp/virtual/shared/config/
+
+
 
 
 
@@ -90,8 +148,9 @@ git push
 git push virtual				# May need to 'git push virtual master'
 cap deploy:setup        # Update configuration files and create the database after this
 cap deploy:check
-cap deploy:update       # May require verifying the host key.
+cap deploy:update
 cap deploy:migrate
+cap db:seed
 cap deploy:start
 
 # Capistrano for non-initial deployment
@@ -110,3 +169,11 @@ git push
 git push production
 cap production deploy
 git tag "`date +published_%Y-%m-%d_%H%M%S`"
+
+
+
+
+Running the Application
+=======================
+rails server # In one terminal window - to run the application
+rake jobs:work # In another terminal window - to run delayed job
