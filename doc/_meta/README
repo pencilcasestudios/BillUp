@@ -16,7 +16,9 @@ git remote add production billup.net:/var/Repositories/Git/BillUp.git		# Staging
 
 Virtual machine setup
 ---------------------
-ssh deploy@billup.virtual	# Test SSH access
+# Test SSH access
+ssh deploy@billup.virtual
+ssh vladimir@billup.virtual
 
 Set up the hosts (/etc/hosts):
 127.0.0.1 billup.virtual 	www.billup.virtual
