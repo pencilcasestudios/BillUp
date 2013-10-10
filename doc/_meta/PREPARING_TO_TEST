@@ -1,0 +1,11 @@
+TESTING
+
+Ref: http://railscasts.com/episodes/275-how-i-test
+http://railscasts.com/episodes/275-how-i-test?view=asciicast
+
+rails generate rspec:install
+spork --bootstrap
+bundle exec guard init rspec
+bundle exec guard init spork
+bundle exec guard init bundler
+
