@@ -15,10 +15,6 @@ Setup deployment references:
 git remote add virtual billup.virtual:/var/Repositories/Git/BillUp.git
 git remote add production billup.net:/var/Repositories/Git/BillUp.git
 
-Link to externalised assets
-cd ~/Projects/Rails/BillUp/app/assets/images
-ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Website/Images/Backgrounds/ backgrounds
-
 Virtual machine setup
 ---------------------
 Test SSH access:
@@ -26,6 +22,7 @@ ssh deploy@billup.virtual
 ssh vladimir@billup.virtual
 
 Set up the hosts (/etc/hosts):
+ssh vladimir@billup.virtual
 127.0.0.1 billup.virtual 	www.billup.virtual
 
 Check that SSH "loops back" on the virtual machine (host key verification):
@@ -89,7 +86,7 @@ scp delayed_job.billup.virtual.monitrc vladimir@rails.vm:~
 ssh vladimir@rails.vm
 
 # From the virtual machine
-sudo mv delayed_job.billup.virtual.monitrc /etc/monit/conf.d/
+sudo mv ~/delayed_job.billup.virtual.monitrc /etc/monit/conf.d/
 sudo /etc/init.d/monit syntax
 
 Setup the YAML configuration files:
@@ -107,6 +104,10 @@ mv config.yml ~/Projects/Configurations/BillUp/virtual/
 # After running cap deploy:setup
 cd ~/Projects/Configurations/BillUp/virtual
 cp *.yml /var/Apps/BillUp/virtual/shared/config/
+
+# After deploying the app
+# From the virtual machine
+sudo /etc/init.d/monit reload
 
 
 
