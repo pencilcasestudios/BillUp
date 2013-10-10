@@ -1,0 +1,78 @@
+# HTTP
+server {
+	listen 80;
+	server_name	billup.virtual
+			www.billup.virtual
+			;
+
+	access_log  logs/billup.virtual.access.log;
+	error_log  logs/billup.virtual.error.log;
+
+	# Redirect 'www' to non-www
+	# Ref: http://b.lesseverything.com/2008/4/9/redirect-from-www-to-non-www-using-nginx
+	if ($host = 'www.billup.virtual' ) {
+		rewrite  ^/(.*)$  http://billup.virtual/$1  permanent;
+	}
+
+	# Ref: http://guides.rubyonrails.org/asset_pipeline.html
+	location ~ ^/assets/ {
+		expires 1y;
+		add_header Cache-Control public;
+
+		add_header ETag "";
+		break;
+	}
+
+	# Ref: http://guides.rubyonrails.org/asset_pipeline.html
+	location ~ ^/(assets)/  {
+		root /var/Apps/BillUp/virtual/current/public;
+		gzip_static on; # to serve pre-gzipped version
+		expires max;
+		add_header Cache-Control public;
+	}
+
+	root /var/Apps/BillUp/virtual/current/public;
+	passenger_enabled on;
+}
+
+
+# HTTPS
+server {
+	listen 443;
+	server_name	billup.virtual
+			www.billup.virtual
+			;
+
+	access_log  logs/billup.virtual.access.log;
+	error_log  logs/billup.virtual.error.log;
+
+	# Redirect 'www' to non-www
+	# Ref: http://b.lesseverything.com/2008/4/9/redirect-from-www-to-non-www-using-nginx
+	if ($host = 'www.billup.virtual' ) {
+		rewrite  ^/(.*)$  https://billup.virtual/$1  permanent;
+	}
+
+	# Ref: http://guides.rubyonrails.org/asset_pipeline.html
+	location ~ ^/assets/ {
+		expires 1y;
+		add_header Cache-Control public;
+
+		add_header ETag "";
+		break;
+	}
+
+	# Ref: http://guides.rubyonrails.org/asset_pipeline.html
+	location ~ ^/(assets)/  {
+		root /var/Apps/BillUp/virtual/current/public;
+		gzip_static on; # to serve pre-gzipped version
+		expires max;
+		add_header Cache-Control public;
+	}
+
+	ssl on;
+	ssl_certificate /opt/nginx/ssl/billup.virtual.crt;
+	ssl_certificate_key /opt/nginx/ssl/billup.virtual.key;
+
+	root /var/Apps/BillUp/virtual/current/public;
+	passenger_enabled on;
+}

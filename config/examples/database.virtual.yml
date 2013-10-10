@@ -1,0 +1,9 @@
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: BillUp_virtual
+  pool: 5
+  username: billup
+  password: VirtualBillUpPassword
+  host: localhost

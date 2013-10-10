@@ -1,0 +1,62 @@
+defaults: &defaults
+  http_basic_name: preview
+  http_basic_password: virtual # Update this in production
+  test_user_password: password
+
+  application_name: BillUp
+  gemset_name: billup-rails.3.2.x
+  ruby_version: ruby-2.0.0-p247
+  user: deploy
+
+
+  miniumum_version_of_bundler: ">=1.0.21"
+  miniumum_version_of_rake: ">=0.9.2.2"
+
+
+  # Multi-stage recipe settings
+  # Virtual deployment
+  virtual_deployment_path: virtual
+  virtual_repository_deployment_branch: master
+  virtual_server_name: billup.virtual
+  virtual_stage_name: virtual
+
+  # Staging deployment
+  staging_deployment_path: staging
+  staging_repository_deployment_branch: master
+  staging_server_name: billup.clientcase.net
+  staging_stage_name: staging
+
+  # Production deployment
+  production_deployment_path: production
+  production_repository_deployment_branch: master
+  production_server_name: billup.net
+  production_stage_name: production
+
+
+  # Application mode:
+  # 1. protected    - Authenticate with HTTP basic
+  # 2. unprotected  - Don't authenticate with HTTP basic
+  mode: protected
+
+
+  # Email settings
+  email_address: smtp.gmail.com
+  email_domain: gmail.com
+  email_password: password # Update this in production
+  email_port: 587
+  email_user_name: hello@billup.net
+
+  # ActionMailer settings
+  application_server_name: "billup.clientcase.net"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+  # ActionMailer settings
+  application_server_name: "billup.net"
