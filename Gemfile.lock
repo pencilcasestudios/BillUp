@@ -65,6 +65,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    concurrent-ruby (1.1.10)
     daemons (1.1.9)
     delayed_job (4.0.0)
       activesupport (>= 3.0, < 4.1)
@@ -104,7 +105,8 @@ GEM
     hashery (2.1.1)
     highline (1.6.19)
     hike (1.2.3)
-    i18n (0.6.5)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jombo (1.0.11)
     journey (1.0.4)
     jquery-rails (3.0.4)
